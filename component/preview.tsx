@@ -25,7 +25,10 @@ const Preview: React.FC<PreviewProps> = ({ code }) => {
         <iframe
             title="Preview"
             srcDoc={completedCode}
-            // other options
+            width="100%"
+            height="400"
+            allowFullScreen
+            style={{ border: "1px solid #ccc" }}
         />
     );
 };
