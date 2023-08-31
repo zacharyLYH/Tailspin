@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, Dispatch, SetStateAction } from "react";
+import ReactAce from "react-ace/lib/ace";
 
 interface EditorProps {
     code: string;
@@ -8,7 +9,7 @@ interface EditorProps {
 }
 
 const Editor: React.FC<EditorProps> = ({ code, setCode }) => {
-    const [AceEditor, setAceEditor] = useState<any>(null);
+    const [AceEditor, setAceEditor] = useState<typeof ReactAce>();
 
     useEffect(() => {
         const loadAce = async () => {
