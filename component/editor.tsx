@@ -1,14 +1,11 @@
 "use client";
 
-import { useState, useEffect, Dispatch, SetStateAction } from "react";
+import useCodeStore from "@/data-store/code-store";
+import { useState, useEffect } from "react";
 import ReactAce from "react-ace/lib/ace";
 
-interface EditorProps {
-    code: string;
-    setCode: Dispatch<SetStateAction<string>>;
-}
-
-const Editor: React.FC<EditorProps> = ({ code, setCode }) => {
+const Editor = () => {
+    const { code, setCode } = useCodeStore();
     const [AceEditor, setAceEditor] = useState<typeof ReactAce>();
 
     useEffect(() => {
@@ -33,6 +30,8 @@ const Editor: React.FC<EditorProps> = ({ code, setCode }) => {
 
     return (
         <AceEditor
+            wrapEnabled
+            width="100%"
             placeholder="Placeholder Text"
             mode="html"
             theme="monokai"

@@ -1,15 +1,10 @@
 "use client";
 
-interface PreviewProps {
-    code: string;
-}
+import useCodeStore from "@/data-store/code-store";
 
-{
-    /* <div class='bg-blue-500'>Hello</div>
-<h1 class="text-slate-200">Hola</h1> */
-}
+const Preview = () => {
+    const { code } = useCodeStore();
 
-const Preview: React.FC<PreviewProps> = ({ code }) => {
     const completedCode = `<!doctype html>
     <html>
     <head>
