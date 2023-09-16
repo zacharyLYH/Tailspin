@@ -2,11 +2,16 @@
 
 import { Button } from "@/components/ui/button";
 import useCodeStore from "@/data-store/code-store";
-import {useFormatCode } from "@/lib/codeFormatter";
+import { useFormatCode } from "@/lib/codeFormatter";
+import { cn } from "@/lib/utils";
 import { useState, useEffect } from "react";
 import ReactAce from "react-ace/lib/ace";
 
-const Editor = () => {
+interface EditorProps {
+    className?: string;
+}
+
+const Editor: React.FC<EditorProps> = ({ className }) => {
     const { code, setCode } = useCodeStore();
     const { handleFormatCode } = useFormatCode();
     const [AceEditor, setAceEditor] = useState<typeof ReactAce>();
@@ -32,8 +37,12 @@ const Editor = () => {
     if (!AceEditor) return <div>Loading...</div>;
 
     return (
-        <div className="flex flex-col">
-            <Button onClick={handleFormatCode} variant="default">Format code</Button>
+        <div className={cn("flex flex-col", className)}>
+            <div className="flex flex-row space-x-2">
+                <Button onClick={handleFormatCode} className="bg-purple-500">
+                    Format code
+                </Button>
+            </div>
             <AceEditor
                 wrapEnabled
                 width="100%"
@@ -41,6 +50,7 @@ const Editor = () => {
                 mode="html"
                 theme="monokai"
                 name="editor"
+                height="100%"
                 onChange={(newCode: string) => setCode(newCode)}
                 fontSize={14}
                 showPrintMargin={true}
