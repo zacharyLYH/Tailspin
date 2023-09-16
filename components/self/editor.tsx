@@ -49,7 +49,7 @@ const Editor: React.FC<EditorProps> = ({ className }) => {
                 </Button>
             </div>
             <AceEditor
-                wrapEnabled
+                wrapEnabled={true}
                 width="100%"
                 placeholder="Placeholder Text"
                 mode="html"
@@ -68,6 +68,8 @@ const Editor: React.FC<EditorProps> = ({ className }) => {
                     enableSnippets: true,
                     showLineNumbers: true,
                     tabSize: 2,
+                    wrapBehavioursEnabled: true,
+                    wrap: true,
                 }}
             />
         </div>
