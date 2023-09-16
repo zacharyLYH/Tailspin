@@ -8,7 +8,7 @@ import { FeedbackModal } from "@/components/self/landing/feedback/feedback-modal
 
 export const TabSection = () => {
     return (
-        <div className="h-screen" id="tabsSection">
+        <div id="tabsSection">
             <h1 className="text-green-500 text-center font-semibold italic">
                 🔈 Tailspin is still in development! Click on the face{" "}
                 <FeedbackModal /> and help make Tailspin great!

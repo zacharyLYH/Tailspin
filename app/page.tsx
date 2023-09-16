@@ -11,7 +11,7 @@ export default function Home() {
                     <Hero />
                 </div>
             </div>
-            <div className="fkex justify-center h-screen" id="tabsSection">
+            <div id="tabsSection">
                 <TabSection />
             </div>
         </main>
