@@ -30,7 +30,7 @@ const ScrollToTop = () => {
             {showScrollToTop && (
                 <Button
                     onClick={scrollToTop}
-                    className="rounded-full fixed bottom-4 right-4 p-4 mr-8 mb-8 w-22 h-22 bg-blue-800 hover:bg-slate-400"
+                    className="rounded-full fixed bottom-4 right-4 p-4 mr-8 mb-8 w-22 h-22 bg-blue-800 hover:bg-slate-400 text-green-500"
                 >
                     ↑
                 </Button>

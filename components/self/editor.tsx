@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import useCodeStore from "@/data-store/code-store";
+import useToggleFullScreen from "@/data-store/full-screen-store";
 import { useFormatCode } from "@/lib/codeFormatter";
 import { cn } from "@/lib/utils";
 import { useState, useEffect } from "react";
@@ -14,6 +15,7 @@ interface EditorProps {
 const Editor: React.FC<EditorProps> = ({ className }) => {
     const { code, setCode } = useCodeStore();
     const { handleFormatCode } = useFormatCode();
+    const { fullScreen } = useToggleFullScreen();
     const [AceEditor, setAceEditor] = useState<typeof ReactAce>();
 
     useEffect(() => {
@@ -37,9 +39,12 @@ const Editor: React.FC<EditorProps> = ({ className }) => {
     if (!AceEditor) return <div>Loading...</div>;
 
     return (
-        <div className={cn("flex flex-col", className)}>
+        <div className={cn("flex flex-col", fullScreen ? "hidden" : className)}>
             <div className="flex flex-row space-x-2">
-                <Button onClick={handleFormatCode} className="bg-purple-500">
+                <Button
+                    onClick={handleFormatCode}
+                    className="bg-purple-500 text-white"
+                >
                     Format code
                 </Button>
             </div>
