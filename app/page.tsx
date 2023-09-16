@@ -22,8 +22,12 @@ export default function Home() {
                 </div>
                 <Tabs defaultValue="image" className="w-full">
                     <TabsList>
-                        <TabsTrigger value="image">Image</TabsTrigger>
-                        <TabsTrigger value="code">Code Area</TabsTrigger>
+                        <TabsTrigger value="image">
+                            Image <LucideImg className="w-4 h-4" />
+                        </TabsTrigger>
+                        <TabsTrigger value="code">
+                            Code Area <Code className="w-4 h-4" />
+                        </TabsTrigger>
                     </TabsList>
                     <TabsContent value="image">
                         <Image
@@ -34,7 +38,7 @@ export default function Home() {
                         />
                     </TabsContent>
                     <TabsContent value="code">
-                        <div className="grid grid-cols-2 w-full">
+                        <div className="grid grid-cols-2">
                             <Editor />
                             <Preview />
                         </div>
