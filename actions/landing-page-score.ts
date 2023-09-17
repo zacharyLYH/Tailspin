@@ -2,10 +2,10 @@ import useSessionStore from "@/data-store/session-store";
 import { ConvertPromptStatic } from "@/lib/convert-prompt-static";
 import { captureIframe } from "@/lib/static-screenshot";
 import toast from "react-hot-toast";
-import pixelmatch from "pixelmatch";
 import LandingPageCode from "@/components/self/landing/test-challenges/code";
 
 export const LandingPageScorer = async () => {
+    let unsubscribe: Function | null = null; // to hold the unsubscribe function
     try {
         captureIframe(false);
         ConvertPromptStatic("/button.png");
@@ -95,7 +95,7 @@ export const LandingPageScorer = async () => {
             toast.success(`${similarity}% likeness`);
         };
 
-        useSessionStore.subscribe(async (state: State) => {
+        unsubscribe = useSessionStore.subscribe(async (state: State) => {
             const { userImg, imgPrompt, reset, setCode } = state;
             if (justReset) {
                 justReset = false;
@@ -105,13 +105,16 @@ export const LandingPageScorer = async () => {
                 return;
             }
             try {
-                const similarity = await compareImages(userImg, imgPrompt);
-                console.log(`Image similarity: ${similarity}%`);
+                await compareImages(userImg, imgPrompt);
                 justReset = true;
                 reset();
                 setCode(LandingPageCode()); // Replace this with your actual code logic
             } catch (err) {
                 console.error("An error occurred while comparing images:", err);
+            } finally {
+                if (unsubscribe) {
+                    unsubscribe();
+                }
             }
         });
     } catch (error) {
