@@ -1,22 +1,25 @@
 "use client";
 
 import { UserCircle2 } from "lucide-react";
-import useCodeStore from "@/data-store/code-store";
+import useSessionStore from "@/data-store/session-store";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import useToggleFullScreen from "@/data-store/full-screen-store";
-import { useRef } from "react";
 import { captureIframe } from "@/lib/static-screenshot";
+import LandingPageCode from "./landing/code";
+import { useEffect } from "react";
+// import { StaticCompare } from "@/lib/compare/resemblejs-static";
 
 interface EditorProps {
     className?: string;
 }
 
 const Preview: React.FC<EditorProps> = ({ className }) => {
-    const { code } = useCodeStore();
+    const { code, userIframeSession, setCode } = useSessionStore();
     const { fullScreen, toggleFullScreen } = useToggleFullScreen();
-    const iframeRef = useRef<HTMLIFrameElement>(null);
-
+    useEffect(() => {
+        setCode(LandingPageCode());
+    }, []);
     const completedCode = `<!doctype html>
         <html>
         <head>
@@ -44,10 +47,13 @@ const Preview: React.FC<EditorProps> = ({ className }) => {
                 </Button>
                 <Button
                     className="bg-green-500 "
-                    onClick={() => captureIframe(iframeRef)}
+                    onClick={() => captureIframe(true)}
                 >
-                    Capture Iframe
+                    Screenshot
                 </Button>
+                {/* <Button className="bg-green-500 " onClick={StaticCompare}>
+                    Score
+                </Button> */}
             </div>
             <div className="flex items-center justify-between bg-gray-300 rounded-t-lg px-4 py-2">
                 <div className="flex space-x-2">
@@ -61,7 +67,7 @@ const Preview: React.FC<EditorProps> = ({ className }) => {
                 <UserCircle2 className="h-7 w-7" />
             </div>
             <iframe
-                ref={iframeRef}
+                ref={userIframeSession}
                 title="Preview"
                 srcDoc={completedCode}
                 width="100%"

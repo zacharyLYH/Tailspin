@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import useCodeStore from "@/data-store/code-store";
+import useSessionStore from "@/data-store/session-store";
 import useToggleFullScreen from "@/data-store/full-screen-store";
 import { useFormatCode } from "@/lib/codeFormatter";
 import { cn } from "@/lib/utils";
@@ -13,7 +13,7 @@ interface EditorProps {
 }
 
 const Editor: React.FC<EditorProps> = ({ className }) => {
-    const { code, setCode } = useCodeStore();
+    const { code, setCode } = useSessionStore();
     const { handleFormatCode } = useFormatCode();
     const { fullScreen } = useToggleFullScreen();
     const [AceEditor, setAceEditor] = useState<typeof ReactAce>();

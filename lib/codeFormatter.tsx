@@ -1,6 +1,6 @@
 "use client";
 
-import useCodeStore from "@/data-store/code-store";
+import useCodeStore from "@/data-store/session-store";
 import beautify from "js-beautify";
 
 export const useFormatCode = () => {

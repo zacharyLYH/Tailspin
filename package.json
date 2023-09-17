@@ -16,10 +16,6 @@
         "@radix-ui/react-tabs": "^1.0.4",
         "@react-email/components": "^0.0.7",
         "@react-email/render": "^0.0.7",
-        "@types/js-beautify": "^1.14.1",
-        "@types/node": "20.5.7",
-        "@types/react": "18.2.21",
-        "@types/react-dom": "18.2.7",
         "ace-builds": "^1.24.1",
         "autoprefixer": "10.4.15",
         "class-variance-authority": "^0.7.0",
@@ -48,6 +44,11 @@
         "zustand": "^4.4.1"
     },
     "devDependencies": {
-        "@types/nodemailer": "^6.4.9"
+        "@types/js-beautify": "^1.14.1",
+        "@types/node": "20.5.7",
+        "@types/nodemailer": "^6.4.9",
+        "@types/react": "18.2.21",
+        "@types/react-dom": "18.2.7",
+        "@types/resemblejs": "^4.1.0"
     }
 }
