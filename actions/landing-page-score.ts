@@ -9,63 +9,93 @@ export const LandingPageScorer = async () => {
     try {
         captureIframe(false);
         ConvertPromptStatic("/button.png");
-        // Wrap the asynchronous logic in an async function
-        const compareImages = async (userImg: string, imgPrompt: string) => {
-            if (userImg === "" || imgPrompt === "") return;
+        let justReset = false;
 
-            const img1 = new Image();
-            const img2 = new Image();
-            img1.src = userImg;
-            img2.src = imgPrompt;
+        // Define the state shape for your Zustand store
+        interface State {
+            userImg: string;
+            imgPrompt: string;
+            reset: () => void;
+            setCode: (code: string) => void;
+        }
 
-            await Promise.all([
-                new Promise<void>((resolve) => (img1.onload = () => resolve())),
-                new Promise<void>((resolve) => (img2.onload = () => resolve())),
-            ]);
+        // Function to draw an image onto a canvas and return the 2D context
+        const getImageContext = (
+            base64Image: string
+        ): Promise<CanvasRenderingContext2D> => {
+            return new Promise((resolve) => {
+                const img = new Image();
+                img.onload = () => {
+                    const canvas = document.createElement("canvas");
+                    canvas.width = img.width;
+                    canvas.height = img.height;
+                    const ctx = canvas.getContext("2d")!;
+                    ctx.drawImage(img, 0, 0);
+                    resolve(ctx);
+                };
+                img.src = base64Image;
+            });
+        };
 
-            const canvas1 = document.createElement("canvas");
-            const canvas2 = document.createElement("canvas");
-            canvas1.width = img1.width;
-            canvas1.height = img1.height;
-            canvas2.width = img2.width;
-            canvas2.height = img2.height;
+        // Function to generate a color histogram from a canvas 2D context
+        const getColorHistogram = (
+            ctx: CanvasRenderingContext2D,
+            width: number,
+            height: number
+        ): Record<string, number> => {
+            const imgData = ctx.getImageData(0, 0, width, height).data;
+            const histogram: Record<string, number> = {};
 
-            const ctx1 = canvas1.getContext("2d")!;
-            const ctx2 = canvas2.getContext("2d")!;
-            ctx1.drawImage(img1, 0, 0);
-            ctx2.drawImage(img2, 0, 0);
-
-            const imgData1 = ctx1.getImageData(0, 0, img1.width, img1.height);
-            const imgData2 = ctx2.getImageData(0, 0, img2.width, img2.height);
-
-            if (
-                imgData1.width !== imgData2.width ||
-                imgData1.height !== imgData2.height
-            ) {
-                console.error(
-                    "Images must have the same dimensions for comparison."
-                );
-                return;
+            for (let i = 0; i < imgData.length; i += 4) {
+                const key = `${imgData[i]}-${imgData[i + 1]}-${imgData[i + 2]}`;
+                histogram[key] = (histogram[key] || 0) + 1;
             }
 
-            const diffPixels = new Uint8ClampedArray(imgData1.data.length);
-            const numDiffPixels = pixelmatch(
-                imgData1.data,
-                imgData2.data,
-                diffPixels,
-                imgData1.width,
-                imgData1.height,
-                { threshold: 0.1 }
+            return histogram;
+        };
+
+        // Function to compare two histograms and return a similarity percentage
+        const compareHistograms = (
+            histogram1: Record<string, number>,
+            histogram2: Record<string, number>
+        ): number => {
+            let similarity = 0;
+            let totalPixels = 0;
+
+            for (const color in histogram1) {
+                totalPixels += histogram1[color];
+                if (histogram2[color]) {
+                    similarity += Math.min(
+                        histogram1[color],
+                        histogram2[color]
+                    );
+                }
+            }
+
+            return (similarity / totalPixels) * 100;
+        };
+
+        // Main function to compare two base64 images
+        const compareImages = async (image1: string, image2: string) => {
+            const ctx1 = await getImageContext(image1);
+            const ctx2 = await getImageContext(image2);
+
+            const histogram1 = getColorHistogram(
+                ctx1,
+                ctx1.canvas.width,
+                ctx1.canvas.height
+            );
+            const histogram2 = getColorHistogram(
+                ctx2,
+                ctx2.canvas.width,
+                ctx2.canvas.height
             );
 
-            const totalPixels = imgData1.width * imgData1.height;
-            const similarity =
-                ((totalPixels - numDiffPixels) / totalPixels) * 100;
+            const similarity = compareHistograms(histogram1, histogram2);
             toast.success(`${similarity}% likeness`);
         };
 
-        let justReset = false;
-        useSessionStore.subscribe(async (state) => {
+        useSessionStore.subscribe(async (state: State) => {
             const { userImg, imgPrompt, reset, setCode } = state;
             if (justReset) {
                 justReset = false;
@@ -75,10 +105,11 @@ export const LandingPageScorer = async () => {
                 return;
             }
             try {
-                await compareImages(userImg, imgPrompt);
+                const similarity = await compareImages(userImg, imgPrompt);
+                console.log(`Image similarity: ${similarity}%`);
                 justReset = true;
                 reset();
-                setCode(LandingPageCode());
+                setCode(LandingPageCode()); // Replace this with your actual code logic
             } catch (err) {
                 console.error("An error occurred while comparing images:", err);
             }
