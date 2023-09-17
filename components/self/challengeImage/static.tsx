@@ -8,12 +8,12 @@ export const StaticImage: React.FC<StaticImageProps> = ({
     challengeImageURL,
 }) => {
     return (
-        <div className="flex items-center justify-center h-full w-full">
+        <div className="h-full w-full relative">
             <Image
                 src={challengeImageURL}
                 alt="image"
-                width={500}
-                height={500}
+                fill={true}
+                objectFit="contain"
             />
         </div>
     );

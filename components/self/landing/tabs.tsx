@@ -6,6 +6,7 @@ import { StaticImage } from "../challengeImage/static";
 import { BrowserMockup } from "@/components/ui/browserMockup";
 import { FeedbackModal } from "@/components/self/landing/feedback/feedback-modal";
 import { TutorialPage } from "./tutorial";
+import LandingPageChallenge from "./test-challenges/testChallengeImage";
 
 export const TabSection = () => {
     return (
@@ -34,7 +35,9 @@ export const TabSection = () => {
                 </TabsContent>
                 <TabsContent value="image" className="h-[90vh]">
                     <BrowserMockup>
-                        <StaticImage challengeImageURL="/vercel.svg" />
+                        <StaticImage
+                            challengeImageURL={LandingPageChallenge()}
+                        />
                     </BrowserMockup>
                 </TabsContent>
                 <TabsContent value="code">
