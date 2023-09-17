@@ -6,9 +6,9 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import useToggleFullScreen from "@/data-store/full-screen-store";
 import { captureIframe } from "@/lib/static-screenshot";
-import LandingPageCode from "./landing/code";
+import LandingPageCode from "./landing/test-challenges/code";
 import { useEffect } from "react";
-// import { StaticCompare } from "@/lib/compare/resemblejs-static";
+import { LandingPageScorer } from "@/actions/landing-page-score";
 
 interface EditorProps {
     className?: string;
@@ -51,9 +51,9 @@ const Preview: React.FC<EditorProps> = ({ className }) => {
                 >
                     Screenshot
                 </Button>
-                {/* <Button className="bg-green-500 " onClick={StaticCompare}>
+                <Button className="bg-green-500 " onClick={LandingPageScorer}>
                     Score
-                </Button> */}
+                </Button>
             </div>
             <div className="flex items-center justify-between bg-gray-300 rounded-t-lg px-4 py-2">
                 <div className="flex space-x-2">
