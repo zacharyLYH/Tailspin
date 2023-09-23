@@ -9,6 +9,7 @@ import { captureIframe } from "@/lib/static-screenshot";
 import LandingPageCode from "./landing/test-challenges/code";
 import { useEffect } from "react";
 import { LandingPageScorer } from "@/actions/landing-page-score";
+import { LandingPageScorerV2 } from "@/actions/landing-page-score-v2";
 
 interface EditorProps {
     className?: string;
@@ -52,7 +53,10 @@ const Preview: React.FC<EditorProps> = ({ className }) => {
                     Screenshot
                 </Button>
                 <Button className="bg-green-500 " onClick={LandingPageScorer}>
-                    Score
+                    Pixel comparison
+                </Button>
+                <Button className="bg-green-500 " onClick={LandingPageScorerV2}>
+                    SSIM
                 </Button>
             </div>
             <div className="flex items-center justify-between bg-gray-300 rounded-t-lg px-4 py-2">
