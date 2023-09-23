@@ -6,6 +6,7 @@ import LandingPageCode from "@/components/self/landing/test-challenges/code";
 
 export const LandingPageScorer = async () => {
     let unsubscribe: Function | null = null; // to hold the unsubscribe function
+    const sessionStore = useSessionStore.getState();
     try {
         captureIframe(false);
         ConvertPromptStatic("/button.png");
@@ -77,6 +78,7 @@ export const LandingPageScorer = async () => {
 
         // Main function to compare two base64 images
         const compareImages = async (image1: string, image2: string) => {
+            sessionStore.setLoading(true);
             const ctx1 = await getImageContext(image1);
             const ctx2 = await getImageContext(image2);
 
@@ -93,6 +95,8 @@ export const LandingPageScorer = async () => {
 
             const similarity = compareHistograms(histogram1, histogram2);
             toast.success(`${similarity}% likeness`);
+
+            sessionStore.setLoading(false);
         };
 
         unsubscribe = useSessionStore.subscribe(async (state: State) => {
@@ -119,5 +123,6 @@ export const LandingPageScorer = async () => {
         });
     } catch (error) {
         toast.error(`Something went wrong`);
+        sessionStore.setLoading(false);
     }
 };

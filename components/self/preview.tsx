@@ -1,6 +1,6 @@
 "use client";
 
-import { UserCircle2 } from "lucide-react";
+import { Loader2, UserCircle2 } from "lucide-react";
 import useSessionStore from "@/data-store/session-store";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -16,7 +16,7 @@ interface EditorProps {
 }
 
 const Preview: React.FC<EditorProps> = ({ className }) => {
-    const { code, userIframeSession, setCode } = useSessionStore();
+    const { code, userIframeSession, setCode, loading } = useSessionStore();
     const { fullScreen, toggleFullScreen } = useToggleFullScreen();
     useEffect(() => {
         setCode(LandingPageCode());
@@ -52,12 +52,33 @@ const Preview: React.FC<EditorProps> = ({ className }) => {
                 >
                     Screenshot
                 </Button>
-                <Button className="bg-green-500 " onClick={LandingPageScorer}>
-                    Pixel comparison
-                </Button>
-                <Button className="bg-green-500 " onClick={LandingPageScorerV2}>
-                    SSIM
-                </Button>
+                {loading ? (
+                    <>
+                        <Button disabled>
+                            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                            Pixel comparison
+                        </Button>
+                        <Button disabled>
+                            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                            SSIM
+                        </Button>
+                    </>
+                ) : (
+                    <>
+                        <Button
+                            className="bg-green-500 "
+                            onClick={LandingPageScorer}
+                        >
+                            Pixel comparison
+                        </Button>
+                        <Button
+                            className="bg-green-500 "
+                            onClick={LandingPageScorerV2}
+                        >
+                            SSIM
+                        </Button>
+                    </>
+                )}
             </div>
             <div className="flex items-center justify-between bg-gray-300 rounded-t-lg px-4 py-2">
                 <div className="flex space-x-2">

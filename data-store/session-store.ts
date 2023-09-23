@@ -14,6 +14,8 @@ interface SessionStore {
     likenessScore: string;
     setLikenessScore: (score: string) => void;
     reset: () => void;
+    loading: boolean;
+    setLoading: (loading: boolean) => void;
 }
 
 const useSessionStore = create<SessionStore>((set) => ({
@@ -30,6 +32,8 @@ const useSessionStore = create<SessionStore>((set) => ({
     setLikenessScore: (score: string) => set({ likenessScore: score }),
     code: "",
     setCode: (newCode) => set({ code: newCode }),
+    loading: false,
+    setLoading: (loading: boolean) => set({ loading }),
 }));
 
 export default useSessionStore;
