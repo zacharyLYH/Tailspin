@@ -6,7 +6,7 @@ interface BrowserMockupProps {
 
 export const BrowserMockup: React.FC<BrowserMockupProps> = ({ children }) => {
     return (
-        <div className="flex flex-col h-full rounded-lg bg-white mx-8">
+        <div className="flex flex-col h-full rounded-lg bg-white">
             <div className="flex items-center justify-between bg-gray-300 rounded-t-lg px-4 py-2">
                 <div className="flex space-x-2">
                     <div className="w-3 h-3 bg-red-500 rounded-full"></div>
