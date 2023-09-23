@@ -58,9 +58,63 @@ export const LandingPageScorerV2 = async () => {
             });
         };
 
+        const resizeImageToMatchReference = (
+            base64Reference: string,
+            base64Target: string
+        ): Promise<string> => {
+            return new Promise((resolve) => {
+                const referenceImage = new Image();
+                referenceImage.onload = function () {
+                    const referenceWidth = referenceImage.width;
+                    const referenceHeight = referenceImage.height;
+
+                    const targetImage = new Image();
+                    targetImage.onload = function () {
+                        const targetAspectRatio =
+                            targetImage.width / targetImage.height;
+                        let newWidth, newHeight;
+
+                        if (targetImage.width > targetImage.height) {
+                            // Landscape mode
+                            newWidth = referenceWidth;
+                            newHeight = newWidth / targetAspectRatio;
+                        } else {
+                            // Portrait mode or square
+                            newHeight = referenceHeight;
+                            newWidth = newHeight * targetAspectRatio;
+                        }
+
+                        const canvas = document.createElement("canvas");
+                        canvas.width = referenceWidth;
+                        canvas.height = referenceHeight;
+                        const ctx = canvas.getContext("2d")!;
+                        ctx.fillStyle = "#FFFFFF"; // White background
+                        ctx.fillRect(0, 0, canvas.width, canvas.height); // Fill the canvas with white
+                        ctx.drawImage(
+                            targetImage,
+                            (referenceWidth - newWidth) / 2,
+                            (referenceHeight - newHeight) / 2,
+                            newWidth,
+                            newHeight
+                        );
+
+                        resolve(canvas.toDataURL()); // Return the base64 of the resized image
+                    };
+                    targetImage.src = base64Target;
+                };
+                referenceImage.src = base64Reference;
+            });
+        };
+
         const compareImages = async (image1: string, image2: string) => {
-            const imgData1 = await base64ToImageData(image1);
+            const resizedImg1 = await resizeImageToMatchReference(
+                image2,
+                image1
+            );
+
+            const imgData1 = await base64ToImageData(resizedImg1);
             const imgData2 = await base64ToImageData(image2);
+
             const ssimResult = compare(imgData1, imgData2);
             toast.success(`SSIM Score: ${ssimResult.ssim}`);
         };
