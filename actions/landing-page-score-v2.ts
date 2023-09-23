@@ -7,6 +7,8 @@ import { compare } from "image-ssim";
 
 export const LandingPageScorerV2 = async () => {
     let unsubscribe: Function | null = null;
+    const sessionStore = useSessionStore.getState();
+    sessionStore.setLoading(true);
     try {
         captureIframe(false);
         ConvertPromptStatic("/button.png");
@@ -83,9 +85,11 @@ export const LandingPageScorerV2 = async () => {
                 if (unsubscribe) {
                     unsubscribe();
                 }
+                sessionStore.setLoading(false);
             }
         });
     } catch (error) {
         toast.error(`Something went wrong`);
+        sessionStore.setLoading(false);
     }
 };
