@@ -20,7 +20,9 @@ const Preview: React.FC<EditorProps> = ({ className }) => {
     const { code, userIframeSession, setCode, loading } = useSessionStore();
     const { fullScreen, toggleFullScreen } = useToggleFullScreen();
     useEffect(() => {
-        setCode(LandingPageCode());
+        if (code === "") {
+            setCode(LandingPageCode());
+        }
     }, []);
     const completedCode = `<!doctype html>
         <html>
