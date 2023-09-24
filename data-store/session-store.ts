@@ -8,7 +8,7 @@ interface SessionStore {
     imgPrompt: string;
     setImgPrompt: (img: string) => void;
     userIframeSession: React.RefObject<HTMLIFrameElement>;
-    setUserIframeSession: (session: React.RefObject<HTMLIFrameElement>) => void;
+    promptIframeSession: React.RefObject<HTMLIFrameElement>;
     userImg: string;
     setUserImg: (img: string) => void;
     likenessScore: string;
@@ -24,8 +24,7 @@ const useSessionStore = create<SessionStore>((set) => ({
     likenessScore: "0",
     setUserImg: (img: string) => set({ userImg: img }),
     userIframeSession: React.createRef<HTMLIFrameElement>(),
-    setUserIframeSession: (session: React.RefObject<HTMLIFrameElement>) =>
-        set({ userIframeSession: session }),
+    promptIframeSession: React.createRef<HTMLIFrameElement>(),
     setImgPrompt: (img: string) => set({ imgPrompt: img }),
     reset: () =>
         set({ code: "", imgPrompt: "", userImg: "", likenessScore: "0" }),

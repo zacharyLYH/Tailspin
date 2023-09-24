@@ -6,11 +6,13 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import useToggleFullScreen from "@/data-store/full-screen-store";
 import { captureIframe } from "@/lib/static-screenshot";
-import LandingPageCode from "./landing/test-challenges/code";
+import LandingPageCode from "../landing/test-challenges/placeholder-code";
 import { useEffect } from "react";
 import { LandingPageScorer } from "@/actions/landing-page-score";
 import { LandingPageScorerV2 } from "@/actions/landing-page-score-v2";
 import { BrowserMockup } from "@/components/ui/browserMockup";
+import Iframe from "@/components/core/iframe";
+import completeCode from "@/lib/code-complete";
 
 interface EditorProps {
     className?: string;
@@ -24,17 +26,6 @@ const Preview: React.FC<EditorProps> = ({ className }) => {
             setCode(LandingPageCode());
         }
     }, []);
-    const completedCode = `<!doctype html>
-        <html>
-        <head>
-          <meta charset="UTF-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <script src="https://cdn.tailwindcss.com"></script>
-        </head>
-        <body>
-          ${code}
-        </body>
-        </html>`;
     return (
         <div
             className={cn(
@@ -84,13 +75,10 @@ const Preview: React.FC<EditorProps> = ({ className }) => {
                 )}
             </div>
             <BrowserMockup>
-                <iframe
-                    ref={userIframeSession}
+                <Iframe
+                    userIframeSession={userIframeSession}
                     title="Preview"
-                    srcDoc={completedCode}
-                    width="100%"
-                    height="100%"
-                    allowFullScreen
+                    completedCode={completeCode(code)}
                     className="border-t border-gray-300 flex-grow rounded-b-lg w-full"
                 />
             </BrowserMockup>

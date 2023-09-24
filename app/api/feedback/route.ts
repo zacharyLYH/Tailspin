@@ -1,4 +1,4 @@
-import FeedbackEmail from "@/components/self/landing/feedback/feedback-email";
+import FeedbackEmail from "@/components/landing/feedback/feedback-email";
 import { render } from "@react-email/render";
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";

@@ -2,7 +2,7 @@ import useSessionStore from "@/data-store/session-store";
 import { ConvertPromptStatic } from "@/lib/convert-prompt-static";
 import { captureIframe } from "@/lib/static-screenshot";
 import toast from "react-hot-toast";
-import LandingPageCode from "@/components/self/landing/test-challenges/code";
+import LandingPageCode from "@/components/landing/test-challenges/placeholder-code";
 
 export const LandingPageScorer = async () => {
     let unsubscribe: Function | null = null; // to hold the unsubscribe function

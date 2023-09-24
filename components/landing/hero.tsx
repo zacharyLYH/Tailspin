@@ -1,8 +1,8 @@
-import { ArrowHead } from "@/components/self/arrow";
+import { ArrowHead } from "@/components/ui/arrow";
 import { cn } from "@/lib/utils";
 import { Montserrat } from "next/font/google";
 import { Shell } from "lucide-react";
-import { HeroSubText } from "./typewriter-effect";
+import { HeroSubText } from "../ui/typewriter-effect";
 
 const font = Montserrat({ weight: "600", subsets: ["latin"] });
 
