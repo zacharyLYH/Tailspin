@@ -7,17 +7,17 @@ export const ArrowHead = ({
 }) => {
     return (
         <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="currentColor"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
+            xmlns='http://www.w3.org/2000/svg'
+            fill='currentColor'
+            viewBox='0 0 24 24'
+            stroke='currentColor'
             className={className}
         >
             <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
+                strokeLinecap='round'
+                strokeLinejoin='round'
                 strokeWidth={strokeWidth}
-                d="M19 14l-7 7m0 0l-7-7"
+                d='M19 14l-7 7m0 0l-7-7'
             ></path>
         </svg>
     );

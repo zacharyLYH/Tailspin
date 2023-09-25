@@ -40,22 +40,22 @@ const Editor: React.FC<EditorProps> = ({ className }) => {
 
     return (
         <div className={cn("flex flex-col", fullScreen ? "hidden" : className)}>
-            <div className="flex flex-row space-x-2">
+            <div className='flex flex-row space-x-2'>
                 <Button
                     onClick={handleFormatCode}
-                    className="bg-purple-500 text-white"
+                    className='bg-purple-500 text-white'
                 >
                     Format code
                 </Button>
             </div>
             <AceEditor
                 wrapEnabled={true}
-                width="100%"
-                placeholder="Placeholder Text"
-                mode="html"
-                theme="monokai"
-                name="editor"
-                height="100%"
+                width='100%'
+                placeholder='Placeholder Text'
+                mode='html'
+                theme='monokai'
+                name='editor'
+                height='100%'
                 onChange={(newCode: string) => setCode(newCode)}
                 fontSize={14}
                 showPrintMargin={true}

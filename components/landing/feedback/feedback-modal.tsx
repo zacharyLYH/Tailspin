@@ -13,17 +13,17 @@ export function FeedbackModal() {
     return (
         <Dialog>
             <DialogTrigger asChild>
-                <Button variant="ghost">🌝</Button>
+                <Button variant='ghost'>🌝</Button>
             </DialogTrigger>
-            <DialogContent className="sm:max-w-[425px]">
+            <DialogContent className='sm:max-w-[425px]'>
                 <DialogHeader>
                     <DialogTitle>Feedback ✏️</DialogTitle>
                     <DialogDescription>
-                        You're making Tailspin a better app. Everybody thanks
-                        you!
+                        You&apos;re making Tailspin a better app. Everybody
+                        thanks you!
                     </DialogDescription>
                 </DialogHeader>
-                <div className="grid gap-4 py-4">
+                <div className='grid gap-4 py-4'>
                     <FeedbackForm />
                 </div>
             </DialogContent>

@@ -8,10 +8,10 @@ const font = Montserrat({ weight: "600", subsets: ["latin"] });
 
 export const Hero = () => {
     return (
-        <div className="text-white font-bold py-36 text-center space-y-5">
+        <div className='space-y-5 py-36 text-center font-bold text-white'>
             <h1
                 className={cn(
-                    "text-8xl font-bold inline-flex items-center text-white",
+                    "inline-flex items-center text-8xl font-bold text-white",
                     font.className
                 )}
                 style={{
@@ -19,36 +19,36 @@ export const Hero = () => {
                         "0px 0px 10px rgba(128, 128, 128, 0.5), 0px 0px 20px rgba(128, 128, 128, 0.5), 0px 0px 30px rgba(128, 128, 128, 0.5)",
                 }}
             >
-                <div className="inline-flex items-center">
-                    <div className="animate-spin mr-3 h-[4rem] w-[4rem]">
-                        <Shell className="text-green-500 h-full w-full" />
+                <div className='inline-flex items-center'>
+                    <div className='mr-3 h-[4rem] w-[4rem] animate-spin'>
+                        <Shell className='h-full w-full text-green-500' />
                     </div>
-                    <span className="text-green-300">Tailspin</span>
+                    <span className='text-green-300'>Tailspin</span>
                 </div>
             </h1>
-            <div className="text-transparent bg-clip-text bg-gradient-to-r from-green-800 to-yellow-200 text-xl font-semibold">
+            <div className='bg-gradient-to-r from-green-800 to-yellow-200 bg-clip-text text-xl font-semibold text-transparent'>
                 <HeroSubText />
             </div>
             <a
-                href="#tabsSection"
-                className="flex flex-col items-center cursor-pointer"
+                href='#tabsSection'
+                className='flex cursor-pointer flex-col items-center'
             >
-                <div className="animate-bounce w-12 h-12">
+                <div className='h-12 w-12 animate-bounce'>
                     <ArrowHead
-                        className="w-12 h-12 text-green-200"
-                        strokeWidth="4"
+                        className='h-12 w-12 text-green-200'
+                        strokeWidth='4'
                     />
                 </div>
-                <div className="animate-bounce delay-100 w-16 h-16">
+                <div className='h-16 w-16 animate-bounce delay-100'>
                     <ArrowHead
-                        className="w-16 h-16 text-green-600"
-                        strokeWidth="4"
+                        className='h-16 w-16 text-green-600'
+                        strokeWidth='4'
                     />
                 </div>
-                <div className="animate-bounce delay-200 w-20 h-20">
+                <div className='h-20 w-20 animate-bounce delay-200'>
                     <ArrowHead
-                        className="w-20 h-20  text-green-900"
-                        strokeWidth="4"
+                        className='h-20 w-20  text-green-900'
+                        strokeWidth='4'
                     />
                 </div>
             </a>

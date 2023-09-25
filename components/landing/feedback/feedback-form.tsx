@@ -56,15 +56,15 @@ export function FeedbackForm() {
     }
     return (
         <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+            <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-8'>
                 <FormField
                     control={form.control}
-                    name="name"
+                    name='name'
                     render={({ field }) => (
                         <FormItem>
                             <FormLabel>Name</FormLabel>
                             <FormControl>
-                                <Input placeholder="John Ligma" {...field} />
+                                <Input placeholder='John Ligma' {...field} />
                             </FormControl>
                             <FormDescription>
                                 How should we address you?
@@ -75,18 +75,18 @@ export function FeedbackForm() {
                 />
                 <FormField
                     control={form.control}
-                    name="email"
+                    name='email'
                     render={({ field }) => (
                         <FormItem>
                             <FormLabel>Email</FormLabel>
                             <FormControl>
                                 <Input
-                                    placeholder="tailspin.official@gmail.com"
+                                    placeholder='tailspin.official@gmail.com'
                                     {...field}
                                 />
                             </FormControl>
                             <FormDescription>
-                                We'll reply you via the provided email.
+                                We&apos;ll reply you via the provided email.
                             </FormDescription>
                             <FormMessage />
                         </FormItem>
@@ -94,13 +94,13 @@ export function FeedbackForm() {
                 />
                 <FormField
                     control={form.control}
-                    name="message"
+                    name='message'
                     render={({ field }) => (
                         <FormItem>
                             <FormLabel>Feedback</FormLabel>
                             <FormControl>
                                 <Textarea
-                                    placeholder="Some (hopefully) constructive feedback..."
+                                    placeholder='Some (hopefully) constructive feedback...'
                                     {...field}
                                 />
                             </FormControl>
@@ -113,11 +113,11 @@ export function FeedbackForm() {
                 />
                 {form.formState.isSubmitting ? (
                     <Button disabled>
-                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                        <Loader2 className='mr-2 h-4 w-4 animate-spin' />
                         Submitting...
                     </Button>
                 ) : (
-                    <Button type="submit">Submit 🎉</Button>
+                    <Button type='submit'>Submit 🎉</Button>
                 )}
             </form>
         </Form>

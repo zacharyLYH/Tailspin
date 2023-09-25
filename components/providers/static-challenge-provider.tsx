@@ -40,12 +40,12 @@ export const StaticPrompt: React.FC<StaticPromptProps> = ({ code }) => {
     }, [promptIframeSession]);
 
     return (
-        <div className="h-full w-full relative pointer-events-none">
+        <div className='pointer-events-none relative h-full w-full'>
             <Iframe
                 userIframeSession={promptIframeSession}
                 completedCode={completeCode(code)}
                 title={"Prompt"}
-                className="pointer-events-none"
+                className='pointer-events-none'
             />
         </div>
     );

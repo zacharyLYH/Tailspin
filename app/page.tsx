@@ -4,14 +4,14 @@ import { TabSection } from "@/components/landing/tabs";
 
 export default function Home() {
     return (
-        <main className="h-full overflow-auto">
+        <main className='h-full overflow-auto'>
             <ScrollToTop />
-            <section className="h-screen w-full bg-gradient-to-b from-[#493b6c] via-[#14243a] to-[#000000]">
-                <div className="mx-auto max-w-screen-xl h-full w-full flex items-center justify-center">
+            <section className='h-screen w-full bg-gradient-to-b from-[#493b6c] via-[#14243a] to-[#000000]'>
+                <div className='mx-auto flex h-full w-full max-w-screen-xl items-center justify-center'>
                     <Hero />
                 </div>
             </section>
-            <section id="tabsSection">
+            <section id='tabsSection'>
                 <TabSection />
             </section>
         </main>

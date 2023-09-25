@@ -11,40 +11,40 @@ import completeCode from "@/lib/code-complete";
 
 export const TabSection = () => {
     return (
-        <div id="tabsSection">
-            <h1 className="text-green-500 text-center font-semibold italic mt-2">
+        <div id='tabsSection'>
+            <h1 className='mt-2 text-center font-semibold italic text-green-500'>
                 🔈 Tailspin is still in development! Click on the face{" "}
                 <FeedbackModal /> and help make Tailspin great!
             </h1>
-            <Tabs defaultValue="tutorial" className="w-full mt-2">
-                <TabsList className="flex mx-auto">
-                    <TabsTrigger className="w-1/3" value="tutorial">
-                        Quick Start <GraduationCap className="w-4 h-4 ml-1" />
+            <Tabs defaultValue='tutorial' className='mt-2 w-full'>
+                <TabsList className='mx-auto flex'>
+                    <TabsTrigger className='w-1/3' value='tutorial'>
+                        Quick Start <GraduationCap className='ml-1 h-4 w-4' />
                     </TabsTrigger>
-                    <TabsTrigger className="w-1/3" value="image">
-                        Sample Image <LucideImg className="w-4 h-4 ml-1" />
+                    <TabsTrigger className='w-1/3' value='image'>
+                        Sample Image <LucideImg className='ml-1 h-4 w-4' />
                     </TabsTrigger>
-                    <TabsTrigger className="w-1/3" value="code">
-                        Code Area <Code className="w-4 h-4 ml-1" />
+                    <TabsTrigger className='w-1/3' value='code'>
+                        Code Area <Code className='ml-1 h-4 w-4' />
                     </TabsTrigger>
                 </TabsList>
                 <TabsContent
-                    value="tutorial"
-                    className="mx-auto max-w-screen-xl h-[90vh] "
+                    value='tutorial'
+                    className='mx-auto h-[90vh] max-w-screen-xl '
                 >
                     <TutorialPage />
                 </TabsContent>
-                <TabsContent value="image" className="h-[90vh]">
+                <TabsContent value='image' className='h-[90vh]'>
                     <BrowserMockup>
                         <StaticPrompt
                             code={completeCode(LandingPageChallengeCode())}
                         />
                     </BrowserMockup>
                 </TabsContent>
-                <TabsContent value="code">
-                    <div className="grid grid-cols-3 gap-1 h-[90vh]">
-                        <Editor className="col-span-1" />
-                        <Preview className="col-span-2" />
+                <TabsContent value='code'>
+                    <div className='grid h-[90vh] grid-cols-3 gap-1'>
+                        <Editor className='col-span-1' />
+                        <Preview className='col-span-2' />
                     </div>
                 </TabsContent>
             </Tabs>
