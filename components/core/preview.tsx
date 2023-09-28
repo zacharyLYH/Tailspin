@@ -1,6 +1,5 @@
 "use client";
 
-import { Loader2 } from "lucide-react";
 import useSessionStore from "@/data-store/session-store";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -10,14 +9,16 @@ import { useEffect } from "react";
 import { BrowserMockup } from "@/components/ui/browserMockup";
 import Iframe from "@/components/core/iframe";
 import completeCode from "@/lib/code-complete";
+import { getSample } from "@/client-side-queries/sample-query/sample";
 
 interface EditorProps {
     className?: string;
 }
 
 const Preview: React.FC<EditorProps> = ({ className }) => {
-    const { code, userIframeSession, setCode, loading } = useSessionStore();
+    const { code, userIframeSession, setCode } = useSessionStore();
     const { fullScreen, toggleFullScreen } = useToggleFullScreen();
+    const { isLoading, isError, data, error, refetch } = getSample();
     useEffect(() => {
         if (code === "") {
             setCode(LandingPageCode());
@@ -36,6 +37,12 @@ const Preview: React.FC<EditorProps> = ({ className }) => {
                     className='bg-purple-500 text-white'
                 >
                     {fullScreen ? "Minimize" : "Full Screen"}
+                </Button>
+                <Button
+                    onClick={() => refetch()}
+                    className='bg-purple-500 text-white'
+                >
+                    Sample data fetching
                 </Button>
             </div>
             <BrowserMockup>
