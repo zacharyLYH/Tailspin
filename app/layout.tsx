@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { ToasterProvider } from "@/components/providers/toast-provider";
+import TanStackProvider from "@/components/providers/TanstackProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,14 +20,16 @@ export default function RootLayout({
     return (
         <html lang='en'>
             <body className={inter.className}>
-                <ThemeProvider
-                    attribute='class'
-                    defaultTheme='dark'
-                    enableSystem
-                >
-                    <ToasterProvider />
-                    {children}
-                </ThemeProvider>
+                <TanStackProvider>
+                    <ThemeProvider
+                        attribute='class'
+                        defaultTheme='dark'
+                        enableSystem
+                    >
+                        <ToasterProvider />
+                        {children}
+                    </ThemeProvider>
+                </TanStackProvider>
             </body>
         </html>
     );
