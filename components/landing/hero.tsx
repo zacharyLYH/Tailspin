@@ -20,7 +20,7 @@ export const Hero = () => {
                 }}
             >
                 <div className='inline-flex items-center'>
-                    <div className='mr-3 h-[4rem] w-[4rem] animate-spin'>
+                    <div className='z-[0] mr-3 h-[4rem] w-[4rem] animate-spin'>
                         <Shell className='h-full w-full text-green-500' />
                     </div>
                     <span className='text-green-300'>Tailspin</span>

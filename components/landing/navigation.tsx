@@ -5,7 +5,7 @@ import { Shell } from "lucide-react";
 
 export const Navigation = () => {
     return (
-        <nav className='sticky top-0 flex h-16 items-center bg-[#181818]'>
+        <nav className='sticky top-0 z-[1] flex h-16 items-center bg-[#181818]'>
             <a href='#landing'>
                 <Shell className='mx-5 h-full w-10 text-green-500'></Shell>
             </a>
