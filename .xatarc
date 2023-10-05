@@ -1,0 +1,6 @@
+{
+  "databaseURL": "https://tailspin-s-workspace-g57gt8.ap-southeast-2.xata.sh/db/Tailspin",
+  "codegen": {
+    "output": "xata.ts"
+  }
+}
