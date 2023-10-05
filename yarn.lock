@@ -723,6 +723,11 @@
     "@typescript-eslint/types" "6.7.3"
     eslint-visitor-keys "^3.4.1"
 
+"@xata.io/client@^0.26.7":
+  version "0.26.7"
+  resolved "https://registry.yarnpkg.com/@xata.io/client/-/client-0.26.7.tgz#1a42782bd339b8348fac5ce50b891bb437d865bb"
+  integrity sha512-XSHpAplYKOFu+LUFA+6z7jn2xf0tXFt0NxPH0IP1qIsIeVPcuUZYvTgID7iZWiaPrQKT8A024NH5uiQIcA1snQ==
+
 abbrev@^1.0.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.1.1.tgz#f8f2c887ad10bf67f634f005b6987fed3179aac8"

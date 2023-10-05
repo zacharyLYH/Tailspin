@@ -2,6 +2,8 @@ import ScrollToTop from "@/components/ui/back-to-top";
 import { Hero } from "@/components/landing/hero";
 import { TabSection } from "@/components/landing/tabs";
 import { Navigation } from "@/components/landing/navigation";
+import SiteCounter from "@/components/landing/site-counter";
+
 
 export default function Home() {
     return (
@@ -23,6 +25,9 @@ export default function Home() {
             {/*quickstart/sampleimage/codearea*/}
             <section id='tabsSection'>
                 <TabSection />
+            </section>
+            <section>
+                <SiteCounter />
             </section>
         </main>
     );
