@@ -16,38 +16,54 @@ export const TabSection = () => {
                 🔈 Tailspin is still in development! Click on the face{" "}
                 <FeedbackModal /> and help make Tailspin great!
             </h1>
-            <Tabs defaultValue='tutorial' className='mt-2 w-full'>
-                <TabsList className='mx-auto flex'>
-                    <TabsTrigger className='w-1/3' value='tutorial'>
-                        Quick Start <GraduationCap className='ml-1 h-4 w-4' />
-                    </TabsTrigger>
-                    <TabsTrigger className='w-1/3' value='image'>
-                        Sample Image <LucideImg className='ml-1 h-4 w-4' />
-                    </TabsTrigger>
-                    <TabsTrigger className='w-1/3' value='code'>
-                        Code Area <Code className='ml-1 h-4 w-4' />
-                    </TabsTrigger>
-                </TabsList>
-                <TabsContent
-                    value='tutorial'
-                    className='mx-auto h-[90vh] max-w-screen-xl '
-                >
-                    <TutorialPage />
-                </TabsContent>
-                <TabsContent value='image' className='h-[90vh]'>
-                    <BrowserMockup>
-                        <StaticPrompt
-                            code={completeCode(LandingPageChallengeCode())}
-                        />
-                    </BrowserMockup>
-                </TabsContent>
-                <TabsContent value='code'>
-                    <div className='grid h-[90vh] grid-cols-3 gap-1'>
-                        <Editor className='col-span-1' />
-                        <Preview className='col-span-2' />
+            <div className='relative'>
+                <div className='pointer-events-auto absolute inset-0 z-20 bg-white bg-opacity-50 xl:hidden' />
+                <div className='absolute inset-0 z-30 flex items-center justify-center xl:hidden'>
+                    <div className='w-3/4 max-w-lg rounded-xl bg-black p-6 shadow-lg'>
+                        <h2 className='mb-4 text-center text-xl font-bold text-white'>
+                            It looks like you're on a small screen
+                        </h2>
+                        <p className='text-sm font-semibold text-gray-400'>
+                            We hate to be non-inclusive towards phones and
+                            tablets, however we want to provide you with the
+                            best experience possible!
+                        </p>
                     </div>
-                </TabsContent>
-            </Tabs>
+                </div>
+                <Tabs defaultValue='tutorial' className='z-10 mt-2 w-full'>
+                    <TabsList className='mx-auto flex'>
+                        <TabsTrigger className='w-1/3' value='tutorial'>
+                            Quick Start{" "}
+                            <GraduationCap className='ml-1 h-4 w-4' />
+                        </TabsTrigger>
+                        <TabsTrigger className='w-1/3' value='image'>
+                            Sample Image <LucideImg className='ml-1 h-4 w-4' />
+                        </TabsTrigger>
+                        <TabsTrigger className='w-1/3' value='code'>
+                            Code Area <Code className='ml-1 h-4 w-4' />
+                        </TabsTrigger>
+                    </TabsList>
+                    <TabsContent
+                        value='tutorial'
+                        className='mx-auto h-[90vh] max-w-screen-xl '
+                    >
+                        <TutorialPage />
+                    </TabsContent>
+                    <TabsContent value='image' className='h-[90vh]'>
+                        <BrowserMockup>
+                            <StaticPrompt
+                                code={completeCode(LandingPageChallengeCode())}
+                            />
+                        </BrowserMockup>
+                    </TabsContent>
+                    <TabsContent value='code'>
+                        <div className='grid h-[90vh] grid-cols-3 gap-1'>
+                            <Editor className='col-span-1' />
+                            <Preview className='col-span-2' />
+                        </div>
+                    </TabsContent>
+                </Tabs>
+            </div>
         </div>
     );
 };
