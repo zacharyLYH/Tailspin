@@ -10,7 +10,7 @@ export default function Home() {
         <main className='mx-auto h-full w-full overflow-clip bg-gradient-to-b from-[#493b6c] via-[#14243a] to-[#000000]'>
             <ScrollToTop />
 
-            <Navigation></Navigation>
+            <Navigation/>
 
             {/*landing page*/}
             <section
