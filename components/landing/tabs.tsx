@@ -12,7 +12,7 @@ import completeCode from "@/lib/code-complete";
 export const TabSection = () => {
     return (
         <div id='tabsSection'>
-            <h1 className='mt-2 text-center font-semibold italic text-green-500'>
+            <h1 className='mt-2 flex items-center justify-center text-center font-semibold italic text-green-500'>
                 🔈 Tailspin is still in development! Click on the face{" "}
                 <FeedbackModal /> and help make Tailspin great!
             </h1>
@@ -52,7 +52,9 @@ export const TabSection = () => {
                     <TabsContent value='image' className='h-[90vh]'>
                         <BrowserMockup>
                             <StaticPrompt
-                                code={completeCode(LandingPageChallengeCode())}
+                                code={completeCode(
+                                    LandingPageChallengeCode("helloWorld")
+                                )}
                             />
                         </BrowserMockup>
                     </TabsContent>
