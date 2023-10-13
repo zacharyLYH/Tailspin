@@ -13,7 +13,7 @@ export default function LandingPageChallengeCode(codeKey: CodeKey): string {
         ["brightSunnyDay", BrightSunnyDay],
     ]);
     const func = landingPageCodeMap.get(codeKey)!;
-    return func();
+    return func ? func() : "";
 }
 
 function ButtonHelloWorld(): string {
