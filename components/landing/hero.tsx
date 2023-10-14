@@ -20,7 +20,7 @@ export const Hero = () => {
                 }}
             >
                 <div className='inline-flex items-center'>
-                    <TailspinLogo outershellClassname='z-[0] mr-3 h-[4rem] w-[4rem] animate-spin' />
+                    <TailspinLogo outershellClassname='z-[0] mr-3 h-[4rem] w-[4rem] animate-spin hidden md:block' />
                     <span className='text-green-300'>Tailspin</span>
                 </div>
             </h1>
