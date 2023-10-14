@@ -3,14 +3,15 @@ import { Hero } from "@/components/landing/hero";
 import { TabSection } from "@/components/landing/tabs";
 import { Navigation } from "@/components/landing/navigation";
 import SiteCounter from "@/components/landing/site-counter";
-
+import AboutTailspin from "@/components/landing/about-tailspin";
+import FAQ from "@/components/landing/faq";
 
 export default function Home() {
     return (
         <main className='mx-auto h-full w-full overflow-clip bg-gradient-to-b from-[#493b6c] via-[#14243a] to-[#000000]'>
             <ScrollToTop />
 
-            <Navigation/>
+            <Navigation />
 
             {/*landing page*/}
             <section
@@ -21,13 +22,17 @@ export default function Home() {
                     <Hero />
                 </div>
             </section>
-
-            {/*quickstart/sampleimage/codearea*/}
+            <section>
+                <AboutTailspin />
+            </section>
             <section id='tabsSection'>
                 <TabSection />
             </section>
             <section>
                 <SiteCounter />
+            </section>
+            <section>
+                <FAQ />
             </section>
         </main>
     );
