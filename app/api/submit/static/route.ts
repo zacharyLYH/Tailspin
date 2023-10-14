@@ -19,19 +19,17 @@ async function directDB_getSubmitCount() {
     return [record?.field_value, record?.id];
 }
 
-
-export async function POST(req : Request) {
+export async function POST(req: Request) {
     const body = await req.json();
-    const {
-        field_value,
-        id,
-    }: { field_value: string; id: string;} = body;
+
+    const { field_value, id }: { field_value: string; id: string } = body;
 
     const landingPageSubmitCount = await directDB_getSubmitCount();
 
-    directDB_incrementSubmitCount(landingPageSubmitCount[1]!, landingPageSubmitCount[0]!)
-    
+    directDB_incrementSubmitCount(
+        landingPageSubmitCount[1]!,
+        landingPageSubmitCount[0]!
+    );
+
     return NextResponse.json({ message: "Success" }, { status: 200 });
 }
-
-

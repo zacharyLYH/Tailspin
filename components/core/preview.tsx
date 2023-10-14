@@ -10,6 +10,7 @@ import { BrowserMockup } from "@/components/ui/browserMockup";
 import Iframe from "@/components/core/iframe";
 import completeCode from "@/lib/code-complete";
 import { getSample } from "@/client-side-queries/sample-query/sample";
+import { handleSubmitIncrement } from "../landing/handlers/submitIncrementHandler";
 
 interface EditorProps {
     className?: string;
@@ -43,6 +44,12 @@ const Preview: React.FC<EditorProps> = ({ className }) => {
                     className='bg-purple-500 text-white'
                 >
                     Sample data fetching
+                </Button>
+                <Button
+                    onClick={handleSubmitIncrement}
+                    className='bg-purple-500 text-white'
+                >
+                    Submit
                 </Button>
             </div>
             <BrowserMockup>
