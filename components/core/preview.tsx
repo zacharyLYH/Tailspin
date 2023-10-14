@@ -11,6 +11,15 @@ import Iframe from "@/components/core/iframe";
 import completeCode from "@/lib/code-complete";
 import { getSample } from "@/client-side-queries/sample-query/sample";
 import { handleSubmitIncrement } from "../landing/handlers/submitIncrementHandler";
+import ConfettiExplosion, { ConfettiProps } from "react-confetti-explosion";
+import React from "react";
+
+const smallProps: ConfettiProps = {
+    force: 0.6,
+    duration: 2200,
+    particleCount: 200,
+    width: 500,
+};
 
 interface EditorProps {
     className?: string;
@@ -20,6 +29,8 @@ const Preview: React.FC<EditorProps> = ({ className }) => {
     const { code, userIframeSession, setCode } = useSessionStore();
     const { fullScreen, toggleFullScreen } = useToggleFullScreen();
     const { isLoading, isError, data, error, refetch } = getSample();
+    const [isSmallExploding, setIsSmallExploding] = React.useState(false);
+
     useEffect(() => {
         if (code === "") {
             setCode(LandingPageCode());
@@ -46,9 +57,13 @@ const Preview: React.FC<EditorProps> = ({ className }) => {
                     Sample data fetching
                 </Button>
                 <Button
-                    onClick={handleSubmitIncrement}
+                    onClick={() => {
+                        handleSubmitIncrement();
+                        setIsSmallExploding(!isSmallExploding);
+                    }}
                     className='bg-purple-500 text-white'
                 >
+                    {isSmallExploding && <ConfettiExplosion {...smallProps} />}
                     Submit
                 </Button>
             </div>
