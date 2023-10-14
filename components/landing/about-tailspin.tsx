@@ -32,7 +32,7 @@ const AboutTailSpinBoxes: React.FC<AboutTailSpinBoxesProps> = ({
 
 const AboutTailspin = () => {
     return (
-        <div className=' relative flex h-screen items-center justify-center rounded-lg bg-black p-6'>
+        <div className='relative flex min-h-screen flex-col items-center justify-center rounded-lg bg-black p-6'>
             <div className='grid rounded-lg md:grid-cols-2'>
                 <AboutTailSpinBoxes
                     title='Tailwind has revolutioned frontend development.'
