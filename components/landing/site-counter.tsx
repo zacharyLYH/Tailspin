@@ -11,7 +11,7 @@ const SiteCounter = async () => {
     const landingPageSubmitCount = await directDB_getSubmitCount();
 
     return (
-        <article className='grid h-screen gap-4 sm:grid-cols-1'>
+        <article className='flex h-screen flex-col gap-4 md:flex-row'>
             <Box>Site Visitors: {siteCountValue[0]}</Box>
             <Box>
                 How many people have submitted their code :{" "}
