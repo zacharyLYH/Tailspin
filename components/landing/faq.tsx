@@ -156,6 +156,39 @@ const FAQ = () => {
                         </Link>
                     </AccordionContent>
                 </AccordionItem>
+                <AccordionItem value='item-3'>
+                    <AccordionTrigger>
+                        Not an FAQ, but in the spirit of transparency...
+                    </AccordionTrigger>
+                    <AccordionContent>
+                        Target images are not actually images - they are plain
+                        vanilla html and Tailwind that gets injected into an
+                        iframe. So yes, you may{" "}
+                        <Link
+                            href='https://zapier.com/blog/inspect-element-tutorial/'
+                            className='text-blue-500 underline'
+                        >
+                            inspect element
+                        </Link>{" "}
+                        right now and see the solution! In a pathetic attempt to
+                        dissuade folks from doing so, we've disabled the
+                        context-menu when you're on that page. However, we did
+                        not disable the default keyboard shortcut that will pull
+                        up your context-menu. All we have to say is this:
+                        <span className='text-red-500'>
+                            You stand to gain nothing cheating here.
+                        </span>
+                        No knowledge, no bragging rights, no community. All you
+                        do is actively pervert the spirit of our tight knit
+                        community.
+                        <p className='mt-1'>
+                            In the meantime, this is an active issue we are
+                            doing research and development on, however, the
+                            challenges we face are non-trivial. Reach out if
+                            you're curious or have a no-brainer solution!
+                        </p>
+                    </AccordionContent>
+                </AccordionItem>
             </Accordion>
         </div>
     );
