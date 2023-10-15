@@ -1,6 +1,6 @@
 export const Box = (props: any) => {
     return (
-        <div className='flex items-center justify-center rounded-lg bg-slate-800 object-center'>
+        <div className='mx-auto flex w-5/12 items-center justify-center rounded-lg bg-slate-800 object-center'>
             {" "}
             {props.children}{" "}
         </div>

@@ -11,14 +11,12 @@ const SiteCounter = async () => {
     const landingPageSubmitCount = await directDB_getSubmitCount();
 
     return (
-        <article className='grid h-screen gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
-            <Box>Site counter: {siteCountValue[0]}</Box>
-            <Box>Landingpage_submit_count: {landingPageSubmitCount}</Box>
-            <Box>Fake Statistic: 1</Box>
-            <Box>Fake Statistic: 1</Box>
-            <Box>Fake Statistic: 1</Box>
-            <Box>Fake Statistic: 1</Box>
-            <Box>Fake Statistic: 1</Box>
+        <article className='grid h-screen gap-4 sm:grid-cols-1'>
+            <Box>Site Visitors: {siteCountValue[0]}</Box>
+            <Box>
+                How many people have submitted their code :{" "}
+                {landingPageSubmitCount}
+            </Box>
         </article>
     );
 };
