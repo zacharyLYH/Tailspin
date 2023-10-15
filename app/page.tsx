@@ -5,6 +5,8 @@ import { Navigation } from "@/components/landing/navigation";
 import SiteCounter from "@/components/landing/site-counter";
 import AboutTailspin from "@/components/landing/about-tailspin";
 import FAQ from "@/components/landing/faq";
+import Timeline from "@/components/landing/timeline";
+import ThanksPage from "@/components/landing/thanks";
 
 export default function Home() {
     return (
@@ -33,6 +35,12 @@ export default function Home() {
             </section>
             <section>
                 <FAQ />
+            </section>
+            <section>
+                <Timeline />
+            </section>
+            <section>
+                <ThanksPage />
             </section>
         </main>
     );
