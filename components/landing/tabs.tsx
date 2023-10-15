@@ -25,7 +25,7 @@ export const TabSection = () => {
                 <div className='absolute inset-0 z-30 flex items-center justify-center xl:hidden'>
                     <div className='w-3/4 max-w-lg rounded-xl bg-black p-6 shadow-lg'>
                         <h2 className='mb-4 text-center text-xl font-bold text-white'>
-                            It looks like you're on a small screen
+                            It looks like you&apos;re on a small screen
                         </h2>
                         <p className='text-sm font-semibold text-gray-400'>
                             We hate to be non-inclusive towards phones and

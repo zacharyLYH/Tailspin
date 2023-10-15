@@ -18,7 +18,7 @@ const FAQ = () => {
             <Accordion type='single' collapsible className='w-96'>
                 <AccordionItem value='item-1'>
                     <AccordionTrigger>
-                        Sounds like an interesting app... What's the catch?
+                        Sounds like an interesting app... What&apos;s the catch?
                     </AccordionTrigger>
                     <AccordionContent>
                         This product is community driven, and not developed and
@@ -108,8 +108,8 @@ const FAQ = () => {
                         of submissions. The remedy is to use something
                         intelligent to extract{" "}
                         <span className='text-red-500'>intention</span> out of
-                        code, and using today's technology, we looked no further
-                        than LLMs.
+                        code, and using today&apos;s technology, we looked no
+                        further than LLMs.
                         <br />
                         This implementation is not great because
                         <br />
@@ -122,8 +122,9 @@ const FAQ = () => {
                             </li>
                             <li className='mb-2 text-muted-foreground'>
                                 LLMs are not bullet-proof at doing this. Through
-                                testing, we've found that their responses are
-                                inconsistent and bias towards false positives.
+                                testing, we&apos;ve found that their responses
+                                are inconsistent and bias towards false
+                                positives.
                             </li>
                         </ul>
                         <br />
@@ -131,7 +132,7 @@ const FAQ = () => {
                         the best possible experience with the least amount of
                         resources, the rest is up to the community. Moving
                         forward, a possible direction might be to bake an
-                        in-house Computer Vision software that we'll host
+                        in-house Computer Vision software that we&apos;ll host
                         in-house, that way we get the benefits of keeping costs
                         low yet having a tunable and customizable intelligent
                         sematic analysis tool that exactly fits the kind of
@@ -140,8 +141,8 @@ const FAQ = () => {
                 </AccordionItem>
                 <AccordionItem value='item-3'>
                     <AccordionTrigger>
-                        I'm a noob/average/pro/better-than-you developer. How
-                        can I contribute?
+                        I&apos;m a noob/average/pro/better-than-you developer.
+                        How can I contribute?
                     </AccordionTrigger>
                     <AccordionContent>
                         First and foremost, thank you for even considering. We
@@ -171,10 +172,10 @@ const FAQ = () => {
                             inspect element
                         </Link>{" "}
                         right now and see the solution! In a pathetic attempt to
-                        dissuade folks from doing so, we've disabled the
-                        context-menu when you're on that page. However, we did
-                        not disable the default keyboard shortcut that will pull
-                        up your context-menu. All we have to say is this:
+                        dissuade folks from doing so, we&apos;ve disabled the
+                        context-menu when you&apos;re on that page. However, we
+                        did not disable the default keyboard shortcut that will
+                        pull up your context-menu. All we have to say is this:
                         <span className='text-red-500'>
                             You stand to gain nothing cheating here.
                         </span>
@@ -185,7 +186,7 @@ const FAQ = () => {
                             In the meantime, this is an active issue we are
                             doing research and development on, however, the
                             challenges we face are non-trivial. Reach out if
-                            you're curious or have a no-brainer solution!
+                            you&apos;re curious or have a no-brainer solution!
                         </p>
                     </AccordionContent>
                 </AccordionItem>

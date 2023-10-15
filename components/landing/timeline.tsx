@@ -48,7 +48,7 @@ const Timeline = () => {
                         Provide intelligent dashboards to help users analyze
                         their performance in an empirical and systematic manner.
                         Provide a fully customizable public profile page that
-                        optimizes showing off user's achievements and
+                        optimizes showing off user&apos;s achievements and
                         accomplishments.
                     </p>
                 </li>
