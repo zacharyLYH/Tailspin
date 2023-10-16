@@ -24,7 +24,7 @@ const Timeline = () => {
                     <h3 className='mb-1 flex items-center text-lg font-semibold text-gray-900 dark:text-white'>
                         V0
                         <span className='ml-3 mr-2 rounded bg-blue-100 px-2.5 py-0.5 text-sm font-medium text-blue-800 dark:bg-blue-900 dark:text-blue-300'>
-                            Latest
+                            Current
                         </span>
                     </h3>
                     <time className='mb-2 block text-sm font-normal leading-none text-gray-400 dark:text-gray-500'>
@@ -38,10 +38,24 @@ const Timeline = () => {
                 <li className='ml-6'>
                     <TimelineSVGIcon />
                     <h3 className='mb-1 text-lg font-semibold text-gray-900 dark:text-white'>
-                        V1
+                        V1.0
                     </h3>
                     <time className='mb-2 block text-sm font-normal leading-none text-gray-400 dark:text-gray-500'>
-                        Starts latest 1st Nov 2023
+                        Latest 1st November 2023
+                    </time>
+                    <p className='text-base font-normal text-gray-500 dark:text-gray-400'>
+                        Innovate and make incremental improvements to the core
+                        business of Tailspin - the coding page. Iteratively add,
+                        optimize, and beautify features to the coding page.
+                    </p>
+                </li>
+                <li className='ml-6'>
+                    <TimelineSVGIcon />
+                    <h3 className='mb-1 text-lg font-semibold text-gray-900 dark:text-white'>
+                        V1.1
+                    </h3>
+                    <time className='mb-2 block text-sm font-normal leading-none text-gray-400 dark:text-gray-500'>
+                        TBD...
                     </time>
                     <p className='text-base font-normal text-gray-500 dark:text-gray-400'>
                         Implement user profiles to keep track of their progress.
