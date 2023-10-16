@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-import { useSubmitCode } from "@/lib/codeSubmit";
 import { xata } from "@/lib/xata_client";
 
 async function directDB_incrementSubmitCount(
