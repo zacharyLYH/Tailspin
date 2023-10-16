@@ -1,6 +1,8 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { TailspinLogo } from "../ui/spinning-logo";
+import { Shell } from "lucide-react";
+import Link from "next/link";
 
 // TODO: Add better responsiveness and mobile design, refactor Button into the button component
 
@@ -35,5 +37,3 @@ export const Navigation = () => {
         </nav>
     );
 };
-
-//green-800

@@ -30,8 +30,10 @@ export default function Home() {
             <section id='tabsSection'>
                 <TabSection />
             </section>
-            <section>
-                <SiteCounter />
+            <section className='container'>
+                <div>
+                    <SiteCounter />
+                </div>
             </section>
             <section>
                 <FAQ />
