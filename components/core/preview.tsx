@@ -10,16 +10,10 @@ import { BrowserMockup } from "@/components/ui/browserMockup";
 import Iframe from "@/components/core/iframe";
 import completeCode from "@/lib/code-complete";
 import { getSample } from "@/client-side-queries/sample-query/sample";
+import ConfettiButton from "../ui/confetti-button";
 import { handleSubmitIncrement } from "../landing/handlers/submitIncrementHandler";
-import ConfettiExplosion, { ConfettiProps } from "react-confetti-explosion";
-import React from "react";
 
-const smallProps: ConfettiProps = {
-    force: 0.6,
-    duration: 2200,
-    particleCount: 200,
-    width: 500,
-};
+import React from "react";
 
 interface EditorProps {
     className?: string;
@@ -29,7 +23,6 @@ const Preview: React.FC<EditorProps> = ({ className }) => {
     const { code, userIframeSession, setCode } = useSessionStore();
     const { fullScreen, toggleFullScreen } = useToggleFullScreen();
     const { isLoading, isError, data, error, refetch } = getSample();
-    const [isSmallExploding, setIsSmallExploding] = React.useState(false);
 
     useEffect(() => {
         if (code === "") {
@@ -56,16 +49,9 @@ const Preview: React.FC<EditorProps> = ({ className }) => {
                 >
                     Sample data fetching
                 </Button>
-                <Button
-                    onClick={() => {
-                        handleSubmitIncrement();
-                        setIsSmallExploding(!isSmallExploding);
-                    }}
-                    className='bg-purple-500 text-white'
-                >
-                    {isSmallExploding && <ConfettiExplosion {...smallProps} />}
+                <ConfettiButton className='bg-purple-500'>
                     Submit
-                </Button>
+                </ConfettiButton>
             </div>
             <BrowserMockup>
                 <Iframe
