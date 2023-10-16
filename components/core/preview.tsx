@@ -10,6 +10,10 @@ import { BrowserMockup } from "@/components/ui/browserMockup";
 import Iframe from "@/components/core/iframe";
 import completeCode from "@/lib/code-complete";
 import { getSample } from "@/client-side-queries/sample-query/sample";
+import ConfettiButton from "../ui/confetti-button";
+import { handleSubmitIncrement } from "../landing/handlers/submitIncrementHandler";
+
+import React from "react";
 
 interface EditorProps {
     className?: string;
@@ -19,6 +23,7 @@ const Preview: React.FC<EditorProps> = ({ className }) => {
     const { code, userIframeSession, setCode } = useSessionStore();
     const { fullScreen, toggleFullScreen } = useToggleFullScreen();
     const { isLoading, isError, data, error, refetch } = getSample();
+
     useEffect(() => {
         if (code === "") {
             setCode(LandingPageCode());
@@ -44,6 +49,9 @@ const Preview: React.FC<EditorProps> = ({ className }) => {
                 >
                     Sample data fetching
                 </Button>
+                <ConfettiButton className='bg-purple-500'>
+                    Submit
+                </ConfettiButton>
             </div>
             <BrowserMockup>
                 <Iframe

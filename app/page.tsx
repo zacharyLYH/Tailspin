@@ -4,13 +4,12 @@ import { TabSection } from "@/components/landing/tabs";
 import { Navigation } from "@/components/landing/navigation";
 import SiteCounter from "@/components/landing/site-counter";
 
-
 export default function Home() {
     return (
         <main className='mx-auto h-full w-full overflow-clip bg-gradient-to-b from-[#493b6c] via-[#14243a] to-[#000000]'>
             <ScrollToTop />
 
-            <Navigation/>
+            <Navigation />
 
             {/*landing page*/}
             <section
@@ -26,8 +25,10 @@ export default function Home() {
             <section id='tabsSection'>
                 <TabSection />
             </section>
-            <section>
-                <SiteCounter />
+            <section className='container'>
+                <div>
+                    <SiteCounter />
+                </div>
             </section>
         </main>
     );
