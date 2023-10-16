@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import {
     Dialog,
     DialogContent,
@@ -13,7 +12,7 @@ export function FeedbackModal() {
     return (
         <Dialog>
             <DialogTrigger asChild>
-                <Button variant='ghost'>🌝</Button>
+                <span className='mx-1 hover:cursor-pointer'> 🌝 </span>
             </DialogTrigger>
             <DialogContent className='sm:max-w-[425px]'>
                 <DialogHeader>

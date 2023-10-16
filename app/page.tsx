@@ -3,6 +3,10 @@ import { Hero } from "@/components/landing/hero";
 import { TabSection } from "@/components/landing/tabs";
 import { Navigation } from "@/components/landing/navigation";
 import SiteCounter from "@/components/landing/site-counter";
+import AboutTailspin from "@/components/landing/about-tailspin";
+import FAQ from "@/components/landing/faq";
+import Timeline from "@/components/landing/timeline";
+import ThanksPage from "@/components/landing/thanks";
 
 export default function Home() {
     return (
@@ -20,8 +24,9 @@ export default function Home() {
                     <Hero />
                 </div>
             </section>
-
-            {/*quickstart/sampleimage/codearea*/}
+            <section>
+                <AboutTailspin />
+            </section>
             <section id='tabsSection'>
                 <TabSection />
             </section>
@@ -29,6 +34,15 @@ export default function Home() {
                 <div>
                     <SiteCounter />
                 </div>
+            </section>
+            <section>
+                <FAQ />
+            </section>
+            <section>
+                <Timeline />
+            </section>
+            <section>
+                <ThanksPage />
             </section>
         </main>
     );
