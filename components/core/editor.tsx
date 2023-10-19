@@ -7,6 +7,7 @@ import { useFormatCode } from "@/lib/codeFormatter";
 import { cn } from "@/lib/utils";
 import { useState, useEffect } from "react";
 import ReactAce from "react-ace/lib/ace";
+import GlobalLoadingUI from "@/components/ui/global-loading-ui";
 
 interface EditorProps {
     className?: string;
@@ -36,7 +37,7 @@ const Editor: React.FC<EditorProps> = ({ className }) => {
         loadAce();
     }, []);
 
-    if (!AceEditor) return <div>Loading...</div>;
+    if (!AceEditor) return <GlobalLoadingUI />;
 
     return (
         <div className={cn("flex flex-col", fullScreen ? "hidden" : className)}>
