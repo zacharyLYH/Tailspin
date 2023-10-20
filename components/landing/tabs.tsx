@@ -1,7 +1,5 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Image as LucideImg, Code, GraduationCap } from "lucide-react";
-import Editor from "@/components/core/editor";
-import Preview from "@/components/core/preview";
 import { StaticPrompt } from "../providers/static-challenge-provider";
 import { BrowserMockup } from "@/components/ui/browserMockup";
 import { FeedbackModal } from "@/components/landing/feedback/feedback-modal";
@@ -62,12 +60,7 @@ export const TabSection = () => {
                             />
                         </BrowserMockup>
                     </TabsContent>
-                    <TabsContent value='code'>
-                        <div className='grid h-[90vh] grid-cols-3 gap-1'>
-                            <Editor className='col-span-1' />
-                            <Preview className='col-span-2' />
-                        </div>
-                    </TabsContent>
+                    <TabsContent value='code'>Deprecated</TabsContent>
                 </Tabs>
             </div>
         </div>
