@@ -33,7 +33,7 @@ const CodeArea = () => {
                                     title='Editor'
                                     path={path}
                                 >
-                                    <div className='h-screen bg-black'>
+                                    <div className='h-screen '>
                                         <Editor />
                                     </div>
                                 </MosaicWindow>
