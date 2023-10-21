@@ -24,7 +24,7 @@ const Preview = () => {
                     userIframeSession={userIframeSession}
                     title='Preview'
                     completedCode={completeCode(code)}
-                    className='w-full flex-grow rounded-b-lg border-t border-gray-300'
+                    className='pointer-events-none w-full flex-grow rounded-b-lg border-t border-gray-300'
                 />
             </BrowserMockup>
         </div>
