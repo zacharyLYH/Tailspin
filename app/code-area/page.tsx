@@ -5,6 +5,8 @@ import Preview from "@/components/core/preview";
 import "react-mosaic-component/react-mosaic-component.css";
 import { Mosaic, MosaicNode, MosaicWindow } from "react-mosaic-component";
 import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
 
 type MosaicKey = "EDITOR" | "PREVIEW";
 
@@ -19,8 +21,32 @@ const CodeArea = () => {
     const [layout, setLayout] = useState<MosaicNode<MosaicKey> | null>(
         initialLayout
     );
+    const router = useRouter();
+
     return (
         <div className='h-screen'>
+            <div className='pointer-events-auto absolute inset-0 z-20 bg-white bg-opacity-50 xl:hidden' />
+            <div className='absolute inset-0 z-30 flex items-center justify-center xl:hidden'>
+                <div className='w-3/4 max-w-lg rounded-xl bg-black p-6 shadow-lg'>
+                    <h2 className='mb-4 text-center text-xl font-bold text-white'>
+                        It looks like you&quot;re on a small screen
+                    </h2>
+                    <p className='text-sm font-semibold text-gray-400'>
+                        We hate to be non-inclusive towards phones and tablets,
+                        however we want to provide you with the best experience
+                        possible!
+                    </p>
+                    <div className='flex justify-center'>
+                        <Button
+                            variant='destructive'
+                            className='mt-2'
+                            onClick={() => router.push("/")}
+                        >
+                            Back to main page...
+                        </Button>
+                    </div>
+                </div>
+            </div>
             <Mosaic<MosaicKey>
                 value={layout || initialLayout}
                 onChange={(newLayout) => setLayout(newLayout)}
