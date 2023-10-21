@@ -19,10 +19,11 @@ const smallProps: ConfettiProps = {
     force: 0.6,
     duration: 1900,
     particleCount: 200,
-    width: 500,
+    width: 1000,
+    zIndex: 50,
 };
 
-const ConfettiButton = (props: any, className: string) => {
+const SubmitButton = () => {
     const router = useRouter();
     const [submitClicked, setSubmitClicked] = useState(false);
 
@@ -41,7 +42,7 @@ const ConfettiButton = (props: any, className: string) => {
                 onClick={handleButtonClick}
                 className='bg-purple-500 text-white'
             >
-                {props.children}
+                Submit
             </Button>
             {submitClicked && (
                 <AlertDialog open>
@@ -50,8 +51,8 @@ const ConfettiButton = (props: any, className: string) => {
                             <AlertDialogTitle>
                                 Congratulations on submitting!
                             </AlertDialogTitle>
-                            <ConfettiExplosion {...smallProps} />
                             <AlertDialogDescription>
+                                <ConfettiExplosion {...smallProps} />
                                 Click continue to navigate back to the home
                                 page.
                             </AlertDialogDescription>
@@ -68,4 +69,4 @@ const ConfettiButton = (props: any, className: string) => {
     );
 };
 
-export default ConfettiButton;
+export default SubmitButton;
