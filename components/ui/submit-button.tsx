@@ -18,14 +18,15 @@ import {
 const smallProps: ConfettiProps = {
     force: 0.6,
     duration: 1900,
-    particleCount: 200,
-    width: 1000,
+    particleCount: 400,
+    width: 1200,
     zIndex: 50,
 };
 
 const SubmitButton = () => {
     const router = useRouter();
     const [submitClicked, setSubmitClicked] = useState(false);
+    const [continueClicked, setContinueClicked] = useState(false);
 
     const handleButtonClick = () => {
         try {
@@ -58,8 +59,17 @@ const SubmitButton = () => {
                             </AlertDialogDescription>
                         </AlertDialogHeader>
                         <AlertDialogFooter>
-                            <AlertDialogAction onClick={() => router.push("/")}>
-                                Continue
+                            <AlertDialogAction
+                                className='bg-green-500'
+                                onClick={() => {
+                                    router.push("/");
+                                    setContinueClicked(true);
+                                }}
+                                disabled={continueClicked}
+                            >
+                                {continueClicked
+                                    ? "Redirecting..."
+                                    : "Continue"}
                             </AlertDialogAction>
                         </AlertDialogFooter>
                     </AlertDialogContent>
