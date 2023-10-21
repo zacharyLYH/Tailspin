@@ -22,7 +22,6 @@ const CodeArea = () => {
     return (
         <div className='h-screen'>
             <Mosaic<MosaicKey>
-                className='mosaic-blueprint-theme'
                 value={layout || initialLayout}
                 onChange={(newLayout) => setLayout(newLayout)}
                 renderTile={(id, path) => {
@@ -33,9 +32,9 @@ const CodeArea = () => {
                                     title='Editor'
                                     path={path}
                                 >
-                                    <div className='h-screen '>
+                                    <>
                                         <Editor />
-                                    </div>
+                                    </>
                                 </MosaicWindow>
                             );
                         case "PREVIEW":
@@ -44,9 +43,9 @@ const CodeArea = () => {
                                     title='Preview'
                                     path={path}
                                 >
-                                    <div>
+                                    <>
                                         <Preview />
-                                    </div>
+                                    </>
                                 </MosaicWindow>
                             );
                         default:

@@ -6,7 +6,6 @@ import { useEffect } from "react";
 import { BrowserMockup } from "@/components/ui/browserMockup";
 import Iframe from "@/components/core/iframe";
 import completeCode from "@/lib/code-complete";
-import SubmitButton from "@/components/ui/submit-button";
 
 const Preview = () => {
     const { code, userIframeSession, setCode } = useSessionStore();
@@ -18,7 +17,6 @@ const Preview = () => {
     }, []);
     return (
         <div className='flex h-screen flex-col rounded-lg'>
-            <SubmitButton />
             <BrowserMockup>
                 <Iframe
                     userIframeSession={userIframeSession}

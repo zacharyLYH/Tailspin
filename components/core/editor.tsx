@@ -1,15 +1,13 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import useSessionStore from "@/data-store/session-store";
-import { useFormatCode } from "@/lib/codeFormatter";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import ReactAce from "react-ace/lib/ace";
 import GlobalLoadingUI from "@/components/ui/global-loading-ui";
+import CodeAreaActions from "./code-area-actions";
 
 const Editor = () => {
     const { code, setCode } = useSessionStore();
-    const { handleFormatCode } = useFormatCode();
     const [AceEditor, setAceEditor] = useState<typeof ReactAce>();
 
     useEffect(() => {
@@ -32,15 +30,8 @@ const Editor = () => {
     if (!AceEditor) return <GlobalLoadingUI />;
 
     return (
-        <>
-            <div className='flex flex-row space-x-2'>
-                <Button
-                    onClick={handleFormatCode}
-                    className='bg-purple-500 text-white'
-                >
-                    Format code
-                </Button>
-            </div>
+        <div className='h-screen'>
+            <CodeAreaActions />
             {AceEditor && (
                 <AceEditor
                     wrapEnabled={true}
@@ -67,7 +58,7 @@ const Editor = () => {
                     }}
                 />
             )}
-        </>
+        </div>
     );
 };
 
