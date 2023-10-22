@@ -7,9 +7,54 @@ import { Separator } from "@/components/ui/separator";
 import React from "react";
 
 const ThanksPage = async () => {
-    const contributors = await axios.get(
-        "https://api.github.com/repos/zacharyLYH/Tailspin/contributors"
-    );
+    const fetchContributors = async () => {
+        try {
+            const mainContributorsResponse = await axios.get(
+                "https://api.github.com/repos/zacharyLYH/Tailspin/pulls?state=closed&base=main"
+            );
+            const devContributorsResponse = await axios.get(
+                "https://api.github.com/repos/zacharyLYH/Tailspin/pulls?state=closed&base=dev"
+            );
+
+            const allPRs = [
+                ...mainContributorsResponse.data,
+                ...devContributorsResponse.data,
+            ];
+            const mergedPRs = allPRs.filter((pr: any) => pr.merged_at);
+
+            const contributorsMap = new Map<
+                string,
+                {
+                    login: string;
+                    avatar_url: string;
+                    github_url: string;
+                    completedPRs: number;
+                }
+            >();
+
+            for (const pr of mergedPRs) {
+                const { login, avatar_url, html_url } = pr.user;
+                const contributor = contributorsMap.get(login);
+                if (contributor) {
+                    contributor.completedPRs += 1;
+                } else {
+                    contributorsMap.set(login, {
+                        login,
+                        avatar_url,
+                        github_url: html_url,
+                        completedPRs: 1,
+                    });
+                }
+            }
+            return Array.from(contributorsMap.values());
+        } catch (error) {
+            console.error("Failed to fetch contributors:", error);
+            return [];
+        }
+    };
+
+    const contributors = await fetchContributors();
+
     const techs = new Map<string, string>([
         ["https://nextjs.org/favicon.ico", "Next.JS"],
         [
@@ -38,12 +83,12 @@ const ThanksPage = async () => {
                             role='list'
                             className='h-full gap-y-1 divide-y divide-gray-200 overflow-y-auto dark:divide-gray-700'
                         >
-                            {contributors.data.map((contributor: any) => (
+                            {contributors.map((contributor: any) => (
                                 <li
                                     className='py-3 sm:py-4'
-                                    key={contributor.id}
+                                    key={contributor.login}
                                 >
-                                    <div className='flex flex-col space-y-4 rounded-lg border border-green-200 p-4'>
+                                    <div className='flex flex-col space-y-1 rounded-lg border border-green-200 p-2'>
                                         <div className='flex items-center space-x-4'>
                                             <div className='flex-shrink-0'>
                                                 <Avatar>
@@ -67,11 +112,17 @@ const ThanksPage = async () => {
                                             <div className='inline-flex items-center text-base font-semibold text-gray-900 dark:text-white'>
                                                 Contributions:{" "}
                                                 <span className='ml-1 text-green-500'>
-                                                    {contributor.contributions}
+                                                    {contributor.completedPRs}
                                                 </span>
                                             </div>
                                             <div className='flex h-8 w-8 items-center justify-center rounded-full bg-black p-1'>
-                                                <Link href={contributor.url}>
+                                                <Link
+                                                    href={
+                                                        contributor.github_url
+                                                    }
+                                                    target='_blank'
+                                                    rel='noopener noreferrer'
+                                                >
                                                     <GithubIcon className='h-4 w-4 text-white' />
                                                 </Link>
                                             </div>
@@ -90,26 +141,20 @@ const ThanksPage = async () => {
                     </div>
                     <div className='rounded-lg border border-green-200'>
                         <ScrollArea className='h-72 w-48 rounded-md border'>
-                            <div className='p-4'>
-                                {Array.from(techs.entries()).map(
-                                    ([url, name]) => (
-                                        <React.Fragment key={name}>
-                                            <div className='mx-1 flex flex-row items-center rounded-lg p-2 transition-colors duration-150 hover:bg-gray-100 dark:hover:bg-gray-800'>
-                                                <Avatar className='mr-3'>
-                                                    <AvatarImage src={url} />
-                                                    <AvatarFallback>
-                                                        👑
-                                                    </AvatarFallback>
-                                                </Avatar>
-                                                <p className='text-sm font-medium'>
-                                                    {name}
-                                                </p>
-                                            </div>
-                                            <Separator className='border border-gray-300 dark:border-gray-700' />
-                                        </React.Fragment>
-                                    )
-                                )}
-                            </div>
+                            {Array.from(techs.entries()).map(([url, name]) => (
+                                <React.Fragment key={name}>
+                                    <div className='mx-1 flex flex-row items-center rounded-lg p-2 transition-colors duration-150 hover:bg-gray-100 dark:hover:bg-gray-800'>
+                                        <Avatar className='mr-3'>
+                                            <AvatarImage src={url} />
+                                            <AvatarFallback>👑</AvatarFallback>
+                                        </Avatar>
+                                        <p className='text-sm font-medium'>
+                                            {name}
+                                        </p>
+                                    </div>
+                                    <Separator className='border border-gray-300 dark:border-gray-700' />
+                                </React.Fragment>
+                            ))}
                         </ScrollArea>
                     </div>
                 </div>
