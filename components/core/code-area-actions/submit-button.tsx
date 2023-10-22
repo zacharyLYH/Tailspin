@@ -3,7 +3,7 @@
 import ConfettiExplosion, { ConfettiProps } from "react-confetti-explosion";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { handleSubmitIncrement } from "../landing/handlers/submitIncrementHandler";
+import { handleSubmitIncrement } from "../../landing/handlers/submitIncrementHandler";
 import { useRouter } from "next/navigation";
 import {
     AlertDialog,
@@ -14,6 +14,8 @@ import {
     AlertDialogHeader,
     AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
+import useCodeAreaStore from "@/data-store/code-area-store";
+import useSessionStore from "@/data-store/session-store";
 
 const smallProps: ConfettiProps = {
     force: 0.6,
@@ -27,8 +29,10 @@ const SubmitButton = () => {
     const router = useRouter();
     const [submitClicked, setSubmitClicked] = useState(false);
     const [continueClicked, setContinueClicked] = useState(false);
+    const { reset } = useSessionStore();
+    const { reset: codeAreaReset } = useCodeAreaStore();
 
-    const handleButtonClick = () => {
+    const handleSubmitButtonClick = () => {
         try {
             setSubmitClicked(true);
             handleSubmitIncrement();
@@ -37,10 +41,17 @@ const SubmitButton = () => {
         }
     };
 
+    const handleContinueButtonClick = () => {
+        setContinueClicked(true);
+        reset();
+        codeAreaReset();
+        router.push("/");
+    };
+
     return (
         <>
             <Button
-                onClick={handleButtonClick}
+                onClick={handleSubmitButtonClick}
                 className='bg-purple-500 text-white'
             >
                 Submit
@@ -61,10 +72,7 @@ const SubmitButton = () => {
                         <AlertDialogFooter>
                             <AlertDialogAction
                                 className='bg-green-500'
-                                onClick={() => {
-                                    router.push("/");
-                                    setContinueClicked(true);
-                                }}
+                                onClick={handleContinueButtonClick}
                                 disabled={continueClicked}
                             >
                                 {continueClicked

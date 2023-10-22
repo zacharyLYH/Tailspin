@@ -1,3 +1,5 @@
+"use client";
+
 import {
     Sheet,
     SheetContent,
@@ -8,33 +10,32 @@ import {
     SheetClose,
     SheetTrigger,
 } from "@/components/ui/sheet";
-import { useFormatCode } from "@/lib/codeFormatter";
-import SubmitButton from "@/components/ui/submit-button";
+import SubmitButton from "@/components/core/code-area-actions/submit-button";
+import SettingsPage from "./code-area-settings";
+import ExitCodeArea from "./exit-code-area";
 import { Button } from "@/components/ui/button";
+import CodeAreaFormatCode from "./code-area-formatCode";
 
 const CodeAreaActions = () => {
-    const { handleFormatCode } = useFormatCode();
-
     return (
         <Sheet>
             <SheetTrigger>
-                <Button className='bg-purple-500 text-white'>Actions</Button>
+                <Button className='min-w-full bg-purple-500 text-white hover:bg-green-500'>
+                    Actions
+                </Button>
             </SheetTrigger>
             <SheetContent>
                 <SheetHeader>
                     <SheetTitle>Actions</SheetTitle>
                     <SheetDescription>
-                        Click anywhere outside the sheet when you're done!
+                        Click anywhere outside the sheet when you&apos;re done!
                     </SheetDescription>
                 </SheetHeader>
                 <div className='flex flex-col gap-4'>
-                    <Button
-                        onClick={handleFormatCode}
-                        className='bg-purple-500 text-white'
-                    >
-                        Format code
-                    </Button>
+                    <CodeAreaFormatCode />
+                    <SettingsPage />
                     <SubmitButton />
+                    <ExitCodeArea />
                 </div>
                 <SheetFooter className='mt-4'>
                     <SheetClose asChild>

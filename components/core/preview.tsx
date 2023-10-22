@@ -1,20 +1,13 @@
 "use client";
 
 import useSessionStore from "@/data-store/session-store";
-import LandingPageCode from "../landing/test-challenges/placeholder-code";
-import { useEffect } from "react";
 import { BrowserMockup } from "@/components/ui/browserMockup";
 import Iframe from "@/components/core/iframe";
 import completeCode from "@/lib/code-complete";
 
 const Preview = () => {
-    const { code, userIframeSession, setCode } = useSessionStore();
+    const { code, userIframeSession } = useSessionStore();
 
-    useEffect(() => {
-        if (code === "") {
-            setCode(LandingPageCode());
-        }
-    }, []);
     return (
         <div className='flex h-screen flex-col rounded-lg'>
             <BrowserMockup>

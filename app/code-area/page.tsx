@@ -7,6 +7,8 @@ import { Mosaic, MosaicNode, MosaicWindow } from "react-mosaic-component";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
+import { cn } from "@/lib/utils";
+import useCodeAreaStore from "@/data-store/code-area-store";
 
 type MosaicKey = "EDITOR" | "PREVIEW";
 
@@ -22,6 +24,7 @@ const CodeArea = () => {
         initialLayout
     );
     const router = useRouter();
+    const { mosaicThemeDark } = useCodeAreaStore();
 
     return (
         <div className='h-screen'>
@@ -48,6 +51,10 @@ const CodeArea = () => {
                 </div>
             </div>
             <Mosaic<MosaicKey>
+                className={cn(
+                    "mosaic-blueprint-theme",
+                    mosaicThemeDark && "bp4-dark"
+                )}
                 value={layout || initialLayout}
                 onChange={(newLayout) => setLayout(newLayout)}
                 renderTile={(id, path) => {
