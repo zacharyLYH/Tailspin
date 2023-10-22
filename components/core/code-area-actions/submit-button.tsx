@@ -14,8 +14,7 @@ import {
     AlertDialogHeader,
     AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
-import useCodeAreaStore from "@/data-store/code-area-store";
-import useSessionStore from "@/data-store/session-store";
+import { useResetFeState } from "@/lib/reset-fe-state";
 
 const smallProps: ConfettiProps = {
     force: 0.6,
@@ -29,8 +28,7 @@ const SubmitButton = () => {
     const router = useRouter();
     const [submitClicked, setSubmitClicked] = useState(false);
     const [continueClicked, setContinueClicked] = useState(false);
-    const { reset } = useSessionStore();
-    const { reset: codeAreaReset } = useCodeAreaStore();
+    const handleReset = useResetFeState();
 
     const handleSubmitButtonClick = () => {
         try {
@@ -43,8 +41,7 @@ const SubmitButton = () => {
 
     const handleContinueButtonClick = () => {
         setContinueClicked(true);
-        reset();
-        codeAreaReset();
+        handleReset();
         router.push("/");
     };
 

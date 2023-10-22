@@ -12,18 +12,15 @@ import {
     AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
-import useCodeAreaStore from "@/data-store/code-area-store";
-import useSessionStore from "@/data-store/session-store";
+import { useResetFeState } from "@/lib/reset-fe-state";
 import { useRouter } from "next/navigation";
 
 export function ExitCodeArea() {
     const router = useRouter();
-    const { reset } = useSessionStore();
-    const { reset: codeAreaReset } = useCodeAreaStore();
+    const handleReset = useResetFeState();
 
     const exitClicked = () => {
-        reset();
-        codeAreaReset();
+        handleReset();
         router.push("/");
     };
 
