@@ -6,6 +6,8 @@ interface CodeAreaStore {
     aceEditorTheme: string;
     setAceEditorTheme: (themeName: string) => void;
     reset: () => void;
+    fontSize: number;
+    setFontSize: (size: number) => void;
 }
 
 const useCodeAreaStore = create<CodeAreaStore>((set) => ({
@@ -19,6 +21,8 @@ const useCodeAreaStore = create<CodeAreaStore>((set) => ({
     reset: () => {
         set({ mosaicThemeDark: true, aceEditorTheme: "monokai" });
     },
+    fontSize: 14,
+    setFontSize: (size: number) => set({ fontSize: size }),
 }));
 
 export default useCodeAreaStore;

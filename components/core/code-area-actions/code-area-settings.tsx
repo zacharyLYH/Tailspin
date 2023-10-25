@@ -32,6 +32,37 @@ const ToggleDarkTheme = () => {
     );
 };
 
+const SetFontSize = () => {
+    const { fontSize, setFontSize } = useCodeAreaStore();
+    const fontSizeChoices: number[] = Array.from(
+        { length: 11 },
+        (_, i) => i + 10
+    );
+    return (
+        <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+                <Button variant='outline'>
+                    <ChevronDown className='mr-1 h-4 w-4' />
+                    {fontSize}
+                </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className='w-56 overflow-y-visible'>
+                <DropdownMenuLabel>Theme</DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                {fontSizeChoices.map((size) => (
+                    <DropdownMenuCheckboxItem
+                        checked={size === fontSize}
+                        onCheckedChange={() => setFontSize(size)}
+                        key={size}
+                    >
+                        {size}
+                    </DropdownMenuCheckboxItem>
+                ))}
+            </DropdownMenuContent>
+        </DropdownMenu>
+    );
+};
+
 const AceEditorTheme = () => {
     const { aceEditorTheme, setAceEditorTheme } = useCodeAreaStore();
     const themeList: string[] = [
@@ -58,7 +89,7 @@ const AceEditorTheme = () => {
                 </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent className='w-56 overflow-y-visible'>
-                <DropdownMenuLabel>Theme</DropdownMenuLabel>
+                <DropdownMenuLabel>Font Size</DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 {themeList.map((theme) => (
                     <DropdownMenuCheckboxItem
@@ -79,6 +110,7 @@ const AceEditorTheme = () => {
 const settingsOptions = new Map<string, () => React.ReactNode>([
     ["Dark Theme", () => <ToggleDarkTheme />],
     ["Editor Theme", () => <AceEditorTheme />],
+    ["Font Size", () => <SetFontSize />],
 ]);
 
 const SettingsPage = () => {

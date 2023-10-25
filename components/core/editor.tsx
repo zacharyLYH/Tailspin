@@ -9,7 +9,7 @@ import useCodeAreaStore from "@/data-store/code-area-store";
 
 const Editor = () => {
     const { code, setCode } = useSessionStore();
-    const { aceEditorTheme } = useCodeAreaStore();
+    const { aceEditorTheme, fontSize } = useCodeAreaStore();
     const [AceEditor, setAceEditor] = useState<typeof ReactAce>();
 
     useEffect(() => {
@@ -38,7 +38,7 @@ const Editor = () => {
     if (!AceEditor) return <GlobalLoadingUI />;
 
     return (
-        <div className='h-screen'>
+        <div className='flex h-screen flex-col'>
             <CodeAreaActions />
             {AceEditor && (
                 <AceEditor
@@ -50,7 +50,7 @@ const Editor = () => {
                     name='editor'
                     height='100%'
                     onChange={(newCode: string) => setCode(newCode)}
-                    fontSize={14}
+                    fontSize={fontSize}
                     showPrintMargin={true}
                     showGutter={true}
                     highlightActiveLine={true}
