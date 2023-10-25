@@ -2,7 +2,7 @@
 
 import useSessionStore from "@/data-store/session-store";
 import { BrowserMockup } from "@/components/ui/browserMockup";
-import Iframe from "@/components/core/iframe";
+import Iframe from "@/components/ui/iframe";
 import completeCode from "@/lib/code-complete";
 
 const Preview = () => {
