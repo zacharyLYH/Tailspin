@@ -113,6 +113,13 @@ const settingsOptions = new Map<string, () => React.ReactNode>([
     ["Font Size", () => <SetFontSize />],
 ]);
 
+/*
+This page is embedded into the Actions sheet. On the sheet, users will click into this button and pop out a dialog. In other words, these settings are not laid out in the sheet itself.
+
+The style of this file is to include all the code for all settings in this file, as functions. Then, include it into settingsOptions map as a KV pair of label to the function in question. 
+
+New settings options shouldn't touch the following component. Devs should create a new UI component for their setting and code it into the settingsOption map. 
+*/
 const SettingsPage = () => {
     return (
         <Dialog>

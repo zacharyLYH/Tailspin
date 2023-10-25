@@ -5,6 +5,9 @@ import CheckMarkSuccessState from "@/components/ui/check-mark-success-state";
 import { useFormatCode } from "@/lib/codeFormatter";
 import { useState } from "react";
 
+/*
+A button that once clicked will call a format code handler. The format code handler takes care of setting the formatted code back to the editor. 
+*/
 const CodeAreaFormatCode = () => {
     const { handleFormatCode } = useFormatCode();
     const [success, setSuccess] = useState(false);

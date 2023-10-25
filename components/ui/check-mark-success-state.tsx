@@ -4,6 +4,9 @@ interface CheckMarkSuccessStateProps {
     className?: string;
 }
 
+/*
+Good for use with buttons that don't produce a UI side effect, like opening a modal for example. A use case is formatting code. 
+*/
 const CheckMarkSuccessState: React.FC<CheckMarkSuccessStateProps> = ({
     className,
 }) => {
