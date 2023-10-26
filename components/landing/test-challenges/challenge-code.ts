@@ -17,9 +17,11 @@ export default function LandingPageChallengeCode(codeKey: CodeKey): string {
 }
 
 function ButtonHelloWorld(): string {
-    return `<button class="bg-blue-500 text-white rounded-full p-2">
-            Hello World
-        </button>`;
+    return `<div class="flex items-center justify-center h-screen">
+              <button class="bg-blue-500 text-white rounded-full p-2">
+                Hello World
+               </button>
+            </div>`;
 }
 
 function SimpleDialog(): string {

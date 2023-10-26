@@ -19,8 +19,8 @@ import CodeAreaFormatCode from "./code-area-formatCode";
 const CodeAreaActions = () => {
     return (
         <Sheet>
-            <SheetTrigger>
-                <Button className='min-w-full bg-purple-500 text-white hover:bg-green-500'>
+            <SheetTrigger className='w-full'>
+                <Button className='w-full bg-purple-500 text-white hover:bg-green-500'>
                     Actions
                 </Button>
             </SheetTrigger>
