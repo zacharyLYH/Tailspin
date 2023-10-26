@@ -21,7 +21,7 @@ const useCodeAreaStore = create<CodeAreaStore>((set) => ({
         set({ aceEditorTheme: themeName });
     },
     reset: () => {
-        set({ mosaicThemeDark: true, aceEditorTheme: "monokai" });
+        // set({ mosaicThemeDark: true, aceEditorTheme: "monokai" });
     },
     fontSize: 14,
     setFontSize: (size: number) => set({ fontSize: size }),
