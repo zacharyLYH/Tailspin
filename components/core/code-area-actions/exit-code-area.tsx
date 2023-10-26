@@ -27,7 +27,7 @@ export function ExitCodeArea() {
     return (
         <AlertDialog>
             <AlertDialogTrigger asChild>
-                <Button variant='outline' className='bg-red-500 text-white'>
+                <Button variant='outline' className='bg-red-500'>
                     Exit
                 </Button>
             </AlertDialogTrigger>

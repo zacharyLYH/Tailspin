@@ -47,12 +47,7 @@ const SubmitButton = () => {
 
     return (
         <>
-            <Button
-                onClick={handleSubmitButtonClick}
-                className='bg-purple-500 text-white'
-            >
-                Submit
-            </Button>
+            <Button onClick={handleSubmitButtonClick}>Submit</Button>
             {submitClicked && (
                 <AlertDialog open>
                     <AlertDialogContent>
@@ -68,7 +63,7 @@ const SubmitButton = () => {
                         </AlertDialogHeader>
                         <AlertDialogFooter>
                             <AlertDialogAction
-                                className='bg-green-500'
+                                className='bg-orange-500'
                                 onClick={handleContinueButtonClick}
                                 disabled={continueClicked}
                             >

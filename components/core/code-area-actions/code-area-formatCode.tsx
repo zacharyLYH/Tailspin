@@ -26,7 +26,7 @@ const CodeAreaFormatCode = () => {
             className={
                 success
                     ? "transition-background bg-green-500 text-white duration-1000"
-                    : "bg-purple-500 text-white"
+                    : ""
             }
         >
             {success ? <CheckMarkSuccessState /> : "Format code"}

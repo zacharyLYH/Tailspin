@@ -49,7 +49,8 @@ const Editor = () => {
                 </div>
                 <div className='flex w-1/2'>
                     <Button
-                        className='w-full'
+                        variant='secondary'
+                        className='w-full text-black'
                         onClick={() => toggleTargetImage(!targetImage)}
                     >
                         {targetImage ? "Close" : "Open"} prompt

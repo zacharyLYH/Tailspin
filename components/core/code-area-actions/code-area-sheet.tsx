@@ -20,7 +20,10 @@ const CodeAreaActions = () => {
     return (
         <Sheet>
             <SheetTrigger className='w-full'>
-                <Button className='w-full bg-purple-500 text-white hover:bg-green-500'>
+                <Button
+                    variant='default'
+                    className='w-full hover:bg-purple-500'
+                >
                     Actions
                 </Button>
             </SheetTrigger>

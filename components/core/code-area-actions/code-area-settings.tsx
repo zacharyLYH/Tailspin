@@ -153,9 +153,7 @@ const SettingsPage = () => {
     return (
         <Dialog>
             <DialogTrigger>
-                <Button className='min-w-full bg-purple-500 text-white'>
-                    Settings
-                </Button>
+                <Button className='min-w-full'>Settings</Button>
             </DialogTrigger>
             <DialogContent>
                 <DialogHeader>
