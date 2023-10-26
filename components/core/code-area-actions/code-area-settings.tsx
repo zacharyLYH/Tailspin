@@ -32,6 +32,34 @@ const ToggleDarkTheme = () => {
     );
 };
 
+const SetTabSize = () => {
+    const { tabSize, setTabSize } = useCodeAreaStore();
+    const tabSizeChoices = [2, 4];
+    return (
+        <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+                <Button variant='outline'>
+                    <ChevronDown className='mr-1 h-4 w-4' />
+                    {tabSize}
+                </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className='w-56 overflow-y-visible'>
+                <DropdownMenuLabel>Tab Size</DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                {tabSizeChoices.map((size) => (
+                    <DropdownMenuCheckboxItem
+                        checked={size === tabSize}
+                        onCheckedChange={() => setTabSize(size)}
+                        key={size}
+                    >
+                        {size}
+                    </DropdownMenuCheckboxItem>
+                ))}
+            </DropdownMenuContent>
+        </DropdownMenu>
+    );
+};
+
 const SetFontSize = () => {
     const { fontSize, setFontSize } = useCodeAreaStore();
     const fontSizeChoices: number[] = Array.from(
@@ -47,7 +75,7 @@ const SetFontSize = () => {
                 </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent className='w-56 overflow-y-visible'>
-                <DropdownMenuLabel>Theme</DropdownMenuLabel>
+                <DropdownMenuLabel>Font Size</DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 {fontSizeChoices.map((size) => (
                     <DropdownMenuCheckboxItem
@@ -89,7 +117,7 @@ const AceEditorTheme = () => {
                 </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent className='w-56 overflow-y-visible'>
-                <DropdownMenuLabel>Font Size</DropdownMenuLabel>
+                <DropdownMenuLabel>Editor Theme</DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 {themeList.map((theme) => (
                     <DropdownMenuCheckboxItem
@@ -111,6 +139,7 @@ const settingsOptions = new Map<string, () => React.ReactNode>([
     ["Dark Theme", () => <ToggleDarkTheme />],
     ["Editor Theme", () => <AceEditorTheme />],
     ["Font Size", () => <SetFontSize />],
+    ["Tab Size", () => <SetTabSize />],
 ]);
 
 /*

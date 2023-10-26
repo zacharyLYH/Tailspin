@@ -9,7 +9,7 @@ import useCodeAreaStore from "@/data-store/code-area-store";
 
 const Editor = () => {
     const { code, setCode } = useSessionStore();
-    const { aceEditorTheme, fontSize } = useCodeAreaStore();
+    const { aceEditorTheme, fontSize, tabSize } = useCodeAreaStore();
     const [AceEditor, setAceEditor] = useState<typeof ReactAce>();
 
     useEffect(() => {
@@ -60,7 +60,7 @@ const Editor = () => {
                         enableLiveAutocompletion: true,
                         enableSnippets: true,
                         showLineNumbers: true,
-                        tabSize: 2,
+                        tabSize: tabSize,
                         wrapBehavioursEnabled: true,
                         wrap: true,
                     }}

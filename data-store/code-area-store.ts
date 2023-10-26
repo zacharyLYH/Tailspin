@@ -8,6 +8,8 @@ interface CodeAreaStore {
     reset: () => void;
     fontSize: number;
     setFontSize: (size: number) => void;
+    tabSize: number;
+    setTabSize: (size: number) => void;
 }
 
 const useCodeAreaStore = create<CodeAreaStore>((set) => ({
@@ -23,6 +25,8 @@ const useCodeAreaStore = create<CodeAreaStore>((set) => ({
     },
     fontSize: 14,
     setFontSize: (size: number) => set({ fontSize: size }),
+    tabSize: 2,
+    setTabSize: (size: number) => set({ tabSize: size }),
 }));
 
 export default useCodeAreaStore;
