@@ -7,19 +7,19 @@ import { Separator } from "@/components/ui/separator";
 import React from "react";
 
 const ThanksPage = async () => {
+    //TODO: Implement ETag into github to reduce new requests
     const fetchContributors = async () => {
         try {
-            const mainContributorsResponse = await axios.get(
-                "https://api.github.com/repos/zacharyLYH/Tailspin/pulls?state=closed&base=main"
-            );
             const devContributorsResponse = await axios.get(
-                "https://api.github.com/repos/zacharyLYH/Tailspin/pulls?state=closed&base=dev"
+                "https://api.github.com/repos/zacharyLYH/Tailspin/pulls?state=closed&base=dev",
+                {
+                    headers: {
+                        Authorization: `token ${process.env.GITHUB_THANKS_TOKEN}`,
+                    },
+                }
             );
 
-            const allPRs = [
-                ...mainContributorsResponse.data,
-                ...devContributorsResponse.data,
-            ];
+            const allPRs = [...devContributorsResponse.data];
             const mergedPRs = allPRs.filter((pr: any) => pr.merged_at);
 
             const contributorsMap = new Map<
