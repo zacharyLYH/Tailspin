@@ -1,10 +1,26 @@
 import { xata } from "@/lib/xata_client";
 
+import { useQuery } from "@tanstack/react-query";
+import { SiteCountQueryKey } from "../query-keys";
+import axios from "axios";
+
 export async function directDB_getSiteCount() {
     const record = await xata.db.Site.filter({
         field_name: "Sitevisit_count",
     }).getFirst();
     return [record?.field_value, record?.id];
+}
+
+export function getSiteCount() {
+    return useQuery({
+        queryKey: [SiteCountQueryKey],
+        queryFn: async () => {
+            const resp = await axios.get("/api/site");
+            console.log(resp);
+            return resp;
+        },
+        enabled: false,
+    });
 }
 
 export async function directDB_getSubmitCount() {
