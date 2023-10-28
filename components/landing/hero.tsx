@@ -3,12 +3,13 @@ import { cn } from "@/lib/utils";
 import { Montserrat } from "next/font/google";
 import { HeroSubText } from "@/components/ui/typewriter-effect";
 import { TailspinLogo } from "@/components/ui/spinning-logo";
+import HeroPageToast from "./hero-page-toast";
 
 const font = Montserrat({ weight: "700", subsets: ["latin"] });
 
 export const Hero = () => {
     return (
-        <div className='space-y-5 py-36 text-center font-bold text-white'>
+        <div className='relative space-y-5 py-36 text-center font-bold text-white'>
             <h1
                 className={cn(
                     "font-bol inline-flex items-center text-9xl",
@@ -50,6 +51,7 @@ export const Hero = () => {
                     />
                 </div>
             </a>
+            <HeroPageToast />
         </div>
     );
 };

@@ -10,12 +10,11 @@ import ThanksPage from "@/components/landing/thanks";
 
 export default function Home() {
     return (
-        <main className='mx-auto h-full w-full overflow-clip bg-gradient-to-b from-[#493b6c] via-[#14243a] to-[#000000]'>
+        <main className='mx-auto h-full w-full overflow-clip'>
             <ScrollToTop />
 
             <Navigation />
 
-            {/*landing page*/}
             <section
                 id='landing'
                 className='h-screen w-full bg-gradient-to-b from-[#493b6c] via-[#14243a] to-[#000000]'
