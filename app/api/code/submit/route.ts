@@ -5,7 +5,6 @@ export async function GET() {
     const record = await xata.db.Site.filter({
         field_name: "Landingpage_submit_count",
     }).getFirst();
-    //return [record?.field_value, record?.id];
 
     const fieldVal = record?.field_value;
     const id = record?.id;

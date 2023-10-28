@@ -1,15 +1,18 @@
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Image as LucideImg, Code, GraduationCap } from "lucide-react";
-import Editor from "@/components/core/editor";
-import Preview from "@/components/core/preview";
-import { StaticPrompt } from "../providers/static-challenge-provider";
-import { BrowserMockup } from "@/components/ui/browserMockup";
+"use client";
+
 import { FeedbackModal } from "@/components/landing/feedback/feedback-modal";
-import { TutorialPage } from "./tutorial";
-import LandingPageChallengeCode from "./test-challenges/challenge-code";
-import completeCode from "@/lib/code-complete";
+import { Button } from "@/components/ui/button";
+import useSessionStore from "@/data-store/session-store";
+import LandingPageCode from "./test-challenges/placeholder-code";
+import { useRouter } from "next/navigation";
 
 export const TabSection = () => {
+    const { setCode } = useSessionStore();
+    const router = useRouter();
+    const tryItOutHandler = () => {
+        setCode(LandingPageCode());
+        router.push("/code-area");
+    };
     return (
         <div id='tabsSection'>
             <h1 className='mt-2 flex flex-wrap items-center justify-center text-center font-semibold italic text-green-500'>
@@ -34,41 +37,9 @@ export const TabSection = () => {
                         </p>
                     </div>
                 </div>
-                <Tabs defaultValue='tutorial' className='z-10 mt-2 w-full'>
-                    <TabsList className='mx-auto flex'>
-                        <TabsTrigger className='w-1/3' value='tutorial'>
-                            Quick Start{" "}
-                            <GraduationCap className='ml-1 h-4 w-4' />
-                        </TabsTrigger>
-                        <TabsTrigger className='w-1/3' value='image'>
-                            Sample Image <LucideImg className='ml-1 h-4 w-4' />
-                        </TabsTrigger>
-                        <TabsTrigger className='w-1/3' value='code'>
-                            Code Area <Code className='ml-1 h-4 w-4' />
-                        </TabsTrigger>
-                    </TabsList>
-                    <TabsContent
-                        value='tutorial'
-                        className='mx-auto h-[90vh] max-w-screen-xl '
-                    >
-                        <TutorialPage />
-                    </TabsContent>
-                    <TabsContent value='image' className='h-[90vh]'>
-                        <BrowserMockup>
-                            <StaticPrompt
-                                code={completeCode(
-                                    LandingPageChallengeCode("helloWorld")
-                                )}
-                            />
-                        </BrowserMockup>
-                    </TabsContent>
-                    <TabsContent value='code'>
-                        <div className='grid h-[90vh] grid-cols-3 gap-1'>
-                            <Editor className='col-span-1' />
-                            <Preview className='col-span-2' />
-                        </div>
-                    </TabsContent>
-                </Tabs>
+                <div className='items-cetner flex justify-center'>
+                    <Button onClick={tryItOutHandler}>Try it out!</Button>
+                </div>
             </div>
         </div>
     );

@@ -14,7 +14,7 @@ const AboutTailSpinBoxes: React.FC<AboutTailSpinBoxesProps> = ({
     footer,
 }) => {
     return (
-        <figure className='relative m-2 flex flex-col items-center justify-center rounded-lg border-b border-gray-200 bg-white p-8 text-center dark:border-gray-700 dark:bg-gray-800'>
+        <figure className='relative m-2 flex flex-col items-center justify-center rounded-xl border-2 border-white p-8 text-center'>
             <blockquote className='mx-auto mb-4 max-w-2xl text-gray-500 dark:text-gray-400 lg:mb-8'>
                 <h3 className='text-lg font-semibold text-gray-900 dark:text-white'>
                     {title}
@@ -52,7 +52,7 @@ const AboutTailspin = () => {
                             write code to reproduce that image.
                             <br />
                             <Link href='#tabsSection'>
-                                <Button className='mt-2 bg-green-500'>
+                                <Button className='mt-2 bg-orange-500'>
                                     Try it out! 🏃
                                 </Button>
                             </Link>
@@ -113,7 +113,7 @@ const AboutTailspin = () => {
                             hire/get hired 😉.
                             <br />
                             <Link href='#tabsSection'>
-                                <Button className='mt-2 bg-green-500'>
+                                <Button className='mt-2 bg-orange-500'>
                                     Leaderboard{" "}
                                     <BarChartBig className='ml-2 h-4 w-4' />
                                 </Button>
@@ -121,7 +121,7 @@ const AboutTailspin = () => {
                         </p>
                     }
                     footer={
-                        <div className='absolute inset-0 flex items-center justify-center bg-black bg-opacity-50'>
+                        <div className='absolute inset-0 flex items-center justify-center bg-slate-600 bg-opacity-50'>
                             <span className='absolute bottom-0 left-1/2 -translate-x-1/2 transform text-xl font-semibold text-red-500'>
                                 In development
                             </span>

@@ -1,6 +1,6 @@
 "use client";
 
-import Iframe from "@/components/core/iframe";
+import Iframe from "@/components/ui/iframe";
 import useSessionStore from "@/data-store/session-store";
 import completeCode from "@/lib/code-complete";
 import { useEffect } from "react";
@@ -9,7 +9,7 @@ interface StaticPromptProps {
     code: string;
 }
 
-export const StaticPrompt: React.FC<StaticPromptProps> = ({ code }) => {
+const StaticPrompt: React.FC<StaticPromptProps> = ({ code }) => {
     const { promptIframeSession } = useSessionStore();
     useEffect(() => {
         const preventContextMenu = (e: Event) => {
@@ -50,3 +50,5 @@ export const StaticPrompt: React.FC<StaticPromptProps> = ({ code }) => {
         </div>
     );
 };
+
+export default StaticPrompt;

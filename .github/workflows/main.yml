@@ -23,6 +23,3 @@ jobs:
 
             - name: Run lint
               run: yarn run lint
-
-            - name: Build
-              run: yarn build

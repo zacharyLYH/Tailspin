@@ -9,7 +9,7 @@ export const TailspinLogo: React.FC<TailspinLogoProps> = ({
 }) => {
     return (
         <div className={outershellClassname}>
-            <Shell className='h-full w-full text-green-500' />
+            <Shell className='h-full w-full text-orange-500' />
         </div>
     );
 };
