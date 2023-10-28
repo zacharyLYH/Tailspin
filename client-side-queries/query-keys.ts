@@ -5,3 +5,4 @@ We store query keys here strictly to decouple the query function from the query 
 */
 
 export const SampleQueryKey = "SampleQueryKey";
+export const CodeSubmitQueryKey = "CodeSubmitQueryKey";

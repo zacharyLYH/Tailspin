@@ -3,7 +3,6 @@
 import ConfettiExplosion, { ConfettiProps } from "react-confetti-explosion";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { handleSubmitIncrement } from "../../landing/handlers/submitIncrementHandler";
 import { useRouter } from "next/navigation";
 import {
     AlertDialog,
@@ -15,6 +14,7 @@ import {
     AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
 import { useResetFeState } from "@/lib/reset-fe-state";
+import { usePutSubmitCount } from "@/rq-queries/code-submit";
 
 const smallProps: ConfettiProps = {
     force: 0.6,
@@ -29,11 +29,12 @@ const SubmitButton = () => {
     const [submitClicked, setSubmitClicked] = useState(false);
     const [continueClicked, setContinueClicked] = useState(false);
     const handleReset = useResetFeState();
+    const mutation = usePutSubmitCount();
 
     const handleSubmitButtonClick = () => {
         try {
+            mutation.mutate();
             setSubmitClicked(true);
-            handleSubmitIncrement();
         } catch (error) {
             alert("Something went wrong. Error");
         }
