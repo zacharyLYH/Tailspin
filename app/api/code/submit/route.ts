@@ -34,16 +34,9 @@ async function directDB_getSubmitCount() {
 }
 
 export async function PUT(req: Request) {
-    /*
-Note that we're using strings instead of numbers in the field_count column. 
-Because this table "Site" will hold all our present and future "site related" information. And thus we need something more robust like a string for the field_value column. 
-*/
-    const body = await req.json();
-
-    const { field_value, id }: { field_value: string; id: string } = body;
     const landingPageSubmitCount = await directDB_getSubmitCount();
 
-    directDB_incrementSubmitCount(
+    await directDB_incrementSubmitCount(
         landingPageSubmitCount[1]!,
         landingPageSubmitCount[0]!
     );
