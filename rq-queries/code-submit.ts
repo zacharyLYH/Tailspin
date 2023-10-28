@@ -1,5 +1,3 @@
-"use client";
-
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { CodeSubmitQueryKey } from "../client-side-queries/query-keys";
 import axios from "axios";
