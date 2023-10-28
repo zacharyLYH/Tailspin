@@ -17,14 +17,12 @@ const HeroPageToast = () => {
         <>
             {showToast && (
                 <div className='fixed bottom-4 right-4'>
-                    <div
+                    <p
                         className='flex w-full max-w-md items-center rounded-lg bg-white p-4 text-gray-500 shadow dark:bg-gray-800 dark:text-gray-400'
                         role='alert'
                     >
-                        <span className='text-sm font-normal'>
-                            🔥 We&aposre looking for contributers!
-                        </span>
-                    </div>
+                        🔥 We&apos;re looking for contributers!
+                    </p>
                 </div>
             )}
         </>
