@@ -7,13 +7,6 @@ export async function directDB_getSiteCount() {
     return [record?.field_value, record?.id];
 }
 
-export async function directDB_getSubmitCount() {
-    const record = await xata.db.Site.filter({
-        field_name: "Landingpage_submit_count",
-    }).getFirst();
-    return record?.field_value;
-}
-
 /*
 Note that we're using strings instead of numbers in the field_count column. 
 Because this table "Site" will hold all our present and future "site related" information. And thus we need something more robust like a string for the field_value column. 
