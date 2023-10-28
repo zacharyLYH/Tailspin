@@ -22,7 +22,7 @@ const HeroPageToast = () => {
                         role='alert'
                     >
                         <span className='text-sm font-normal'>
-                            🔥 We're looking for contributers!
+                            🔥 We&aposre looking for contributers!
                         </span>
                     </div>
                 </div>
