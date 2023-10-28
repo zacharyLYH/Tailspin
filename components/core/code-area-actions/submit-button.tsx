@@ -53,11 +53,11 @@ const SubmitButton = () => {
                 <AlertDialog open>
                     <AlertDialogContent>
                         <AlertDialogHeader>
+                            <ConfettiExplosion {...smallProps} />
                             <AlertDialogTitle>
                                 Congratulations on submitting!
                             </AlertDialogTitle>
                             <AlertDialogDescription>
-                                <ConfettiExplosion {...smallProps} />
                                 Click continue to navigate back to the home
                                 page.
                             </AlertDialogDescription>
