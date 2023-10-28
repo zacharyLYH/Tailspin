@@ -5,9 +5,6 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 //import { handleSubmitIncrement } from "../landing/handlers/submitIncrementHandler";
 import { usePutSubmitCount } from "../../rq-queries/code-submit";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { CodeSubmitQueryKey } from "@/client-side-queries/query-keys";
-import axios from "axios";
 
 const smallProps: ConfettiProps = {
     force: 0.6,
@@ -17,24 +14,14 @@ const smallProps: ConfettiProps = {
 };
 
 const ConfettiButton = (props: any, className: string) => {
-    const queryClient = useQueryClient();
     const [isSmallExploding, setIsSmallExploding] = useState(false);
 
-    const mutation = useMutation(() => axios.put("/api/code/submit"), {
-        onError: (error) => {
-            console.log("error", error);
-        },
-        onSuccess: () => {
-            console.log("success");
-            queryClient.invalidateQueries({ queryKey: [CodeSubmitQueryKey] });
-        },
-    });
+    console.log("const mutation = usePutSubmitCount();");
+    const mutation = usePutSubmitCount();
 
     const handleButtonClick = () => {
-        console.log("button clicked");
-        console.log(mutation);
+        console.log("submit button clicked");
         mutation.mutate();
-        console.log("putSubmitCount Passed");
         setIsSmallExploding(true);
         setTimeout(() => setIsSmallExploding(false), 1200);
     };
