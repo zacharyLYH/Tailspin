@@ -3,7 +3,8 @@
 import ConfettiExplosion, { ConfettiProps } from "react-confetti-explosion";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { handleSubmitIncrement } from "../landing/handlers/submitIncrementHandler";
+//import { handleSubmitIncrement } from "../landing/handlers/submitIncrementHandler";
+import { usePutSubmitCount } from "@/rq-queries/code-submit";
 
 const smallProps: ConfettiProps = {
     force: 0.6,
@@ -16,7 +17,9 @@ const ConfettiButton = (props: any, className: string) => {
     const [isSmallExploding, setIsSmallExploding] = useState(false);
 
     const handleButtonClick = () => {
-        handleSubmitIncrement();
+        console.log("button clicked");
+        usePutSubmitCount();
+        console.log("putSubmitCount Passed");
         setIsSmallExploding(true);
         setTimeout(() => setIsSmallExploding(false), 1200);
     };

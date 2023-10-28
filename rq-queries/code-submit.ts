@@ -28,13 +28,31 @@ export function getCodeSubmitCount() {
     return submitCount;
 }
 
-export function putSiteCount() {
-    return useMutation({
+export function putSubmitCount() {
+    const { isIdle, isLoading, isError, data, error } = useMutation({
         mutationFn: () => {
             console.log(
                 "mutationFn of putSiteCount() called... calling axios.."
             );
-            return axios.put("/api/site");
+            return axios.put("/api/code/submit");
         },
     });
+
+    console.log("called putSubmitCount()");
+
+    if (isIdle) {
+        console.log("idle");
+    }
+
+    if (isLoading) {
+        console.log("loading..........");
+    }
+
+    if (isError) {
+        console.log("ERROR....", error);
+    }
+
+    console.log("data for putsubmitcount...", data);
+
+    return;
 }

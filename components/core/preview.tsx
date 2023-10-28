@@ -11,7 +11,6 @@ import Iframe from "@/components/core/iframe";
 import completeCode from "@/lib/code-complete";
 import { getSample } from "@/client-side-queries/sample-query/sample";
 import ConfettiButton from "../ui/confetti-button";
-import { handleSubmitIncrement } from "../landing/handlers/submitIncrementHandler";
 
 import React from "react";
 
