@@ -1,13 +1,12 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { TailspinLogo } from "../ui/spinning-logo";
-import { Shell } from "lucide-react";
 
 // TODO: Add better responsiveness and mobile design, refactor Button into the button component
 
 export const Navigation = () => {
     return (
-        <nav className='sticky top-0 z-[1] flex h-16 items-center'>
+        <nav className='fixed top-0 z-[1] flex h-16 w-full items-center'>
             <Link href='#landing'>
                 <div className='mx-5'>
                     <TailspinLogo outershellClassname='animate-spin h-10 w-10' />
