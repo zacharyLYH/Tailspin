@@ -1,6 +1,14 @@
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, QueryClient } from "@tanstack/react-query";
 import { CodeSubmitQueryKey } from "../client-side-queries/query-keys";
 import axios from "axios";
+
+const queryClient = new QueryClient({
+    defaultOptions: {
+        queries: {
+            staleTime: Infinity,
+        },
+    },
+});
 
 export function getCodeSubmitCount() {
     const { isLoading, isError, data, error, refetch } = useQuery({
@@ -28,31 +36,28 @@ export function getCodeSubmitCount() {
     return submitCount;
 }
 
-export function putSubmitCount() {
-    const { isIdle, isLoading, isError, data, error } = useMutation({
-        mutationFn: () => {
-            console.log(
-                "mutationFn of putSiteCount() called... calling axios.."
-            );
-            return axios.put("/api/code/submit");
+export function usePutSubmitCount() {
+    return useMutation(() => axios.put("/api/code/submit"), {
+        onSuccess: () => {
+            queryClient.invalidateQueries({ queryKey: [CodeSubmitQueryKey] });
         },
     });
 
-    console.log("called putSubmitCount()");
+    // console.log("called putSubmitCount()");
 
-    if (isIdle) {
-        console.log("idle");
-    }
+    // if (isIdle) {
+    //     console.log("idle");
+    // }
 
-    if (isLoading) {
-        console.log("loading..........");
-    }
+    // if (isLoading) {
+    //     console.log("loading..........");
+    // }
 
-    if (isError) {
-        console.log("ERROR....", error);
-    }
+    // if (isError) {
+    //     console.log("ERROR....", error);
+    // }
 
-    console.log("data for putsubmitcount...", data);
+    // console.log("data for putsubmitcount...", data);
 
-    return;
+    // return;
 }

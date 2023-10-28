@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import { xata } from "@/lib/xata_client";
-import { useQuery } from "@tanstack/react-query";
 
 export async function GET() {
     const record = await xata.db.Site.filter({
