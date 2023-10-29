@@ -8,10 +8,10 @@ const OverallRating = () => {
     const setRating = useRatingStore((state) => state.setOverallRating);
 
     return (
-        <div className='p-10'>
-            <h1 className='mb-4 text-xl'>Overall Rating:</h1>
+        <div>
+            <h1 className='mb-2 text-xl'>Overall Rating:</h1>
             <StarComponent rating={rating} setRating={setRating} />
-            <div className='mt-4 flex flex-row'>
+            <div className='mt-2 flex flex-row'>
                 <span>{rating}/5</span>
                 <button
                     className=' text-md ml-3 underline '
