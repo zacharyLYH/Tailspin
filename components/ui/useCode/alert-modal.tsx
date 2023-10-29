@@ -38,7 +38,7 @@ export function EnterCodeArea() {
             </AlertDialogTrigger>
             <AlertDialogContent className='h-1/2 flex-row'>
                 <AlertDialogHeader>
-                    <AlertDialogTitle className='self-center'>
+                    <AlertDialogTitle className='mb-4 self-center font-bold text-orange-500'>
                         Before you can code...
                     </AlertDialogTitle>
                     <TermsOfServiceBox />
