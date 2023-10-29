@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { TailspinLogo } from "../ui/spinning-logo";
+import EnterCodeArea from "../ui/useCode/alert-modal";
 
 // TODO: Add better responsiveness and mobile design, refactor Button into the button component
 
@@ -32,6 +33,7 @@ export const Navigation = () => {
             >
                 Tutorial
             </Button>
+            <EnterCodeArea />
         </nav>
     );
 };
