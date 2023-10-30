@@ -1,10 +1,19 @@
 import { Checkbox } from "@/components/ui/checkbox";
 
-export function TermsOfServiceBox() {
+export function TermsOfServiceBox(props: any) {
+    let checked: boolean = false;
+
     return (
         <>
+            {props.handleGetCheck(checked)}
             <div className='flex flex-row'>
-                <Checkbox className='mx-4 mt-[5px]' />
+                <Checkbox
+                    onCheckedChange={() => {
+                        checked = !checked;
+                        props.handleGetCheck(checked);
+                    }}
+                    className='mx-4 mt-[5px]'
+                />
                 <p>
                     By checking the box, you are confirming that you have read
                     and agree to&nbsp;
