@@ -1,16 +1,22 @@
 import { Checkbox } from "@/components/ui/checkbox";
 
+let checked: boolean = false;
+
 export function TermsOfServiceBox(props: any) {
-    let checked: boolean = false;
+    console.log("checked defined");
 
     return (
         <>
-            {props.handleGetCheck(checked)}
             <div className='flex flex-row'>
                 <Checkbox
-                    onCheckedChange={() => {
-                        checked = !checked;
-                        props.handleGetCheck(checked);
+                    onClick={() => {
+                        if (checked === true) {
+                            checked = false;
+                            props.handleCheckmark(props.progress - 25);
+                        } else if (checked === false) {
+                            checked = true;
+                            props.handleCheckmark(props.progress + 25);
+                        }
                     }}
                     className='mx-4 mt-[5px]'
                 />
