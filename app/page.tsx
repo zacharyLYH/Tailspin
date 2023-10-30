@@ -7,6 +7,7 @@ import AboutTailspin from "@/components/landing/about-tailspin";
 import FAQ from "@/components/landing/faq";
 import Timeline from "@/components/landing/timeline";
 import ThanksPage from "@/components/landing/thanks";
+import StepperCard from "@/components/ui/useCode/StepperCard";
 
 export default function Home() {
     return (
@@ -25,6 +26,9 @@ export default function Home() {
             </section>
             <section>
                 <AboutTailspin />
+            </section>
+            <section id='stepper' className='flex'>
+                <StepperCard />
             </section>
             <section id='tabsSection'>
                 <TabSection />
