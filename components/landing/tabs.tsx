@@ -24,19 +24,6 @@ export const TabSection = () => {
             </h1>
 
             <div className='relative'>
-                <div className='pointer-events-auto absolute inset-0 z-20 bg-white bg-opacity-50 xl:hidden' />
-                <div className='absolute inset-0 z-30 flex items-center justify-center xl:hidden'>
-                    <div className='w-3/4 max-w-lg rounded-xl bg-black p-6 shadow-lg'>
-                        <h2 className='mb-4 text-center text-xl font-bold text-white'>
-                            It looks like you&quot;re on a small screen
-                        </h2>
-                        <p className='text-sm font-semibold text-gray-400'>
-                            We hate to be non-inclusive towards phones and
-                            tablets, however we want to provide you with the
-                            best experience possible!
-                        </p>
-                    </div>
-                </div>
                 <div className='items-cetner flex justify-center'>
                     <Button onClick={tryItOutHandler}>Try it out!</Button>
                 </div>
