@@ -18,23 +18,10 @@ import { Button } from "@/components/ui/button";
 import { useResetFeState } from "@/lib/reset-fe-state";
 import { useRouter } from "next/navigation";
 import TermsOfServiceBox from "./Terms-of-Service";
-import { useEffect, useState } from "react";
+import useStepperStore from "@/data-store/stepper-store";
 
 export function StepperCard() {
-    const [progress, setProgress] = useState(0);
-
-    // useEffect(() => {
-    //     console.log("progress is", progress);
-    // }, [progress]);
-
-    // function GetCheck(data: any) {
-    //     console.log("GetCheck Called");
-    //     if (data === false) {
-    //         setProgress(5);
-    //     } else {
-    //         setProgress(100);
-    //     }
-    // }
+    const { progress, setProgress } = useStepperStore();
 
     const router = useRouter();
     const handleReset = useResetFeState();
@@ -52,10 +39,7 @@ export function StepperCard() {
             </CardHeader>
 
             <CardContent>
-                <TermsOfServiceBox
-                    handleCheckmark={setProgress}
-                    progress={progress}
-                />
+                <TermsOfServiceBox />
             </CardContent>
             <CardFooter className='flex justify-end'>
                 <Button

@@ -1,22 +1,18 @@
 import { Checkbox } from "@/components/ui/checkbox";
+import useStepperStore from "@/data-store/stepper-store";
 
 let checked: boolean = false;
 
-export function TermsOfServiceBox(props: any) {
-    console.log("checked defined");
+export function TermsOfServiceBox() {
+    const { progress, setProgress } = useStepperStore();
 
     return (
         <>
             <div className='flex flex-row'>
                 <Checkbox
                     onClick={() => {
-                        if (checked === true) {
-                            checked = false;
-                            props.handleCheckmark(props.progress - 25);
-                        } else if (checked === false) {
-                            checked = true;
-                            props.handleCheckmark(props.progress + 25);
-                        }
+                        checked = !checked;
+                        setProgress(checked ? progress + 25 : progress - 25);
                     }}
                     className='mx-4 mt-[5px]'
                 />
