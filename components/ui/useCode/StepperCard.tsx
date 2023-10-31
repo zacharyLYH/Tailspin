@@ -19,6 +19,7 @@ import { useResetFeState } from "@/lib/reset-fe-state";
 import { useRouter } from "next/navigation";
 import TermsOfServiceBox from "./Terms-of-Service";
 import useStepperStore from "@/data-store/stepper-store";
+import { StepperEmailForm } from "./Stepper-Email-Form";
 
 export function StepperCard() {
     const { progress, setProgress } = useStepperStore();
@@ -40,6 +41,7 @@ export function StepperCard() {
 
             <CardContent>
                 <TermsOfServiceBox />
+                <StepperEmailForm />
             </CardContent>
             <CardFooter className='flex justify-end'>
                 <Button
