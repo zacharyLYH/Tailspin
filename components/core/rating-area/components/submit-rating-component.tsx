@@ -33,7 +33,7 @@ const RatingSubmitButton = () => {
                 </>
             ) : (
                 <>
-                    <Check className='mr-2 h-4 w-4' /> Don't forget to hit
+                    <Check className='mr-2 h-4 w-4' /> Don&apos;t forget to hit
                     submit!
                 </>
             )}
