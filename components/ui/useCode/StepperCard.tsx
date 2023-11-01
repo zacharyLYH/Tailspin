@@ -10,14 +10,8 @@ import {
 } from "@/components/ui/card";
 
 import { Progress } from "@/components/ui/progress";
-
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import * as z from "zod";
-import { Button } from "@/components/ui/button";
 import { useResetFeState } from "@/lib/reset-fe-state";
 import { useRouter } from "next/navigation";
-import TermsOfServiceBox from "./Terms-of-Service";
 import useStepperStore from "@/data-store/stepper-store";
 import { StepperEmailForm } from "./Stepper-Email-Form";
 
@@ -39,18 +33,9 @@ export function StepperCard() {
                 <Progress value={progress} />
             </CardHeader>
 
-            <CardContent>
-                <TermsOfServiceBox />
+            <CardContent className='flex'>
                 <StepperEmailForm />
             </CardContent>
-            <CardFooter className='flex justify-end'>
-                <Button
-                    variant='ghost'
-                    className='mx-3 font-semibold text-muted-foreground'
-                >
-                    Continue
-                </Button>
-            </CardFooter>
         </Card>
     );
 }

@@ -1,10 +1,12 @@
 import { Checkbox } from "@/components/ui/checkbox";
 import useStepperStore from "@/data-store/stepper-store";
+import { useEffect } from "react";
 
 let checked: boolean = false;
 
 export function TermsOfServiceBox() {
     const { progress, setProgress } = useStepperStore();
+    const { check, setCheck } = useStepperStore();
 
     return (
         <>
@@ -12,6 +14,7 @@ export function TermsOfServiceBox() {
                 <Checkbox
                     onClick={() => {
                         checked = !checked;
+                        setCheck(checked);
                         setProgress(checked ? progress + 25 : progress - 25);
                     }}
                     className='mx-4 mt-[5px]'

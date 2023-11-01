@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button";
 import {
     Form,
     FormControl,
-    FormDescription,
     FormField,
     FormItem,
     FormLabel,
@@ -15,6 +14,8 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Loader2 } from "lucide-react";
+import useStepperStore from "@/data-store/stepper-store";
+import TermsOfServiceBox from "./Terms-of-Service";
 
 const formSchema = z.object({
     email: z.string().email({
@@ -23,11 +24,17 @@ const formSchema = z.object({
 });
 
 export function StepperEmailForm() {
+    const { email, setEmail } = useStepperStore();
+    const { check, setCheck } = useStepperStore();
+
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
     });
     async function onSubmit(values: z.infer<typeof formSchema>) {
-        //submit email and tos into a zustand store
+        const userEmail = JSON.stringify(values.email);
+        console.log("user email is", userEmail);
+        setEmail(userEmail);
+        console.log(email);
     }
     return (
         <Form {...form}>
@@ -44,13 +51,12 @@ export function StepperEmailForm() {
                                     {...field}
                                 />
                             </FormControl>
-                            <FormDescription>
-                                We&apos;ll reply you via the provided email.
-                            </FormDescription>
                             <FormMessage />
                         </FormItem>
                     )}
                 />
+
+                <TermsOfServiceBox />
 
                 {form.formState.isSubmitting ? (
                     <Button disabled>
@@ -58,7 +64,13 @@ export function StepperEmailForm() {
                         Submitting...
                     </Button>
                 ) : (
-                    <Button type='submit'>Submit 🎉</Button>
+                    <Button
+                        type='submit'
+                        variant='ghost'
+                        className='self float-right font-semibold text-muted-foreground'
+                    >
+                        Continue
+                    </Button>
                 )}
             </form>
         </Form>
