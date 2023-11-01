@@ -4,7 +4,7 @@ import { usePutRating } from "@/client-side-queries/rq-queries/rating-submit";
 import { Button } from "@/components/ui/button";
 import { useRatingStore } from "@/data-store/rating-store";
 import { Check, Loader2 } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
 const RatingSubmitButton = () => {
@@ -13,16 +13,23 @@ const RatingSubmitButton = () => {
     const mutation = usePutRating([uxRating, overallRating, funRating]);
 
     const handleSubmitButtonClick = () => {
-        try {
-            setSubmittingRating(true);
-            mutation.mutate();
-            toast.success("We really appreciated your help!");
-        } catch (error) {
+        setSubmittingRating(true);
+        mutation.mutate();
+    };
+
+    useEffect(() => {
+        if (mutation.isError) {
             toast.error("Something went wrong...");
-        } finally {
             setSubmittingRating(false);
         }
-    };
+    }, [mutation.isError]);
+
+    useEffect(() => {
+        if (mutation.isSuccess) {
+            toast.success("We really appreciated your help!");
+            setSubmittingRating(false);
+        }
+    }, [mutation.isSuccess]);
 
     return (
         <Button onClick={handleSubmitButtonClick}>
