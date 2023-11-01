@@ -29,10 +29,14 @@ export const SiteRatingStatBox = (props: any) => {
                                 <div className='flex flex-col'>
                                     <p>
                                         {val.field_name} :{" "}
-                                        {Number(val.field_value.split("-")[0]) /
+                                        {(
+                                            Number(
+                                                val.field_value.split("-")[0]
+                                            ) /
                                             Number(
                                                 val.field_value.split("-")[1]
-                                            )}{" "}
+                                            )
+                                        ).toFixed(2)}{" "}
                                         stars.
                                     </p>
                                     <p>
