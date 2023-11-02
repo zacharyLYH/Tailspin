@@ -1,22 +1,13 @@
 "use client";
 
-import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardFooter,
-    CardHeader,
-    CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 import { Progress } from "@/components/ui/progress";
-import { useResetFeState } from "@/lib/reset-fe-state";
-import { useRouter } from "next/navigation";
 import useStepperStore from "@/data-store/stepper-store";
 import { StepperEmailForm } from "./Stepper-Email-Form";
 
 export function StepperCard() {
-    const { progress, setProgress } = useStepperStore();
+    const { progress } = useStepperStore();
 
     return (
         <Card className='mx-auto w-full md:w-3/4' id='codeEnterance'>
