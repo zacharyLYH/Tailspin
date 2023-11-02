@@ -18,16 +18,8 @@ import { StepperEmailForm } from "./Stepper-Email-Form";
 export function StepperCard() {
     const { progress, setProgress } = useStepperStore();
 
-    const router = useRouter();
-    const handleReset = useResetFeState();
-
-    const exitClicked = () => {
-        handleReset();
-        router.push("/");
-    };
-
     return (
-        <Card className='mx-auto w-full md:w-3/4'>
+        <Card className='mx-auto w-full md:w-3/4' id='codeEnterance'>
             <CardHeader>
                 <CardTitle className='mb-4'>Before You Can Code....</CardTitle>
                 <Progress value={progress} />

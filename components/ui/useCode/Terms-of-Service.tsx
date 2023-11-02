@@ -19,7 +19,7 @@ export function TermsOfServiceBox() {
                     }}
                     className='mx-4 mt-[5px]'
                 />
-                <p>
+                <label>
                     By checking the box, you are confirming that you have read
                     and agree to&nbsp;
                     {/* TODO: Replace this to link to a seperate page for Terms and Services */}
@@ -27,9 +27,9 @@ export function TermsOfServiceBox() {
                         href='https://www.google.com'
                         className='italic text-blue-500 underline'
                     >
-                        Tailspin&apos;s terms &amp; conditions.
+                        <label>Tailspin&apos;s terms &amp; conditions.</label>T
                     </a>
-                </p>
+                </label>
             </div>
         </>
     );
