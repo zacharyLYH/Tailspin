@@ -9,7 +9,7 @@ const OverallRating = () => {
 
     return (
         <div>
-            <h1 className='mb-2 text-xl'>Overall Rating:</h1>
+            <h4 className='mb-2 text-xl'>Overall Rating:</h4>
             <StarComponent rating={rating} setRating={setRating} />
             <div className='mt-2 flex flex-row'>
                 <span>{rating}/5</span>
@@ -17,7 +17,7 @@ const OverallRating = () => {
                     className=' text-md ml-3 underline '
                     onClick={() => setRating(0)}
                 >
-                    Clear
+                    0 stars no rizz
                 </button>
             </div>
         </div>

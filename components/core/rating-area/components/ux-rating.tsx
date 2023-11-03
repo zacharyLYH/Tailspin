@@ -17,7 +17,7 @@ const UxRating = () => {
                     className=' text-md ml-3 underline '
                     onClick={() => setRating(0)}
                 >
-                    Clear
+                    Like an html site
                 </button>
             </div>
         </div>

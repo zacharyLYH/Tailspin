@@ -16,7 +16,7 @@ const FunRating = () => {
                     className=' text-md ml-3 underline '
                     onClick={() => setRating(0)}
                 >
-                    Clear
+                    Worse than Notepad
                 </button>
             </div>
         </div>
