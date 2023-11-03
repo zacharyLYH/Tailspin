@@ -43,8 +43,8 @@ const RatingBody = () => {
                         <FunRating />
                     </Grid>
                 </CardContent>
-                <CardFooter className='flex justify-between'>
-                    <div className='w-[300] rounded-xl border border-white p-2 font-semibold text-muted-foreground'>
+                <CardFooter className='flex flex-col justify-between lg:flex-row'>
+                    <div className='mb-4 w-[300] rounded-xl border border-white p-2 font-semibold text-muted-foreground md:mb-0'>
                         <FeedbackModal buttonName='(Optionally) Give us more feedback!' />
                     </div>
                     <RatingSubmitButton />
