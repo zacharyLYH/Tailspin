@@ -7,6 +7,29 @@ import AboutTailspin from "@/components/landing/about-tailspin";
 import FAQ from "@/components/landing/faq";
 import Timeline from "@/components/landing/timeline";
 import ThanksPage from "@/components/landing/thanks";
+// import WavyScrollProvider from "@/components/providers/Wavy-Scroll-Provider";
+
+const ComponentsWithScroll: React.FC = () => {
+    return (
+        <>
+            <section id='tabsSection'>
+                <TabSection />
+            </section>
+            <section className='container'>
+                <SiteCounter />
+            </section>
+            <section>
+                <FAQ />
+            </section>
+            <section>
+                <Timeline />
+            </section>
+            <section>
+                <ThanksPage />
+            </section>
+        </>
+    );
+};
 
 export default function Home() {
     return (
@@ -23,26 +46,14 @@ export default function Home() {
                     <Hero />
                 </div>
             </section>
+
             <section>
                 <AboutTailspin />
             </section>
-            <section id='tabsSection'>
-                <TabSection />
-            </section>
-            <section className='container'>
-                <div>
-                    <SiteCounter />
-                </div>
-            </section>
-            <section>
-                <FAQ />
-            </section>
-            <section>
-                <Timeline />
-            </section>
-            <section>
-                <ThanksPage />
-            </section>
+
+            {/* <WavyScrollProvider> */}
+            <ComponentsWithScroll />
+            {/* </WavyScrollProvider> */}
         </main>
     );
 }
