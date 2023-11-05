@@ -37,7 +37,7 @@ export function FeedbackForm() {
     });
     async function onSubmit(values: z.infer<typeof formSchema>) {
         try {
-            const resp = await fetch("/api/feedback", {
+            const resp = await fetch("/api/feedback/email", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

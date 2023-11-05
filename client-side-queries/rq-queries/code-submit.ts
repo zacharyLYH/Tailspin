@@ -1,5 +1,5 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { CodeSubmitQueryKey } from "../client-side-queries/query-keys";
+import { CodeSubmitQueryKey } from "../query-keys";
 import axios from "axios";
 
 export function getCodeSubmitCount() {

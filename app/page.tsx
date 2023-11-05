@@ -7,6 +7,7 @@ import AboutTailspin from "@/components/landing/about-tailspin";
 import FAQ from "@/components/landing/faq";
 import Timeline from "@/components/landing/timeline";
 import ThanksPage from "@/components/landing/thanks";
+import RatingBody from "@/components/core/rating-area/rating-component";
 
 export default function Home() {
     return (
@@ -42,6 +43,9 @@ export default function Home() {
             </section>
             <section>
                 <ThanksPage />
+            </section>
+            <section>
+                <RatingBody />
             </section>
         </main>
     );
