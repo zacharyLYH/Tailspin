@@ -1,9 +1,10 @@
 "use client";
 
 import React from "react";
-import { Box } from "../stat-box";
 import { useGetRating } from "@/client-side-queries/rq-queries/rating-submit";
 import { Skeleton } from "@/components/ui/skeleton";
+import StatBox from "../stat-box";
+import { Star } from "lucide-react";
 
 function SkeletonDemo() {
     return (
@@ -25,25 +26,15 @@ export const SiteRatingStatBox = (props: any) => {
                 value.map(
                     (val: { field_name: string; field_value: string }) => (
                         <React.Fragment key={val.field_name}>
-                            <Box>
-                                <div className='flex flex-col'>
-                                    <p>
-                                        {val.field_name} :{" "}
-                                        {(
-                                            Number(
-                                                val.field_value.split("-")[0]
-                                            ) /
-                                            Number(
-                                                val.field_value.split("-")[1]
-                                            )
-                                        ).toFixed(2)}{" "}
-                                        stars.
-                                    </p>
-                                    <p>
-                                        {val.field_value.split("-")[1]} ratings.
-                                    </p>
-                                </div>
-                            </Box>
+                            <StatBox
+                                icon={<Star className='h-6 w-6' />}
+                                content={`${val.field_name}:${(
+                                    Number(val.field_value.split("-")[0]) /
+                                    Number(val.field_value.split("-")[1])
+                                ).toFixed(2)} with ${
+                                    val.field_value.split("-")[1]
+                                } ratings`}
+                            />
                         </React.Fragment>
                     )
                 )
