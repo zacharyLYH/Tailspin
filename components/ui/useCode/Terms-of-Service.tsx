@@ -8,6 +8,14 @@ export function TermsOfServiceBox() {
     const { progress, setProgress } = useStepperStore();
     const { check, setCheck } = useStepperStore();
 
+    function getPlaceHolder() {
+        if (check === true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     return (
         <>
             <div className='flex flex-row'>

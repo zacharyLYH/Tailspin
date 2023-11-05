@@ -27,7 +27,10 @@ export default function Home() {
             <section>
                 <AboutTailspin />
             </section>
-            <section id='stepper' className='flex'>
+            <section
+                id='stepper'
+                className='flex h-screen items-center justify-center'
+            >
                 <StepperCard />
             </section>
             <section id='tabsSection'>
