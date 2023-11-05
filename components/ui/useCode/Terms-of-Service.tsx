@@ -27,7 +27,7 @@ export function TermsOfServiceBox() {
                         href='https://www.google.com'
                         className='italic text-blue-500 underline'
                     >
-                        <label>Tailspin&apos;s terms &amp; conditions.</label>T
+                        <label>Tailspin&apos;s terms &amp; conditions.</label>
                     </a>
                 </label>
             </div>

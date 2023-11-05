@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 import { Progress } from "@/components/ui/progress";
 import useStepperStore from "@/data-store/stepper-store";
-import { StepperEmailForm } from "./Stepper-Email-Form";
+import { StepperEmailForm } from "./Stepper-Form";
 
 export function StepperCard() {
     const { progress } = useStepperStore();
