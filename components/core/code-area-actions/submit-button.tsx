@@ -14,7 +14,7 @@ import {
     AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
 import { useResetFeState } from "@/lib/reset-fe-state";
-import { usePutSubmitCount } from "@/rq-queries/code-submit";
+import { usePutSubmitCount } from "@/client-side-queries/rq-queries/code-submit";
 
 const smallProps: ConfettiProps = {
     force: 0.6,
