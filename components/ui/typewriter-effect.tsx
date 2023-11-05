@@ -6,7 +6,12 @@ export const HeroSubText = () => {
     return (
         <TypewriterComponent
             options={{
-                strings: ["Competitive TailwindCSS."],
+                strings: [
+                    "Powered by GPT",
+                    "Customizable Experience",
+                    "Community Driven",
+                    "Free to Play",
+                ],
                 autoStart: true,
                 loop: true,
             }}
