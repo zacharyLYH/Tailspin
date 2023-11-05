@@ -46,7 +46,7 @@ export function StepOne() {
         <Form {...form}>
             <form
                 onSubmit={form.handleSubmit(onContinue)}
-                className='w-full space-y-8 p-5'
+                className='w-full space-y-4 p-5'
             >
                 <EmailFormField />
                 <TOSFormField />
@@ -57,7 +57,7 @@ export function StepOne() {
                     <Button
                         type='submit'
                         variant='ghost'
-                        className='self float-right font-semibold text-muted-foreground'
+                        className='float-right font-semibold text-muted-foreground'
                     >
                         Continue
                     </Button>

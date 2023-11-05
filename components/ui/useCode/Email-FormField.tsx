@@ -24,7 +24,7 @@ export function EmailFormField(form: any) {
             control={form.control}
             name='email'
             render={({ field }) => (
-                <FormItem className='mb-[1px]'>
+                <FormItem>
                     <FormLabel>Email</FormLabel>
                     <FormControl>
                         <Input placeholder={getPlaceHolder()} {...field} />

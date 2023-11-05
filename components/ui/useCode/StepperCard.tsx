@@ -16,8 +16,8 @@ export function StepperCard() {
     const { progress } = useStepperStore();
 
     return (
-        <Card className='mx-auto h-[400px] w-full align-bottom md:w-3/4'>
-            <CardHeader className='space-y-5'>
+        <Card className='mx-auto h-[420px] w-full md:w-3/4'>
+            <CardHeader className=''>
                 <CardTitle className='mb-4'>
                     Try One Of Our Coding Challenges!!!
                 </CardTitle>
@@ -27,7 +27,7 @@ export function StepperCard() {
                     this form, you can use our code editor and attempt to do an
                     awesome Tailwind UI challenge!
                 </CardDescription>
-                <Progress value={progress} className='mt-[30px]' />
+                <Progress value={progress} />
             </CardHeader>
 
             <CardContent>
