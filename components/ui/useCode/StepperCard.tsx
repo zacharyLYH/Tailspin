@@ -16,10 +16,7 @@ export function StepperCard() {
     const { progress } = useStepperStore();
 
     return (
-        <Card
-            className='mx-auto h-[400px] w-full align-bottom md:w-3/4'
-            id='codeEnterance'
-        >
+        <Card className='mx-auto h-[400px] w-full align-bottom md:w-3/4'>
             <CardHeader className='space-y-5'>
                 <CardTitle className='mb-4'>
                     Try One Of Our Coding Challenges!!!

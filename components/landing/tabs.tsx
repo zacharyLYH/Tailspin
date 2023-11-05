@@ -5,14 +5,9 @@ import { Button } from "@/components/ui/button";
 import useSessionStore from "@/data-store/session-store";
 import LandingPageCode from "./test-challenges/placeholder-code";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export const TabSection = () => {
-    const { setCode } = useSessionStore();
-    const router = useRouter();
-    const tryItOutHandler = () => {
-        setCode(LandingPageCode());
-        router.push("/code-area");
-    };
     return (
         <div id='tabsSection'>
             <h1 className='mt-2 flex flex-wrap items-center justify-center text-center font-semibold italic text-green-500'>
@@ -25,7 +20,9 @@ export const TabSection = () => {
 
             <div className='relative'>
                 <div className='items-cetner flex justify-center'>
-                    <Button onClick={tryItOutHandler}>Try it out!</Button>
+                    <Link href='#stepper'>
+                        <Button>Try it out!</Button>
+                    </Link>
                 </div>
             </div>
         </div>

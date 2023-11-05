@@ -51,7 +51,7 @@ const AboutTailspin = () => {
                             We&apos;ll provide you with a Target image, you
                             write code to reproduce that image.
                             <br />
-                            <Link href='#tabsSection'>
+                            <Link href='#stepper'>
                                 <Button className='mt-2 bg-orange-500'>
                                     Try it out! 🏃
                                 </Button>

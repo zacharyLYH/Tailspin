@@ -18,7 +18,7 @@ export const Navigation = () => {
             >
                 About
             </Button>
-            <Link href='#codeEnterance'>
+            <Link href='#stepper'>
                 <Button
                     variant='ghost'
                     className='mx-3 font-semibold text-muted-foreground'
