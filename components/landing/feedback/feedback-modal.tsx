@@ -8,11 +8,18 @@ import {
 } from "@/components/ui/dialog";
 import { FeedbackForm } from "./feedback-form";
 
-export function FeedbackModal() {
+interface FeedbackModalProps {
+    buttonName: string;
+}
+
+export function FeedbackModal({ buttonName }: FeedbackModalProps) {
     return (
         <Dialog>
             <DialogTrigger asChild>
-                <span className='mx-1 hover:cursor-pointer'> 🌝 </span>
+                <span className='mx-1 hover:cursor-pointer'>
+                    {" "}
+                    {buttonName}{" "}
+                </span>
             </DialogTrigger>
             <DialogContent className='sm:max-w-[425px]'>
                 <DialogHeader>

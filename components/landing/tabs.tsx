@@ -18,7 +18,7 @@ export const TabSection = () => {
             <h1 className='mt-2 flex flex-wrap items-center justify-center text-center font-semibold italic text-green-500'>
                 🔈 Tailspin is still in development! Click on the face
                 <span className='mx-1 block min-w-[30px] hover:cursor-pointer'>
-                    <FeedbackModal />
+                    <FeedbackModal buttonName='🌝' />
                 </span>
                 and help make Tailspin great!
             </h1>

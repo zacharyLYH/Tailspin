@@ -1,6 +1,6 @@
 "use client";
 
-import { getCodeSubmitCount } from "@/rq-queries/code-submit";
+import { getCodeSubmitCount } from "@/client-side-queries/rq-queries/code-submit";
 import { Box } from "../stat-box";
 
 export const CodeSubmitCountBox = (props: any) => {
