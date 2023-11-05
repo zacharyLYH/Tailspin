@@ -1,5 +1,4 @@
 import {
-    Form,
     FormControl,
     FormField,
     FormItem,
@@ -15,7 +14,7 @@ export function EmailFormField(form: any) {
             name='email'
             render={({ field }) => (
                 <FormItem className='mb-[1px]'>
-                    <FormLabel>EmailBOX</FormLabel>
+                    <FormLabel>Email</FormLabel>
                     <FormControl>
                         <Input
                             placeholder='tailspin.official@gmail.com'

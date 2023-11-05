@@ -13,10 +13,9 @@ import Link from "next/link";
 let checked: boolean = false;
 
 export function TOSFormField(form: any) {
-    console.log("type is ", typeof form);
     const { check, setCheck } = useStepperStore();
     const { progress, setProgress } = useStepperStore();
-    const PROGRESS_INCREMENT: number = 25;
+    const PROGRESS_INCREMENT: number = 33;
 
     return (
         <FormField

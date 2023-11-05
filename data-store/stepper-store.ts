@@ -9,6 +9,8 @@ interface StepperStore {
     setEmail: (newEmail: string) => void;
     check: boolean;
     setCheck: (newCheck: boolean) => void;
+    challenge: string;
+    setChallenge: (newChallenge: string) => void;
 }
 
 const useStepperStore = create<StepperStore>((set) => ({
@@ -20,6 +22,8 @@ const useStepperStore = create<StepperStore>((set) => ({
     setEmail: (newEmail) => set({ email: newEmail }),
     check: false,
     setCheck: (newCheck) => set({ check: newCheck }),
+    challenge: "",
+    setChallenge: (newChallenge) => set({ challenge: newChallenge }),
 }));
 
 export default useStepperStore;
