@@ -5,7 +5,7 @@ import useStepperStore from "@/data-store/stepper-store";
 import { StepOne } from "./StepOne";
 import { StepTwo } from "./StepTwo";
 
-export function StepperEmailForm() {
+export function StepperForm() {
     const { step } = useStepperStore();
 
     if (step === 1) {

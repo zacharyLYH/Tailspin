@@ -10,7 +10,7 @@ import {
 
 import { Progress } from "@/components/ui/progress";
 import useStepperStore from "@/data-store/stepper-store";
-import { StepperEmailForm } from "./Stepper-Form";
+import { StepperForm } from "./Stepper-Form";
 
 export function StepperCard() {
     const { progress } = useStepperStore();
@@ -34,7 +34,7 @@ export function StepperCard() {
             </CardHeader>
 
             <CardContent>
-                <StepperEmailForm />
+                <StepperForm />
             </CardContent>
         </Card>
     );
