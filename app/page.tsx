@@ -2,7 +2,7 @@ import ScrollToTop from "@/components/ui/back-to-top";
 import { Hero } from "@/components/landing/hero";
 import { TabSection } from "@/components/landing/tabs";
 import { Navigation } from "@/components/landing/navigation";
-import SiteCounter from "@/components/landing/site-counter";
+import SiteCounter from "@/components/landing/stats";
 import AboutTailspin from "@/components/landing/about-tailspin";
 import FAQ from "@/components/landing/faq";
 import Timeline from "@/components/landing/timeline";
@@ -27,6 +27,9 @@ const ComponentsWithScroll: React.FC = () => {
             </section>
             <section>
                 <ThanksPage />
+            </section>
+            <section>
+                <RatingBody />
             </section>
         </>
     );
