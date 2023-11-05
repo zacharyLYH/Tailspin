@@ -14,7 +14,7 @@ const AboutTailSpinBoxes: React.FC<AboutTailSpinBoxesProps> = ({
     footer,
 }) => {
     return (
-        <figure className='relative m-2 flex flex-col items-center justify-center rounded-xl border-2 border-white p-8 text-center'>
+        <figure className='relative m-2 flex flex-col items-center justify-center rounded-xl border-2 border-white p-8 text-center transition duration-300 ease-in-out hover:scale-105 hover:border-gray-300 hover:bg-slate-900'>
             <blockquote className='mx-auto mb-4 max-w-2xl text-gray-500 dark:text-gray-400 lg:mb-8'>
                 <h3 className='text-lg font-semibold text-gray-900 dark:text-white'>
                     {title}
