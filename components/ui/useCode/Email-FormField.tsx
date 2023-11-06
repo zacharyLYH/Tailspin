@@ -11,11 +11,9 @@ import useStepperStore from "@/data-store/stepper-store";
 export function EmailFormField(form: any) {
     const { email } = useStepperStore();
 
-    function getPlaceHolder() {
+    function getDefaultValue() {
         if (email !== "") {
             return email;
-        } else {
-            return "Insert email here";
         }
     }
 
@@ -27,7 +25,11 @@ export function EmailFormField(form: any) {
                 <FormItem>
                     <FormLabel>Email</FormLabel>
                     <FormControl>
-                        <Input placeholder={getPlaceHolder()} {...field} />
+                        <Input
+                            placeholder='email@email.com'
+                            defaultValue={getDefaultValue()}
+                            {...field}
+                        />
                     </FormControl>
                     <FormMessage />
                 </FormItem>

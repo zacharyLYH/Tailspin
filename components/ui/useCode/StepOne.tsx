@@ -8,19 +8,25 @@ import { EmailFormField } from "./Email-FormField";
 import { TOSFormField } from "./TOS-FormField";
 import { FormSubmitting } from "./Submitting";
 
-const formStepOneSchema = z.object({
-    email: z.string().email({
-        message: "Invalid email address.",
-    }),
-    accept: z.literal<boolean>(true, {
-        errorMap: () => ({ message: "You must accept the terms & conditions" }),
-    }),
-});
-
 export function StepOne() {
-    const PROGRESS_INCREMENT: number = 33;
-    const { progress, setProgress, step, setStep, setEmail, setCheck } =
+    const { progress, setProgress, step, setStep, email, setEmail, setCheck } =
         useStepperStore();
+
+    const PROGRESS_INCREMENT: number = 33;
+
+    const formStepOneSchema = z.object({
+        email: z
+            .string()
+            .email({
+                message: "Invalid email address.",
+            })
+            .default(email),
+        accept: z.literal<boolean>(true, {
+            errorMap: () => ({
+                message: "You must accept the terms & conditions",
+            }),
+        }),
+    });
 
     const form = useForm<z.infer<typeof formStepOneSchema>>({
         resolver: zodResolver(formStepOneSchema),
