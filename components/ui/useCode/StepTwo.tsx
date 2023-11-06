@@ -3,7 +3,10 @@ import * as z from "zod";
 import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
-import useStepperStore from "@/data-store/stepper-store";
+import {
+    progressIncrements,
+    useStepperStore,
+} from "@/data-store/stepper-store";
 import { FormSubmitting } from "./Submitting";
 import useSessionStore from "@/data-store/session-store";
 import LandingPageCode from "@/components/landing/test-challenges/placeholder-code";
@@ -20,8 +23,6 @@ const formStepTwoSchema = z.object({
 });
 
 export function StepTwo() {
-    const PROGRESS_INCREMENT: number = 33;
-
     const { progress, setProgress, step, setStep, setChallenge } =
         useStepperStore();
     const { setCode } = useSessionStore();
@@ -39,14 +40,14 @@ export function StepTwo() {
             console.log(selection);
             setCode(LandingPageCode());
             setChallenge(selection);
-            setProgress(progress + PROGRESS_INCREMENT);
+            setProgress(progress + progressIncrements);
 
             router.push("/code-area");
         }
     }
 
     async function onBack() {
-        setProgress(progress - PROGRESS_INCREMENT);
+        setProgress(progress - progressIncrements);
         setStep(step - 1);
     }
 

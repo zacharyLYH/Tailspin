@@ -6,7 +6,7 @@ import {
     FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import useStepperStore from "@/data-store/stepper-store";
+import { useStepperStore } from "@/data-store/stepper-store";
 
 export function EmailFormField(form: any) {
     const { email } = useStepperStore();

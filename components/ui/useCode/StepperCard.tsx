@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/card";
 
 import { Progress } from "@/components/ui/progress";
-import useStepperStore from "@/data-store/stepper-store";
+import { useStepperStore } from "@/data-store/stepper-store";
 import { StepperForm } from "./Stepper-Form";
 
 export function StepperCard() {

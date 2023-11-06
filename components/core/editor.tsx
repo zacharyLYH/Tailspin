@@ -9,7 +9,7 @@ import useCodeAreaStore from "@/data-store/code-area-store";
 import { Button } from "../ui/button";
 import StaticPrompt from "./target-image";
 import LandingPageChallengeCode from "../landing/test-challenges/challenge-code";
-import useStepperStore from "@/data-store/stepper-store";
+import { useStepperStore } from "@/data-store/stepper-store";
 
 const Editor = () => {
     const { code, setCode } = useSessionStore();

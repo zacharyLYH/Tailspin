@@ -3,7 +3,10 @@ import * as z from "zod";
 import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
-import useStepperStore from "@/data-store/stepper-store";
+import {
+    useStepperStore,
+    progressIncrements,
+} from "@/data-store/stepper-store";
 import { EmailFormField } from "./Email-FormField";
 import { TOSFormField } from "./TOS-FormField";
 import { FormSubmitting } from "./Submitting";
@@ -11,8 +14,6 @@ import { FormSubmitting } from "./Submitting";
 export function StepOne() {
     const { progress, setProgress, step, setStep, email, setEmail, setCheck } =
         useStepperStore();
-
-    const PROGRESS_INCREMENT: number = 33;
 
     const formStepOneSchema = z.object({
         email: z
@@ -42,7 +43,7 @@ export function StepOne() {
             setCheck(values.accept);
 
             if (step === 1) {
-                setProgress(progress + PROGRESS_INCREMENT);
+                setProgress(progress + progressIncrements);
                 setStep(step + 1);
             }
         }

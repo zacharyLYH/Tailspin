@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 import useCodeAreaStore from "@/data-store/code-area-store";
-import useStepperStore from "@/data-store/stepper-store";
+import { useStepperStore } from "@/data-store/stepper-store";
 import validateUser from "@/lib/validate-user";
 
 type MosaicKey = "EDITOR" | "PREVIEW";

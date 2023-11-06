@@ -26,4 +26,8 @@ const useStepperStore = create<StepperStore>((set) => ({
     setChallenge: (newChallenge) => set({ challenge: newChallenge }),
 }));
 
-export default useStepperStore;
+const progessSteps: number = 3;
+const maxProgress: number = 100 - (100 % progessSteps);
+const progressIncrements: number = maxProgress / progessSteps;
+
+export { useStepperStore, progessSteps, maxProgress, progressIncrements };
