@@ -1,5 +1,3 @@
-"use client";
-
 import {
     Card,
     CardContent,
@@ -9,12 +7,9 @@ import {
 } from "@/components/ui/card";
 
 import { Progress } from "@/components/ui/progress";
-import { useStepperStore } from "@/data-store/stepper-store";
 import { StepperForm } from "./Stepper-Form";
 
 export function StepperCard() {
-    const { progress } = useStepperStore();
-
     return (
         <Card className='mx-auto h-[420px] w-full md:w-3/4'>
             <CardHeader className=''>
@@ -27,7 +22,7 @@ export function StepperCard() {
                     this form, you can use our code editor and attempt to do an
                     awesome Tailwind UI challenge!
                 </CardDescription>
-                <Progress value={progress} />
+                <Progress />
             </CardHeader>
 
             <CardContent>
