@@ -1,6 +1,5 @@
 import ScrollToTop from "@/components/ui/back-to-top";
 import { Hero } from "@/components/landing/hero";
-import { TabSection } from "@/components/landing/tabs";
 import { Navigation } from "@/components/landing/navigation";
 import SiteCounter from "@/components/landing/site-counter";
 import AboutTailspin from "@/components/landing/about-tailspin";
@@ -33,9 +32,6 @@ export default function Home() {
                 className='flex h-screen items-center justify-center'
             >
                 <StepperCard />
-            </section>
-            <section id='tabsSection'>
-                <TabSection />
             </section>
             <section className='container'>
                 <div>
