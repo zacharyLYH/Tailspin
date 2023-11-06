@@ -31,6 +31,7 @@ export function StepOne() {
 
         if (values.accept === true) {
             const userEmail: string = values.email;
+            console.log(values.email, userEmail);
             setEmail(userEmail);
             setCheck(values.accept);
 

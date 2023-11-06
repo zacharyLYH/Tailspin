@@ -10,6 +10,7 @@ import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 import useCodeAreaStore from "@/data-store/code-area-store";
 import useStepperStore from "@/data-store/stepper-store";
+import validateUser from "@/lib/validate-user";
 
 type MosaicKey = "EDITOR" | "PREVIEW";
 
@@ -28,12 +29,7 @@ const CodeArea = () => {
     const { mosaicThemeDark } = useCodeAreaStore();
     const { email, check, progress, challenge } = useStepperStore();
 
-    if (
-        email === "" &&
-        check === false &&
-        progress !== (99 || 100) &&
-        challenge === ""
-    ) {
+    if (validateUser("Code", email, check, challenge, progress)) {
         return (
             <p>
                 error, no bypassing the required form to enter the coding area!
