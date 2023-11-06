@@ -19,10 +19,8 @@ const formStepOneSchema = z.object({
 
 export function StepOne() {
     const PROGRESS_INCREMENT: number = 33;
-    const { setEmail } = useStepperStore();
-    const { setCheck } = useStepperStore();
-    const { progress, setProgress } = useStepperStore();
-    const { step, setStep } = useStepperStore();
+    const { progress, setProgress, step, setStep, setEmail, setCheck } =
+        useStepperStore();
 
     const form = useForm<z.infer<typeof formStepOneSchema>>({
         resolver: zodResolver(formStepOneSchema),

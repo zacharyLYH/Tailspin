@@ -13,8 +13,7 @@ import Link from "next/link";
 let checked: boolean = false;
 
 export function TOSFormField(form: any) {
-    const { check, setCheck } = useStepperStore();
-    const { progress, setProgress } = useStepperStore();
+    const { check, setCheck, progress, setProgress } = useStepperStore();
     const PROGRESS_INCREMENT: number = 33;
 
     return (

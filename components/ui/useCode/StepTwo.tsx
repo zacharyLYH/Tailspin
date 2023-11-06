@@ -21,10 +21,9 @@ const formStepTwoSchema = z.object({
 
 export function StepTwo() {
     const PROGRESS_INCREMENT: number = 33;
-    const { setChallenge } = useStepperStore();
-    const { progress, setProgress } = useStepperStore();
-    const { setStep, step } = useStepperStore();
 
+    const { progress, setProgress, step, setStep, setChallenge } =
+        useStepperStore();
     const { setCode } = useSessionStore();
 
     const router = useRouter();

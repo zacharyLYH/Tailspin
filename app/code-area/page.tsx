@@ -26,10 +26,7 @@ const CodeArea = () => {
     );
     const router = useRouter();
     const { mosaicThemeDark } = useCodeAreaStore();
-    const { email } = useStepperStore();
-    const { check } = useStepperStore();
-    const { progress } = useStepperStore();
-    const { challenge } = useStepperStore();
+    const { email, check, progress, challenge } = useStepperStore();
 
     if (
         email === "" &&
