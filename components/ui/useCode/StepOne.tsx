@@ -12,8 +12,16 @@ import { TOSFormField } from "./TOS-FormField";
 import { Loader2 } from "lucide-react";
 
 export function StepOne() {
-    const { progress, setProgress, step, setStep, email, setEmail, setCheck } =
-        useStepperStore();
+    const {
+        progress,
+        setProgress,
+        step,
+        setStep,
+        email,
+        setEmail,
+        check,
+        setCheck,
+    } = useStepperStore();
 
     const formStepOneSchema = z.object({
         email: z
@@ -22,11 +30,13 @@ export function StepOne() {
                 message: "Invalid email address.",
             })
             .default(email),
-        accept: z.literal<boolean>(true, {
-            errorMap: () => ({
-                message: "You must accept the terms & conditions",
-            }),
-        }),
+        accept: z
+            .literal<boolean>(true, {
+                errorMap: () => ({
+                    message: "You must accept the terms & conditions",
+                }),
+            })
+            .default(check),
     });
 
     const form = useForm<z.infer<typeof formStepOneSchema>>({

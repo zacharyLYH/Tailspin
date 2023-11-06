@@ -27,6 +27,7 @@ export function TOSFormField(form: any) {
                     <FormControl>
                         <div className='flex'>
                             <Input
+                                defaultChecked={check}
                                 type='checkbox'
                                 checked={field.value}
                                 onChange={field.onChange}
