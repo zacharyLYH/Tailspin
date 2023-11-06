@@ -9,7 +9,7 @@ import {
 } from "@/data-store/stepper-store";
 import { EmailFormField } from "./Email-FormField";
 import { TOSFormField } from "./TOS-FormField";
-import { FormSubmitting } from "./Submitting";
+import { Loader2 } from "lucide-react";
 
 export function StepOne() {
     const { progress, setProgress, step, setStep, email, setEmail, setCheck } =
@@ -58,7 +58,10 @@ export function StepOne() {
                 <TOSFormField />
 
                 {form.formState.isSubmitting ? (
-                    <FormSubmitting />
+                    <Button disabled>
+                        <Loader2 className='mr-2 h-4 w-4 animate-spin' />
+                        Submitting...
+                    </Button>
                 ) : (
                     <Button
                         type='submit'

@@ -7,11 +7,11 @@ import {
     progressIncrements,
     useStepperStore,
 } from "@/data-store/stepper-store";
-import { FormSubmitting } from "./Submitting";
 import useSessionStore from "@/data-store/session-store";
 import LandingPageCode from "@/components/landing/test-challenges/placeholder-code";
 import { useRouter } from "next/navigation";
 import { ChallengeFormField } from "./Challenge-FormField";
+import { Loader2 } from "lucide-react";
 
 const formStepTwoSchema = z.object({
     challenge: z.enum(
@@ -67,7 +67,10 @@ export function StepTwo() {
                         Previous
                     </Button>
                     {form.formState.isSubmitting ? (
-                        <FormSubmitting />
+                        <Button disabled>
+                            <Loader2 className='mr-2 h-4 w-4 animate-spin' />
+                            Submitting...
+                        </Button>
                     ) : (
                         <Button
                             type='submit'
