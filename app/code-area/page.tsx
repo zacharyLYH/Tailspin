@@ -31,7 +31,7 @@ const CodeArea = () => {
     const { email, check, progress, challenge } = useStepperStore();
 
     if (validateUser("Code", email, check, challenge, progress)) {
-        notFound();
+        router.push("/unauthorized");
     } else {
         return (
             <div className='h-screen'>
