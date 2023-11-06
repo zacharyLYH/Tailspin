@@ -24,7 +24,7 @@ export default function Home() {
                     <Hero />
                 </div>
             </section>
-            <section>
+            <section id='about'>
                 <AboutTailspin />
             </section>
             <section

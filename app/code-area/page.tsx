@@ -11,6 +11,7 @@ import { cn } from "@/lib/utils";
 import useCodeAreaStore from "@/data-store/code-area-store";
 import { useStepperStore } from "@/data-store/stepper-store";
 import validateUser from "@/lib/validate-user";
+import { notFound } from "next/navigation";
 
 type MosaicKey = "EDITOR" | "PREVIEW";
 
@@ -30,11 +31,7 @@ const CodeArea = () => {
     const { email, check, progress, challenge } = useStepperStore();
 
     if (validateUser("Code", email, check, challenge, progress)) {
-        return (
-            <p>
-                error, no bypassing the required form to enter the coding area!
-            </p>
-        );
+        notFound();
     } else {
         return (
             <div className='h-screen'>

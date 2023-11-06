@@ -7,18 +7,20 @@ import { TailspinLogo } from "../ui/spinning-logo";
 export const Navigation = () => {
     return (
         <nav className='fixed top-0 z-[1] flex h-16 w-full items-center'>
-            <Link href='#landing'>
+            <Link href='/#landing'>
                 <div className='mx-5'>
                     <TailspinLogo outershellClassname='animate-spin h-10 w-10' />
                 </div>
             </Link>
-            <Button
-                variant='ghost'
-                className='mx-3 font-semibold text-muted-foreground'
-            >
-                About
-            </Button>
-            <Link href='#stepper'>
+            <Link href='/#about'>
+                <Button
+                    variant='ghost'
+                    className='mx-3 font-semibold text-muted-foreground'
+                >
+                    About
+                </Button>
+            </Link>
+            <Link href='/#stepper'>
                 <Button
                     variant='ghost'
                     className='mx-3 font-semibold text-muted-foreground'
