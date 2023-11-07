@@ -59,6 +59,7 @@ export function StepTwo() {
                     className='w-full space-y-8 p-5'
                 >
                     <ChallengeFormField />
+
                     <Button
                         variant='ghost'
                         className='self float-left font-semibold text-muted-foreground'
