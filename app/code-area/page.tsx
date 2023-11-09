@@ -11,7 +11,6 @@ import { cn } from "@/lib/utils";
 import useCodeAreaStore from "@/data-store/code-area-store";
 import { useStepperStore } from "@/data-store/stepper-store";
 import validateUser from "@/lib/validate-user";
-import { notFound } from "next/navigation";
 
 type MosaicKey = "EDITOR" | "PREVIEW";
 
@@ -29,6 +28,10 @@ const CodeArea = () => {
     const router = useRouter();
     const { mosaicThemeDark } = useCodeAreaStore();
     const { email, check, progress, challenge } = useStepperStore();
+
+    const onClickHandler = async () => {
+        router.push("/");
+    };
 
     if (validateUser("Code", email, check, challenge, progress)) {
         router.push("/unauthorized");
@@ -50,7 +53,7 @@ const CodeArea = () => {
                             <Button
                                 variant='destructive'
                                 className='mt-2'
-                                onClick={() => router.push("/")}
+                                onClick={onClickHandler}
                             >
                                 Back to main page...
                             </Button>

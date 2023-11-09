@@ -1,9 +1,7 @@
 import {
-    Form,
     FormControl,
     FormField,
     FormItem,
-    FormLabel,
     FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
@@ -13,10 +11,12 @@ import {
 } from "@/data-store/stepper-store";
 import Link from "next/link";
 
-let checked: boolean = false;
-
 export function TOSFormField(form: any) {
     const { check, setCheck, progress, setProgress } = useStepperStore();
+
+    if (check === true) {
+        console.log("check is false");
+    }
 
     return (
         <FormField
@@ -33,12 +33,11 @@ export function TOSFormField(form: any) {
                                 onChange={field.onChange}
                                 onClick={() => {
                                     console.log(progressIncrements);
-                                    checked = !checked;
-                                    setCheck(checked);
+                                    setCheck(!check);
                                     setProgress(
-                                        checked
-                                            ? progress + progressIncrements
-                                            : progress - progressIncrements
+                                        check
+                                            ? progress - progressIncrements
+                                            : progress + progressIncrements
                                     );
                                 }}
                                 className='peer mr-[10px] mt-[5px] h-4 w-[20px] cursor-pointer'
