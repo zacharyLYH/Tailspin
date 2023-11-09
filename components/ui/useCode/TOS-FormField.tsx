@@ -49,6 +49,7 @@ export function TOSFormField(form: any) {
                                 {/* TODO: Replace this to link to a seperate page for Terms and Services */}
                                 <Link
                                     href='https://www.google.com'
+                                    target='_blank'
                                     className='italic text-blue-500 underline'
                                 >
                                     Tailspin&apos;s terms &amp; conditions.
