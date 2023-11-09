@@ -48,11 +48,17 @@ export function TOSFormField(form: any) {
                                 have read and agree to&nbsp;
                                 {/* TODO: Replace this to link to a seperate page for Terms and Services */}
                                 <Link
+                                    aria-label='Terms of Service - link opens in a new tab'
+                                    title='Terms of Service - link opens in a new tab'
                                     href='https://www.google.com'
                                     target='_blank'
                                     className='italic text-blue-500 underline'
                                 >
                                     Tailspin&apos;s terms &amp; conditions.
+                                    <img
+                                        className='ml-1 inline-block'
+                                        src='/newTab.webp'
+                                    />
                                 </Link>
                             </label>
                         </div>
