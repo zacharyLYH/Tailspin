@@ -13,6 +13,7 @@ import {
     SelectValue,
 } from "@/components/ui/select";
 import { Button } from "../button";
+import { challengeMap } from "@/data-store/challenge-store";
 
 export function ChallengeFormField(form: any) {
     const handleClear = (field: any) => {
@@ -33,35 +34,19 @@ export function ChallengeFormField(form: any) {
                                 defaultValue={field.value}
                             >
                                 <SelectTrigger className='w-[180px]'>
-                                    {field.value ? (
-                                        <SelectValue placeholder='Select a Challenge' />
-                                    ) : (
-                                        "Select a Challenge"
-                                    )}
+                                    <SelectValue placeholder='Select a Challenge' />
                                 </SelectTrigger>
                                 <SelectContent>
-                                    <SelectItem value='helloWorld'>
-                                        helloWorld
-                                    </SelectItem>
-                                    <SelectItem value='simpleDialog'>
-                                        simpleDialog
-                                    </SelectItem>
-                                    <SelectItem value='simpleNavBar'>
-                                        simpleNavBar
-                                    </SelectItem>
-                                    <SelectItem value='brightSunnyDay'>
-                                        brightSunnyDay
-                                    </SelectItem>
+                                    {challengeMap.map((item) => (
+                                        <SelectItem
+                                            key={item.key}
+                                            value={item.value}
+                                        >
+                                            {item.value}
+                                        </SelectItem>
+                                    ))}
                                 </SelectContent>
                             </Select>
-                            <Button
-                                type='button'
-                                variant='outline'
-                                className='inline-block italic'
-                                onClick={() => handleClear(field)}
-                            >
-                                Clear
-                            </Button>
                         </div>
                     </FormControl>
                     <FormMessage />

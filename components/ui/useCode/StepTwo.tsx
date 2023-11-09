@@ -12,14 +12,12 @@ import LandingPageCode from "@/components/landing/test-challenges/placeholder-co
 import { useRouter } from "next/navigation";
 import { ChallengeFormField } from "./Challenge-FormField";
 import { Loader2 } from "lucide-react";
+import { challengeEnum } from "@/data-store/challenge-store";
 
 const formStepTwoSchema = z.object({
-    challenge: z.enum(
-        ["helloWorld", "simpleDialog", "simpleNavBar", "brightSunnyDay"],
-        {
-            required_error: "Please select a challenge",
-        }
-    ),
+    challenge: z.nativeEnum(challengeEnum, {
+        required_error: "Please select a challenge",
+    }),
 });
 
 export function StepTwo() {
