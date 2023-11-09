@@ -14,10 +14,6 @@ import Link from "next/link";
 export function TOSFormField(form: any) {
     const { check, setCheck, progress, setProgress } = useStepperStore();
 
-    if (check === true) {
-        console.log("check is false");
-    }
-
     return (
         <FormField
             control={form.control}
@@ -32,7 +28,6 @@ export function TOSFormField(form: any) {
                                 checked={field.value}
                                 onChange={field.onChange}
                                 onClick={() => {
-                                    console.log(progressIncrements);
                                     setCheck(!check);
                                     setProgress(
                                         check

@@ -10,5 +10,5 @@ export const challengeMap = [
 ];
 
 export const challengeEnum = Object.fromEntries(
-    challengeMap.map((item) => [item.key, item.value])
+    challengeMap.map((item) => [item.key, item.key]) //This has to be key to properly
 );

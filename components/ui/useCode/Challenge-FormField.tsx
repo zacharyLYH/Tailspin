@@ -12,14 +12,9 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select";
-import { Button } from "../button";
 import { challengeMap } from "@/data-store/challenge-store";
 
 export function ChallengeFormField(form: any) {
-    const handleClear = (field: any) => {
-        console.log("call clear");
-    };
-
     return (
         <FormField
             control={form.control}
@@ -40,7 +35,7 @@ export function ChallengeFormField(form: any) {
                                     {challengeMap.map((item) => (
                                         <SelectItem
                                             key={item.key}
-                                            value={item.value}
+                                            value={item.key}
                                         >
                                             {item.value}
                                         </SelectItem>

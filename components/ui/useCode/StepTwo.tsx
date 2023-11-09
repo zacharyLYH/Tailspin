@@ -32,10 +32,8 @@ export function StepTwo() {
     });
 
     async function onSubmit(values: z.infer<typeof formStepTwoSchema>) {
-        console.log("onSubmit called");
         if (step === 2) {
             const selection: string = values.challenge;
-            console.log(selection);
             setCode(LandingPageCode());
             setChallenge(selection);
             setProgress(progress + progressIncrements);
