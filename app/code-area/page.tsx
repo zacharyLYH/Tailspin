@@ -29,7 +29,7 @@ const CodeArea = () => {
     const { mosaicThemeDark } = useCodeAreaStore();
     const { email, check, progress, challenge } = useStepperStore();
 
-    const onClickHandler = async () => {
+    const onExitHandler = async () => {
         router.push("/");
     };
 
@@ -53,7 +53,7 @@ const CodeArea = () => {
                             <Button
                                 variant='destructive'
                                 className='mt-2'
-                                onClick={onClickHandler}
+                                onClick={onExitHandler}
                             >
                                 Back to main page...
                             </Button>

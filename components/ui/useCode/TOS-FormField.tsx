@@ -27,7 +27,7 @@ export function TOSFormField(form: any) {
                     <FormControl>
                         <div className='flex'>
                             <Input
-                                defaultChecked={check}
+                                defaultChecked={false}
                                 type='checkbox'
                                 checked={field.value}
                                 onChange={field.onChange}
@@ -36,8 +36,8 @@ export function TOSFormField(form: any) {
                                     setCheck(!check);
                                     setProgress(
                                         check
-                                            ? progress - progressIncrements
-                                            : progress + progressIncrements
+                                            ? progress + progressIncrements
+                                            : progress - progressIncrements
                                     );
                                 }}
                                 className='peer mr-[10px] mt-[5px] h-4 w-[20px] cursor-pointer'
