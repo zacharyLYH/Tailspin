@@ -11,7 +11,7 @@ import Link from "next/link";
 const FAQ = () => {
     return (
         <div
-            className='flex min-h-screen min-w-full flex-col items-center justify-center'
+            className='flex min-h-[60vh] min-w-full flex-col items-center justify-center'
             id='accordion'
         >
             <span className='bold text-center text-2xl italic'>FAQ</span>

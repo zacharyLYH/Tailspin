@@ -15,7 +15,7 @@ const ComponentsWithScroll: React.FC = () => {
         <>
             <section
                 id='stepper'
-                className='flex h-screen items-center justify-center'
+                className='flex min-h-[80vh] items-center justify-center'
             >
                 <StepperCard />
             </section>

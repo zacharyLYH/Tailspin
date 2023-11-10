@@ -16,7 +16,7 @@ const TimelineSVGIcon = () => {
 
 const Timeline = () => {
     return (
-        <div className='flex min-h-screen flex-col items-center justify-center '>
+        <div className='flex min-h-[60vh] flex-col items-center justify-center '>
             <p className='text-center text-2xl font-bold italic'>Timeline</p>
             <ol className='relative mx-4 border-l border-gray-200 dark:border-gray-400 md:mx-16 lg:mx-32'>
                 <li className='mb-10 ml-6'>
