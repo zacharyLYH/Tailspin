@@ -1,12 +1,6 @@
-type CodeKey =
-    | "helloWorld"
-    | "simpleDialog"
-    | "simpleNavBar"
-    | "brightSunnyDay";
-
-export default function LandingPageChallengeCode(codeKey: CodeKey): string {
+export default function LandingPageChallengeCode(codeKey: string): string {
     type FunctionType = () => string;
-    const landingPageCodeMap: Map<CodeKey, FunctionType> = new Map([
+    const landingPageCodeMap: Map<string, FunctionType> = new Map([
         ["helloWorld", ButtonHelloWorld],
         ["simpleDialog", SimpleDialog],
         ["simpleNavBar", SimpleNavBar],

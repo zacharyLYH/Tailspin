@@ -1,20 +1,23 @@
 import ScrollToTop from "@/components/ui/back-to-top";
 import { Hero } from "@/components/landing/hero";
-import { TabSection } from "@/components/landing/tabs";
 import { Navigation } from "@/components/landing/navigation";
 import SiteCounter from "@/components/landing/stats";
 import AboutTailspin from "@/components/landing/about-tailspin";
 import FAQ from "@/components/landing/faq";
 import Timeline from "@/components/landing/timeline";
 import ThanksPage from "@/components/landing/thanks";
+import StepperCard from "@/components/ui/useCode/StepperCard";
 import RatingBody from "@/components/core/rating-area/rating-component";
 // import WavyScrollProvider from "@/components/providers/Wavy-Scroll-Provider";
 
 const ComponentsWithScroll: React.FC = () => {
     return (
         <>
-            <section id='tabsSection'>
-                <TabSection />
+            <section
+                id='stepper'
+                className='flex h-screen items-center justify-center'
+            >
+                <StepperCard />
             </section>
             <section className='container'>
                 <SiteCounter />
@@ -50,14 +53,10 @@ export default function Home() {
                     <Hero />
                 </div>
             </section>
-
-            <section>
+            <section id='about'>
                 <AboutTailspin />
             </section>
-
-            {/* <WavyScrollProvider> */}
             <ComponentsWithScroll />
-            {/* </WavyScrollProvider> */}
         </main>
     );
 }
