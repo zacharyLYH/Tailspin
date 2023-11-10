@@ -11,8 +11,8 @@ import { StepperForm } from "./Stepper-Form";
 
 export function StepperCard() {
     return (
-        <Card className='mx-auto h-[420px] w-full md:w-3/4'>
-            <CardHeader className=''>
+        <Card className='mx-auto h-[420px] rounded-2xl'>
+            <CardHeader>
                 <CardTitle className='mb-4'>
                     Try One Of Our Coding Challenges!!!
                 </CardTitle>
@@ -24,7 +24,6 @@ export function StepperCard() {
                 </CardDescription>
                 <Progress />
             </CardHeader>
-
             <CardContent>
                 <StepperForm />
             </CardContent>

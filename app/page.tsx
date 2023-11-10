@@ -15,8 +15,21 @@ const ComponentsWithScroll: React.FC = () => {
         <>
             <section
                 id='stepper'
-                className='flex min-h-[80vh] items-center justify-center'
+                className='relative flex h-screen items-center justify-center bg-white'
             >
+                <div className='pointer-events-auto absolute inset-0 z-20 bg-white bg-opacity-50 xl:hidden' />
+                <div className='absolute inset-0 z-30 flex items-center justify-center xl:hidden'>
+                    <div className='w-3/4 max-w-lg rounded-xl bg-black p-6 shadow-lg'>
+                        <h2 className='mb-4 text-center text-xl font-bold text-white'>
+                            It looks like you&quot;re on a small screen
+                        </h2>
+                        <p className='text-sm font-semibold text-gray-400'>
+                            We hate to be non-inclusive towards phones and
+                            tablets, however we want to provide you with the
+                            best experience possible!
+                        </p>
+                    </div>
+                </div>
                 <StepperCard />
             </section>
             <section className='container'>
