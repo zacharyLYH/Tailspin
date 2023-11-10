@@ -12,7 +12,7 @@ export function StepperForm() {
 
     useEffect(() => {
         setChallenge("");
-        setCheck(true);
+        setCheck(false);
         setEmail("");
         setProgress(0);
         setStep(1);

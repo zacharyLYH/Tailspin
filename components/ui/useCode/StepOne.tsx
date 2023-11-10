@@ -30,6 +30,7 @@ export function StepOne() {
                 message: "Invalid email address.",
             })
             .default(email),
+
         accept: z
             .literal<boolean>(true, {
                 errorMap: () => ({
