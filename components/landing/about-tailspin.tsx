@@ -1,6 +1,10 @@
+"use client";
+
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { BarChartBig } from "lucide-react";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 type AboutTailSpinBoxesProps = {
     title: string;
@@ -8,13 +12,34 @@ type AboutTailSpinBoxesProps = {
     footer?: React.ReactNode;
 };
 
+const variants = {
+    visible: {
+        rotateY: 0,
+        opacity: 1,
+        transition: { duration: 0.5, ease: "easeOut" },
+    },
+    hidden: {
+        rotateY: 90,
+        opacity: 0,
+        transition: { duration: 0.5, ease: "easeIn" },
+    },
+};
+
 const AboutTailSpinBoxes: React.FC<AboutTailSpinBoxesProps> = ({
     title,
     paragraphComponent,
     footer,
 }) => {
+    const ref = useRef(null);
+    const isInView = useInView(ref);
     return (
-        <figure className='relative m-2 flex flex-col items-center justify-center rounded-xl border-2 border-white p-8 text-center transition duration-300 ease-in-out hover:scale-105 hover:border-gray-300 hover:bg-slate-900'>
+        <motion.div
+            ref={ref}
+            variants={variants}
+            initial='hidden'
+            animate={isInView ? "visible" : "hidden"}
+            className='relative m-2 flex flex-col items-center justify-center rounded-xl border-2 border-white p-8 text-center transition-colors duration-300 ease-in-out hover:border-gray-300 hover:bg-slate-900'
+        >
             <blockquote className='mx-auto mb-4 max-w-2xl text-gray-500 dark:text-gray-400 lg:mb-8'>
                 <h3 className='text-lg font-semibold text-gray-900 dark:text-white'>
                     {title}
@@ -26,14 +51,14 @@ const AboutTailSpinBoxes: React.FC<AboutTailSpinBoxesProps> = ({
                     {footer}
                 </figcaption>
             )}
-        </figure>
+        </motion.div>
     );
 };
 
 const AboutTailspin = () => {
     return (
         <div
-            className='relative flex min-h-screen flex-col items-center justify-center rounded-lg bg-black p-6'
+            className='relative flex h-full flex-col items-center justify-center rounded-lg bg-black p-6'
             id='about-section'
         >
             <div className='grid rounded-lg md:grid-cols-2'>
