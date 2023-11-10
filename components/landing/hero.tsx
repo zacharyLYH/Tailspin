@@ -29,7 +29,7 @@ export const Hero = () => {
                 <HeroSubText />
             </div>
             <a
-                href='#tabsSection'
+                href='#stepper'
                 className='flex cursor-pointer flex-col items-center'
             >
                 <div className='h-12 w-12 animate-bounce'>

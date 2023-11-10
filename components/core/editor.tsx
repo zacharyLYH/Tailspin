@@ -9,12 +9,14 @@ import useCodeAreaStore from "@/data-store/code-area-store";
 import { Button } from "../ui/button";
 import StaticPrompt from "./target-image";
 import LandingPageChallengeCode from "../landing/test-challenges/challenge-code";
+import { useStepperStore } from "@/data-store/stepper-store";
 
 const Editor = () => {
     const { code, setCode } = useSessionStore();
     const { aceEditorTheme, fontSize, tabSize } = useCodeAreaStore();
     const [AceEditor, setAceEditor] = useState<typeof ReactAce>();
     const [targetImage, toggleTargetImage] = useState(false);
+    const { challenge } = useStepperStore();
 
     useEffect(() => {
         const loadAce = async () => {
@@ -58,7 +60,7 @@ const Editor = () => {
                 </div>
             </div>
             {targetImage ? (
-                <StaticPrompt code={LandingPageChallengeCode("helloWorld")} />
+                <StaticPrompt code={LandingPageChallengeCode(challenge)} />
             ) : (
                 AceEditor && (
                     <AceEditor
