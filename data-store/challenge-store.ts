@@ -2,7 +2,6 @@
 anything extra that may be related to those challenges. */
 
 export const challengeMap = [
-    { key: "default", value: "Select a Challenge" },
     { key: "helloWorld", value: "Hello World" },
     { key: "simpleDialog", value: "Simple Dialog" },
     { key: "simpleNavBar", value: "Simple NavBar" },

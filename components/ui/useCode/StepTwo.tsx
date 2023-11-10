@@ -16,7 +16,17 @@ import { challengeEnum } from "@/data-store/challenge-store";
 
 const formStepTwoSchema = z.object({
     challenge: z.nativeEnum(challengeEnum, {
-        required_error: "Please select a challenge",
+        errorMap: (issue) => {
+            switch (issue.code) {
+                case "invalid_type":
+                    return { message: "Please select a challenge!" };
+                default:
+                    return {
+                        message:
+                            "This is not a valid challenge, select a different challenge!",
+                    };
+            }
+        },
     }),
 });
 

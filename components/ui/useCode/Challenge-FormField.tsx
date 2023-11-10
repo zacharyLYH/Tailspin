@@ -32,6 +32,12 @@ export function ChallengeFormField(form: any) {
                                     <SelectValue placeholder='Select a Challenge' />
                                 </SelectTrigger>
                                 <SelectContent>
+                                    <SelectItem
+                                        key='default'
+                                        value='Select a Challenge'
+                                    >
+                                        Select a Challenge
+                                    </SelectItem>
                                     {challengeMap.map((item) => (
                                         <SelectItem
                                             key={item.key}
