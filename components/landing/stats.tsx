@@ -8,7 +8,7 @@ const SiteCounter = async () => {
             <h1 className='mb-5 text-center text-3xl font-bold italic'>
                 Some Statistics
             </h1>
-            <article className=' grid gap-6 md:grid-cols-2'>
+            <article className=' grid gap-6 rounded border border-pink-300  p-5 md:grid-cols-2'>
                 <SiteVisitCountBox />
                 <CodeSubmitCountBox />
                 <SiteRatingStatBox />

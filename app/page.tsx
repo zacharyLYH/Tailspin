@@ -32,15 +32,16 @@ const ComponentsWithScroll: React.FC = () => {
                 </div>
                 <StepperCard />
             </section>
-            <section className='container'>
+            <section className='flex flex-col md:flex-row'>
                 <SiteCounter />
+                <Timeline />
             </section>
             <section>
                 <FAQ />
             </section>
-            <section>
+            {/* <section>
                 <Timeline />
-            </section>
+            </section> */}
             <section>
                 <ThanksPage />
             </section>

@@ -18,55 +18,58 @@ const Timeline = () => {
     return (
         <div className='flex min-h-[60vh] flex-col items-center justify-center '>
             <p className='text-center text-2xl font-bold italic'>Timeline</p>
-            <ol className='relative mx-4 border-l border-gray-200 dark:border-gray-400 md:mx-16 lg:mx-32'>
-                <li className='mb-10 ml-6'>
-                    <TimelineSVGIcon />
-                    <h3 className='mb-1 flex items-center text-lg font-semibold text-gray-900 dark:text-white'>
-                        V0
-                        <span className='ml-3 mr-2 rounded bg-blue-100 px-2.5 py-0.5 text-sm font-medium text-blue-800 dark:bg-blue-900 dark:text-blue-300'>
-                            Current
-                        </span>
-                    </h3>
-                    <time className='mb-2 block text-sm font-normal leading-none text-gray-400 dark:text-gray-500'>
-                        In Active Development
-                    </time>
-                    <p className='mb-4 text-base font-normal text-gray-500 dark:text-gray-400'>
-                        Building out this landing page. Polishing the
-                        interactive playground. Adding nice UI/UX.
-                    </p>
-                </li>
-                <li className='ml-6'>
-                    <TimelineSVGIcon />
-                    <h3 className='mb-1 text-lg font-semibold text-gray-900 dark:text-white'>
-                        V1.0
-                    </h3>
-                    <time className='mb-2 block text-sm font-normal leading-none text-gray-400 dark:text-gray-500'>
-                        Latest 1st November 2023
-                    </time>
-                    <p className='text-base font-normal text-gray-500 dark:text-gray-400'>
-                        Innovate and make incremental improvements to the core
-                        business of Tailspin - the coding page. Iteratively add,
-                        optimize, and beautify features to the coding page.
-                    </p>
-                </li>
-                <li className='ml-6'>
-                    <TimelineSVGIcon />
-                    <h3 className='mb-1 text-lg font-semibold text-gray-900 dark:text-white'>
-                        V1.1
-                    </h3>
-                    <time className='mb-2 block text-sm font-normal leading-none text-gray-400 dark:text-gray-500'>
-                        TBD...
-                    </time>
-                    <p className='text-base font-normal text-gray-500 dark:text-gray-400'>
-                        Implement user profiles to keep track of their progress.
-                        Provide intelligent dashboards to help users analyze
-                        their performance in an empirical and systematic manner.
-                        Provide a fully customizable public profile page that
-                        optimizes showing off user&apos;s achievements and
-                        accomplishments.
-                    </p>
-                </li>
-            </ol>
+            <div className='rounded border border-pink-200 p-5'>
+                <ol className='relative mx-4 border-l border-gray-200 dark:border-gray-400 md:mx-8 lg:mx-16'>
+                    <li className='mb-10 ml-6'>
+                        <TimelineSVGIcon />
+                        <h3 className='mb-1 flex items-center text-lg font-semibold text-gray-900 dark:text-white'>
+                            V0
+                            <span className='ml-3 mr-2 rounded bg-blue-100 px-2.5 py-0.5 text-sm font-medium text-blue-800 dark:bg-blue-900 dark:text-blue-300'>
+                                Current
+                            </span>
+                        </h3>
+                        <time className='mb-2 block text-sm font-normal leading-none text-gray-400 dark:text-gray-500'>
+                            In Active Development
+                        </time>
+                        <p className='mb-4 text-base font-normal text-gray-500 dark:text-gray-400'>
+                            Building out this landing page. Polishing the
+                            interactive playground. Adding nice UI/UX.
+                        </p>
+                    </li>
+                    <li className='ml-6'>
+                        <TimelineSVGIcon />
+                        <h3 className='mb-1 text-lg font-semibold text-gray-900 dark:text-white'>
+                            V1.0
+                        </h3>
+                        <time className='mb-2 block text-sm font-normal leading-none text-gray-400 dark:text-gray-500'>
+                            Latest 1st November 2023
+                        </time>
+                        <p className='text-base font-normal text-gray-500 dark:text-gray-400'>
+                            Innovate and make incremental improvements to the
+                            core business of Tailspin - the coding page.
+                            Iteratively add, optimize, and beautify features to
+                            the coding page.
+                        </p>
+                    </li>
+                    <li className='ml-6'>
+                        <TimelineSVGIcon />
+                        <h3 className='mb-1 text-lg font-semibold text-gray-900 dark:text-white'>
+                            V1.1
+                        </h3>
+                        <time className='mb-2 block text-sm font-normal leading-none text-gray-400 dark:text-gray-500'>
+                            TBD...
+                        </time>
+                        <p className='text-base font-normal text-gray-500 dark:text-gray-400'>
+                            Implement user profiles to keep track of their
+                            progress. Provide intelligent dashboards to help
+                            users analyze their performance in an empirical and
+                            systematic manner. Provide a fully customizable
+                            public profile page that optimizes showing off
+                            user&apos;s achievements and accomplishments.
+                        </p>
+                    </li>
+                </ol>
+            </div>
         </div>
     );
 };
