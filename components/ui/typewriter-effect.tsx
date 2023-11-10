@@ -14,6 +14,8 @@ export const HeroSubText = () => {
                 ],
                 autoStart: true,
                 loop: true,
+                delay: 50,
+                deleteSpeed: 50,
             }}
         />
     );
