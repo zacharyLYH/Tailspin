@@ -54,6 +54,8 @@ export function TOSFormField(form: any) {
                                         className='ml-1 inline-block'
                                         src='/newTab.webp'
                                         alt='Open Tab in New Page'
+                                        width={15}
+                                        height={15}
                                     />
                                 </Link>
                             </label>
