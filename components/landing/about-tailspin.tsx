@@ -1,10 +1,7 @@
-"use client";
-
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { BarChartBig } from "lucide-react";
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import FlipOnScroll from "../ui/flip-on-scroll";
 
 type AboutTailSpinBoxesProps = {
     title: string;
@@ -12,34 +9,13 @@ type AboutTailSpinBoxesProps = {
     footer?: React.ReactNode;
 };
 
-const variants = {
-    visible: {
-        rotateY: 0,
-        opacity: 1,
-        transition: { duration: 0.5, ease: "easeOut" },
-    },
-    hidden: {
-        rotateY: 90,
-        opacity: 0,
-        transition: { duration: 0.5, ease: "easeIn" },
-    },
-};
-
 const AboutTailSpinBoxes: React.FC<AboutTailSpinBoxesProps> = ({
     title,
     paragraphComponent,
     footer,
 }) => {
-    const ref = useRef(null);
-    const isInView = useInView(ref);
     return (
-        <motion.div
-            ref={ref}
-            variants={variants}
-            initial='hidden'
-            animate={isInView ? "visible" : "hidden"}
-            className='relative m-2 flex flex-col items-center justify-center rounded-xl border-2 border-white p-8 text-center transition-colors duration-300 ease-in-out hover:border-gray-300 hover:bg-slate-900'
-        >
+        <FlipOnScroll>
             <blockquote className='mx-auto mb-4 max-w-2xl text-gray-500 dark:text-gray-400 lg:mb-8'>
                 <h3 className='text-lg font-semibold text-gray-900 dark:text-white'>
                     {title}
@@ -51,7 +27,7 @@ const AboutTailSpinBoxes: React.FC<AboutTailSpinBoxesProps> = ({
                     {footer}
                 </figcaption>
             )}
-        </motion.div>
+        </FlipOnScroll>
     );
 };
 
@@ -159,18 +135,3 @@ const AboutTailspin = () => {
 };
 
 export default AboutTailspin;
-// footer={
-//     <>
-//         <img
-//             className='h-9 w-9 rounded-full'
-//             src='https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/karen-nelson.png'
-//             alt='profile picture'
-//         />
-//         <div className='space-y-0.5 text-left font-medium dark:text-white'>
-//             <div>Bonnie Green</div>
-//             <div className='text-sm text-gray-500 dark:text-gray-400'>
-//                 Developer at Open AI
-//             </div>
-//         </div>
-//     </>
-// }
