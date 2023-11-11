@@ -27,7 +27,7 @@ For example:
 */
 const RatingBody = () => {
     return (
-        <div className='flex min-h-[60vh] items-center justify-center lg:m-6'>
+        <div className='m-6 flex min-h-[60vh] items-center justify-center'>
             <Card className='w-1/2 border-white'>
                 <CardHeader>
                     <CardTitle>Rate Tailspin</CardTitle>
