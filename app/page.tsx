@@ -9,6 +9,7 @@ import ThanksPage from "@/components/landing/thanks";
 import StepperCard from "@/components/ui/useCode/StepperCard";
 import RatingBody from "@/components/core/rating-area/rating-component";
 import GrowOnScroll from "@/components/ui/grow-on-scroll";
+import Footer from "@/components/landing/footer";
 // import WavyScrollProvider from "@/components/providers/Wavy-Scroll-Provider";
 
 const ComponentsWithScroll: React.FC = () => {
@@ -69,6 +70,9 @@ export default function Home() {
                 <AboutTailspin />
             </section>
             <ComponentsWithScroll />
+            <section>
+                <Footer />
+            </section>
         </main>
     );
 }
