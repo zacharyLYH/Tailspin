@@ -8,6 +8,7 @@ import Timeline from "@/components/landing/timeline";
 import ThanksPage from "@/components/landing/thanks";
 import StepperCard from "@/components/ui/useCode/StepperCard";
 import RatingBody from "@/components/core/rating-area/rating-component";
+import GrowOnScroll from "@/components/ui/grow-on-scroll";
 // import WavyScrollProvider from "@/components/providers/Wavy-Scroll-Provider";
 
 const ComponentsWithScroll: React.FC = () => {
@@ -32,16 +33,13 @@ const ComponentsWithScroll: React.FC = () => {
                 </div>
                 <StepperCard />
             </section>
-            <section className='flex flex-col md:flex-row'>
+            <GrowOnScroll className='flex flex-col md:flex-row'>
                 <SiteCounter />
                 <Timeline />
-            </section>
+            </GrowOnScroll>
             <section>
                 <FAQ />
             </section>
-            {/* <section>
-                <Timeline />
-            </section> */}
             <section>
                 <ThanksPage />
             </section>
