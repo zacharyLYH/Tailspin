@@ -17,8 +17,8 @@ export const Hero = () => {
                 Show off your Tailwind skills and build community.
             </div>
             <div>
-                <Link href='#tabsSection'>
-                    <Button className='rounded-full border-0 bg-gradient-to-r from-orange-500 via-yellow-700 to-pink-500 p-4 font-semibold text-white md:p-6 md:text-lg'>
+                <Link href='#stepper'>
+                    <Button className='rounded-full border-0 bg-gradient-to-r from-orange-500 via-yellow-700 to-pink-500 p-4 font-semibold text-white hover:cursor-pointer md:p-6 md:text-lg'>
                         Try our Playground
                     </Button>
                 </Link>
@@ -33,8 +33,8 @@ export const Hero = () => {
                 </Link>
             </div>
             <Link
-                href='#tabsSection'
-                className='flex cursor-pointer flex-col items-center'
+                href='#stepper'
+                className='flex cursor-pointer flex-col items-center hover:cursor-pointer'
             >
                 <div className='h-12 w-12 animate-bounce'>
                     <ArrowHead
