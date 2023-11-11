@@ -115,7 +115,7 @@ export const Navigation = () => {
                                         "bg-transparent font-bold text-muted-foreground"
                                     )}
                                 >
-                                    Let's write some code!
+                                    Let&apos;s write some code!
                                 </NavigationMenuLink>
                             </Link>
                         </NavigationMenuItem>
