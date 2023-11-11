@@ -157,7 +157,7 @@ const FAQ = () => {
                         </Link>
                     </AccordionContent>
                 </AccordionItem>
-                <AccordionItem value='item-3'>
+                <AccordionItem value='item-4'>
                     <AccordionTrigger>
                         Not an FAQ, but in the spirit of transparency...
                     </AccordionTrigger>
