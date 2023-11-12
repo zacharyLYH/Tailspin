@@ -11,6 +11,7 @@ import RatingBody from "@/components/core/rating-area/rating-component";
 import GrowOnScroll from "@/components/ui/grow-on-scroll";
 import Footer from "@/components/landing/footer";
 import ComponentCarousel from "@/components/ui/component-carousel";
+import { Separator } from "@/components/ui/separator";
 
 export default function Home() {
     return (
@@ -51,12 +52,14 @@ export default function Home() {
                 <SiteCounter />
                 <Timeline />
             </GrowOnScroll>
+            <Separator />
             <section>
                 <ComponentCarousel
                     nodes={[<FAQ />, <ThanksPage />]}
                     title='Some useless information'
                 />
             </section>
+            <Separator />
             <section>
                 <RatingBody />
             </section>
