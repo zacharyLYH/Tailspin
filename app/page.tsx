@@ -6,7 +6,7 @@ import AboutTailspin from "@/components/landing/about-tailspin";
 import FAQ from "@/components/landing/faq";
 import Timeline from "@/components/landing/timeline";
 import ThanksPage from "@/components/landing/thanks";
-import StepperCard from "@/components/ui/useCode/StepperCard";
+import StepperCard from "@/components/ui/enterCodeForm/StepperCard";
 import RatingBody from "@/components/core/rating-area/rating-component";
 
 export default function Home() {
