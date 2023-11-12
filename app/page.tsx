@@ -10,11 +10,24 @@ import StepperCard from "@/components/ui/useCode/StepperCard";
 import RatingBody from "@/components/core/rating-area/rating-component";
 import GrowOnScroll from "@/components/ui/grow-on-scroll";
 import Footer from "@/components/landing/footer";
-// import WavyScrollProvider from "@/components/providers/Wavy-Scroll-Provider";
+import ComponentCarousel from "@/components/ui/component-carousel";
 
-const ComponentsWithScroll: React.FC = () => {
+export default function Home() {
     return (
-        <>
+        <main className='mx-auto h-full w-full overflow-clip'>
+            <ScrollToTop />
+            <Navigation />
+            <section
+                id='landing'
+                className='h-screen w-full bg-gradient-to-b from-[#493b6c] via-[#14243a] to-[#000000]'
+            >
+                <div className='mx-auto flex h-full w-full max-w-screen-xl items-center justify-center'>
+                    <Hero />
+                </div>
+            </section>
+            <section id='about'>
+                <AboutTailspin />
+            </section>
             <section
                 id='stepper'
                 className='relative flex h-screen items-center justify-center bg-white'
@@ -39,37 +52,14 @@ const ComponentsWithScroll: React.FC = () => {
                 <Timeline />
             </GrowOnScroll>
             <section>
-                <FAQ />
-            </section>
-            <section>
-                <ThanksPage />
+                <ComponentCarousel
+                    nodes={[<FAQ />, <ThanksPage />]}
+                    title='Some useless information'
+                />
             </section>
             <section>
                 <RatingBody />
             </section>
-        </>
-    );
-};
-
-export default function Home() {
-    return (
-        <main className='mx-auto h-full w-full overflow-clip'>
-            <ScrollToTop />
-
-            <Navigation />
-
-            <section
-                id='landing'
-                className='h-screen w-full bg-gradient-to-b from-[#493b6c] via-[#14243a] to-[#000000]'
-            >
-                <div className='mx-auto flex h-full w-full max-w-screen-xl items-center justify-center'>
-                    <Hero />
-                </div>
-            </section>
-            <section id='about'>
-                <AboutTailspin />
-            </section>
-            <ComponentsWithScroll />
             <section>
                 <Footer />
             </section>
