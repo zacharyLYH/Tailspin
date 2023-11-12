@@ -32,7 +32,7 @@ const ComponentCarousel: React.FC<ComponentCarouselProps> = ({
                 <div className='flex flex-grow flex-col rounded-xl border border-orange-400 p-4'>
                     {nodes[page]}
                     <p className='mt-4 text-center text-sm text-muted-foreground'>
-                        {page + 1}/2
+                        {page + 1}/{nodes.length}
                     </p>
                 </div>
                 <Button
