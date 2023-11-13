@@ -3,7 +3,7 @@ import { TailspinLogo } from "../ui/spinning-logo";
 
 const Footer = () => {
     return (
-        <footer className='m-4 rounded-lg bg-white shadow dark:bg-gray-900'>
+        <footer className='rounded-lg bg-white shadow dark:bg-gray-900'>
             <div className='mx-auto w-full max-w-screen-xl p-4 md:py-8'>
                 <div className='sm:flex sm:items-center sm:justify-between'>
                     <Link

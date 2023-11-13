@@ -7,8 +7,9 @@ import Link from "next/link";
 export const Hero = () => {
     return (
         <div className='relative space-y-5 py-36 text-center font-bold text-white'>
-            <div className='space-y-5 text-4xl font-extrabold sm:text-5xl md:text-6xl lg:text-7xl'>
-                <h1>Competitive TailwindCSS Developer centric</h1>
+            <div className='flex flex-col space-y-5 text-4xl font-extrabold sm:text-5xl md:text-6xl lg:text-7xl'>
+                <h1>Competitive TailwindCSS</h1>
+                <h2>Learn, Practice, Develop</h2>
                 <div className='bg-gradient-to-r from-orange-200 to-orange-900 bg-clip-text text-transparent'>
                     <HeroSubText />
                 </div>

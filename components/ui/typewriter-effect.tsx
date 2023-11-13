@@ -10,7 +10,7 @@ export const HeroSubText = () => {
                     "Powered by GPT",
                     "Customizable Experience",
                     "Community Driven",
-                    "Free to Play",
+                    "Free to Use",
                 ],
                 autoStart: true,
                 loop: true,

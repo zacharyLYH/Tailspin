@@ -31,7 +31,7 @@ export default function Home() {
             </section>
             <section
                 id='stepper'
-                className='relative flex h-screen items-center justify-center bg-white'
+                className='relative flex h-screen items-center justify-center bg-gradient-to-r from-orange-400 to-pink-500'
             >
                 <div className='pointer-events-auto absolute inset-0 z-20 bg-white bg-opacity-50 xl:hidden' />
                 <div className='absolute inset-0 z-30 flex items-center justify-center xl:hidden'>

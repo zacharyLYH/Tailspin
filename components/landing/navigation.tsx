@@ -14,7 +14,7 @@ import {
 import { cn } from "@/lib/utils";
 import { Button } from "../ui/button";
 import { useState } from "react";
-import { Menu } from "lucide-react";
+import { Code2, Menu } from "lucide-react";
 
 interface ListItemProps {
     className?: string;
@@ -92,7 +92,8 @@ export const Navigation = () => {
                                         </NavigationMenuLink>
                                     </li>
                                     <ListItem href='/#about' title='About'>
-                                        See what Tailspin is all about.
+                                        Discover our Ethos and the motivation
+                                        for Tailspin.
                                     </ListItem>
                                     <ListItem
                                         href='/#stepper'
@@ -115,6 +116,7 @@ export const Navigation = () => {
                                         "bg-transparent font-bold text-muted-foreground"
                                     )}
                                 >
+                                    <Code2 className='mr-2 h-5 w-5' />{" "}
                                     Let&apos;s write some code!
                                 </NavigationMenuLink>
                             </Link>
