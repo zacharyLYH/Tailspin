@@ -1,21 +1,23 @@
 import ScrollToTop from "@/components/ui/back-to-top";
 import { Hero } from "@/components/landing/hero";
 import { Navigation } from "@/components/landing/navigation";
-import SiteCounter from "@/components/landing/site-counter";
+import SiteCounter from "@/components/landing/stats";
 import AboutTailspin from "@/components/landing/about-tailspin";
 import FAQ from "@/components/landing/faq";
 import Timeline from "@/components/landing/timeline";
 import ThanksPage from "@/components/landing/thanks";
 import StepperCard from "@/components/ui/useCode/StepperCard";
 import RatingBody from "@/components/core/rating-area/rating-component";
+import GrowOnScroll from "@/components/ui/grow-on-scroll";
+import Footer from "@/components/landing/footer";
+import ComponentCarousel from "@/components/ui/component-carousel";
+import { Separator } from "@/components/ui/separator";
 
 export default function Home() {
     return (
         <main className='mx-auto h-full w-full overflow-clip'>
             <ScrollToTop />
-
             <Navigation />
-
             <section
                 id='landing'
                 className='h-screen w-full bg-gradient-to-b from-[#493b6c] via-[#14243a] to-[#000000]'
@@ -29,26 +31,40 @@ export default function Home() {
             </section>
             <section
                 id='stepper'
-                className='flex h-screen items-center justify-center'
+                className='relative flex h-screen items-center justify-center bg-gradient-to-r from-orange-400 to-pink-500'
             >
+                <div className='pointer-events-auto absolute inset-0 z-20 bg-white bg-opacity-50 xl:hidden' />
+                <div className='absolute inset-0 z-30 flex items-center justify-center xl:hidden'>
+                    <div className='w-3/4 max-w-lg rounded-xl bg-black p-6 shadow-lg'>
+                        <h2 className='mb-4 text-center text-xl font-bold text-white'>
+                            It looks like you&quot;re on a small screen
+                        </h2>
+                        <p className='text-sm font-semibold text-gray-400'>
+                            We hate to be non-inclusive towards phones and
+                            tablets, however we want to provide you with the
+                            best experience possible!
+                        </p>
+                    </div>
+                </div>
                 <StepperCard />
             </section>
-            <section className='container'>
-                <div>
-                    <SiteCounter />
-                </div>
-            </section>
-            <section>
-                <FAQ />
-            </section>
-            <section>
+            <GrowOnScroll className='flex flex-col md:flex-row'>
+                <SiteCounter />
                 <Timeline />
-            </section>
+            </GrowOnScroll>
+            <Separator />
             <section>
-                <ThanksPage />
+                <ComponentCarousel
+                    nodes={[<FAQ key='faq' />, <ThanksPage key='thanksPage' />]}
+                    title='Some useless information'
+                />
             </section>
+            <Separator />
             <section>
                 <RatingBody />
+            </section>
+            <section>
+                <Footer />
             </section>
         </main>
     );

@@ -70,7 +70,7 @@ const ThanksPage = async () => {
         ["https://tanstack.com/favicon.ico", "ReactQuery"],
     ]);
     return (
-        <div className='flex min-h-screen items-center justify-center lg:m-6'>
+        <div className='flex items-center justify-center lg:m-6'>
             <div className='flex flex-shrink-0 flex-col gap-4 md:flex-row'>
                 <div className='w-full max-w-md rounded-lg border border-gray-200 bg-white p-4 shadow dark:border-gray-700 dark:bg-gray-800 sm:p-8 md:w-1/2'>
                     <div className='mb-4 flex items-center justify-between'>

@@ -1,36 +1,41 @@
 import { ArrowHead } from "@/components/ui/arrow";
-import { cn } from "@/lib/utils";
-import { Montserrat } from "next/font/google";
 import { HeroSubText } from "@/components/ui/typewriter-effect";
-import { TailspinLogo } from "@/components/ui/spinning-logo";
 import HeroPageToast from "./hero-page-toast";
-
-const font = Montserrat({ weight: "700", subsets: ["latin"] });
+import { Button } from "../ui/button";
+import Link from "next/link";
 
 export const Hero = () => {
     return (
         <div className='relative space-y-5 py-36 text-center font-bold text-white'>
-            <h1
-                className={cn(
-                    "font-bol inline-flex items-center text-9xl",
-                    font.className
-                )}
-                style={{
-                    textShadow:
-                        "0px 0px 10px rgba(128, 128, 128, 0.5), 0px 0px 20px rgba(128, 128, 128, 0.5), 0px 0px 30px rgba(128, 128, 128, 0.5)",
-                }}
-            >
-                <div className='inline-flex items-center'>
-                    <TailspinLogo outershellClassname='z-[0] mr-3 h-[4rem] w-[4rem] animate-spin hidden md:block' />
-                    <span className='text-orange-400'>Tailspin</span>
+            <div className='flex flex-col space-y-5 text-4xl font-extrabold sm:text-5xl md:text-6xl lg:text-7xl'>
+                <h1>Competitive TailwindCSS</h1>
+                <h2>Learn, Practice, Develop</h2>
+                <div className='bg-gradient-to-r from-orange-200 to-orange-900 bg-clip-text text-transparent'>
+                    <HeroSubText />
                 </div>
-            </h1>
-            <div className='bg-clip-text text-xl font-semibold text-orange-700'>
-                <HeroSubText />
             </div>
-            <a
+            <div className='text-sm font-light text-zinc-400 md:text-xl'>
+                Show off your Tailwind skills and build community.
+            </div>
+            <div>
+                <Link href='#stepper'>
+                    <Button className='rounded-full border-0 bg-gradient-to-r from-orange-500 via-yellow-700 to-pink-500 p-4 font-semibold text-white hover:cursor-pointer md:p-6 md:text-lg'>
+                        Try our Playground
+                    </Button>
+                </Link>
+            </div>
+            <div className='text-xs font-normal text-zinc-400 md:text-sm'>
+                Forever free. Not affiliated with{" "}
+                <Link
+                    href='https://tailwindcss.com'
+                    className='text-blue-500 underline'
+                >
+                    The Tailwind Org
+                </Link>
+            </div>
+            <Link
                 href='#stepper'
-                className='flex cursor-pointer flex-col items-center'
+                className='flex cursor-pointer flex-col items-center hover:cursor-pointer'
             >
                 <div className='h-12 w-12 animate-bounce'>
                     <ArrowHead
@@ -50,7 +55,7 @@ export const Hero = () => {
                         strokeWidth='4'
                     />
                 </div>
-            </a>
+            </Link>
             <HeroPageToast />
         </div>
     );

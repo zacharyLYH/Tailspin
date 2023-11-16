@@ -1,9 +1,15 @@
 "use client";
 
 import { getCodeSubmitCount } from "@/client-side-queries/rq-queries/code-submit";
-import { Box } from "../stat-box";
+import StatBox from "../stat-box";
+import { CheckCheckIcon } from "lucide-react";
 
 export const CodeSubmitCountBox = (props: any) => {
     const value = getCodeSubmitCount();
-    return <Box>How many people have submitted their code : {value}</Box>;
+    return (
+        <StatBox
+            icon={<CheckCheckIcon className='h-6 w-6' />}
+            content={`How many people have submitted their code : ${value}`}
+        />
+    );
 };

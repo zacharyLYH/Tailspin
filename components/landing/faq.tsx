@@ -11,7 +11,7 @@ import Link from "next/link";
 const FAQ = () => {
     return (
         <div
-            className='flex min-h-screen min-w-full flex-col items-center justify-center'
+            className='flex min-w-full flex-col items-center justify-center'
             id='accordion'
         >
             <span className='bold text-center text-2xl italic'>FAQ</span>
@@ -157,7 +157,7 @@ const FAQ = () => {
                         </Link>
                     </AccordionContent>
                 </AccordionItem>
-                <AccordionItem value='item-3'>
+                <AccordionItem value='item-4'>
                     <AccordionTrigger>
                         Not an FAQ, but in the spirit of transparency...
                     </AccordionTrigger>

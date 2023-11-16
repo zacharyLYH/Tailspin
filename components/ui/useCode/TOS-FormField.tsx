@@ -9,6 +9,7 @@ import {
     progressIncrements,
     useStepperStore,
 } from "@/data-store/stepper-store";
+import Image from "next/image";
 import Link from "next/link";
 
 export function TOSFormField(form: any) {
@@ -49,9 +50,12 @@ export function TOSFormField(form: any) {
                                     className='italic text-blue-500 underline'
                                 >
                                     Tailspin&apos;s terms &amp; conditions.
-                                    <img
+                                    <Image
                                         className='ml-1 inline-block'
                                         src='/newTab.webp'
+                                        alt='Open Tab in New Page'
+                                        width={15}
+                                        height={15}
                                     />
                                 </Link>
                             </label>

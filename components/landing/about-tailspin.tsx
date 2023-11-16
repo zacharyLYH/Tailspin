@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { BarChartBig } from "lucide-react";
+import FlipOnScroll from "../ui/flip-on-scroll";
 
 type AboutTailSpinBoxesProps = {
     title: string;
@@ -14,7 +15,7 @@ const AboutTailSpinBoxes: React.FC<AboutTailSpinBoxesProps> = ({
     footer,
 }) => {
     return (
-        <figure className='relative m-2 flex flex-col items-center justify-center rounded-xl border-2 border-white p-8 text-center'>
+        <FlipOnScroll>
             <blockquote className='mx-auto mb-4 max-w-2xl text-gray-500 dark:text-gray-400 lg:mb-8'>
                 <h3 className='text-lg font-semibold text-gray-900 dark:text-white'>
                     {title}
@@ -26,19 +27,22 @@ const AboutTailSpinBoxes: React.FC<AboutTailSpinBoxesProps> = ({
                     {footer}
                 </figcaption>
             )}
-        </figure>
+        </FlipOnScroll>
     );
 };
 
 const AboutTailspin = () => {
     return (
         <div
-            className='relative flex min-h-screen flex-col items-center justify-center rounded-lg bg-black p-6'
+            className='relative flex h-full flex-col items-center justify-center rounded-lg bg-black p-6'
             id='about-section'
         >
+            <p className='mb-5 bg-gradient-to-r from-orange-400 to-pink-500 bg-clip-text text-center text-4xl font-bold text-transparent'>
+                Tailspin
+            </p>
             <div className='grid rounded-lg md:grid-cols-2'>
                 <AboutTailSpinBoxes
-                    title='Tailwind has revolutioned frontend development.'
+                    title='Tailwind has revolutionized frontend development.'
                     paragraphComponent={
                         <p>
                             Show off your skills and compete against the world
@@ -134,18 +138,3 @@ const AboutTailspin = () => {
 };
 
 export default AboutTailspin;
-// footer={
-//     <>
-//         <img
-//             className='h-9 w-9 rounded-full'
-//             src='https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/karen-nelson.png'
-//             alt='profile picture'
-//         />
-//         <div className='space-y-0.5 text-left font-medium dark:text-white'>
-//             <div>Bonnie Green</div>
-//             <div className='text-sm text-gray-500 dark:text-gray-400'>
-//                 Developer at Open AI
-//             </div>
-//         </div>
-//     </>
-// }
