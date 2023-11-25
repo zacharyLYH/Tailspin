@@ -14,7 +14,9 @@ import {
     AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
 import { useResetFeState } from "@/lib/reset-fe-state";
-import { usePutSubmitCount } from "@/client-side-queries/rq-queries/code-submit";
+import { postSubmitCount } from "@/client-side-queries/rq-queries/code-submit";
+import useSessionStore from "@/data-store/session-store";
+import { useStepperStore } from "@/data-store/stepper-store";
 
 const smallProps: ConfettiProps = {
     force: 0.6,
@@ -24,19 +26,47 @@ const smallProps: ConfettiProps = {
     zIndex: 50,
 };
 
+function getCurrentDateTime(): string {
+    const now = new Date();
+    const hours = now.getHours();
+    const minutes = now.getMinutes();
+    const isPm = hours >= 12;
+
+    const formattedHours = isPm
+        ? hours > 12
+            ? hours - 12
+            : hours
+        : hours === 0
+        ? 12
+        : hours;
+    const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes;
+    const amPm = isPm ? "PM" : "AM";
+
+    const month = now.getMonth() + 1; // Month is 0-indexed
+    const day = now.getDate();
+    const year = now.getFullYear();
+
+    const formattedMonth = month < 10 ? `0${month}` : month;
+    const formattedDay = day < 10 ? `0${day}` : day;
+
+    return `${formattedMonth}/${formattedDay}/${year} ${formattedHours}:${formattedMinutes} ${amPm}`;
+}
+
 const SubmitButton = () => {
     const router = useRouter();
     const [submitClicked, setSubmitClicked] = useState(false);
     const [continueClicked, setContinueClicked] = useState(false);
     const handleReset = useResetFeState();
-    const mutation = usePutSubmitCount();
+    const { code } = useSessionStore();
+    const { challenge, email } = useStepperStore();
 
-    const handleSubmitButtonClick = () => {
+    const handleSubmitButtonClick = async () => {
         try {
-            mutation.mutate();
+            const dateTime = getCurrentDateTime();
+            await postSubmitCount({ code, dateTime, email, challenge });
             setSubmitClicked(true);
         } catch (error) {
-            alert("Something went wrong. Error");
+            alert("Something went wrong. Try submitting again!");
         }
     };
 
