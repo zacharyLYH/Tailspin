@@ -1,8 +1,16 @@
+import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
-export async function getCodeSubmitCount() {
-    const resp = await axios.get("/api/code/submit");
-    return resp.data?.fieldVal;
+export function getCodeSubmitCount() {
+    const { data } = useQuery({
+        queryKey: ["None"],
+        queryFn: async () => {
+            const resp = await axios.get("/api/code/submit");
+            return resp;
+        },
+    });
+    const resp = data?.data.fieldVal;
+    return resp;
 }
 
 interface UsePostSubmitCountProps {
