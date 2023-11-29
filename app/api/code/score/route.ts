@@ -6,7 +6,9 @@ import OpenAI from "openai";
 const promptHeader =
     "Compare code B against code A. Using as few tokens as possible, output a percentage of similaritiy in semantics and intent.";
 
-const openai = new OpenAI();
+const openai = new OpenAI({
+    apiKey: process.env.OPENAI_API_KEY,
+});
 
 async function openAiCall(prompt: string) {
     const chatCompletion = await openai.chat.completions.create({
