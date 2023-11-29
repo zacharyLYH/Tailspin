@@ -78,7 +78,7 @@ export async function POST(req: Request) {
             - Percentage score extracted
                 ${rawPercentageScore}
         `);
-        if (!rawPercentageScore) {
+        if (rawPercentageScore === null) {
             //add this to the db for retrying later
             return NextResponse.json(
                 {
