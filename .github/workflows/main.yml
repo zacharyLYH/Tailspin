@@ -30,3 +30,7 @@ jobs:
                   XATA_API_KEY: ${{ secrets.XATA_API_KEY }}
                   XATA_BRANCH: ${{ secrets.XATA_BRANCH }}
                   PRIVATE_GITHUB_THANKS_TOKEN: ${{ secrets.PRIVATE_GITHUB_THANKS_TOKEN }}
+                  OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+                  IS_PRODUCTION: ${{ secrets.IS_PRODUCTION }}
+                  PASSWORD: ${{ secrets.PASSWORD }}
+                  EMAIL: ${{ secrets.EMAIL }}
