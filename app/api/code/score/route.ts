@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 import OpenAI from "openai";
 
 const promptHeader =
-    "Deeply and meticulously do semantic analysis on code B against code A, both written in HTML with Tailwind CSS. I need you to thoroughly and critically assess their similarity in content, intention, appearance, and semantics of Code B to Code A. This is crucial. Provide an accurate similarity score. When ambiguous, choose a lower score. Respond only in a number percentage with as few tokens as possible.";
+    "Compare code B against code A. Using as few tokens as possible, output a percentage of similaritiy in semantics and intent.";
 
 const openai = new OpenAI();
 
