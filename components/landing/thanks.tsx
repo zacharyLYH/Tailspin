@@ -14,7 +14,7 @@ const ThanksPage = async () => {
                 "https://api.github.com/repos/zacharyLYH/Tailspin/pulls?state=closed&base=dev",
                 {
                     headers: {
-                        Authorization: `token ${process.env.GITHUB_THANKS_TOKEN}`,
+                        Authorization: `token ${process.env.PRIVATE_GITHUB_THANKS_TOKEN}`,
                     },
                 }
             );
