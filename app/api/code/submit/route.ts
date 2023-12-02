@@ -57,6 +57,11 @@ export async function POST(req: Request) {
                     });
                 }
             }
+        } else {
+            await xata.db.EmailSubmitRateLimiting.create({
+                email: email,
+                lastSubmission: new Date().toISOString(),
+            });
         }
         // Extract the host and protocol from the incoming request
         const url = new URL(req.url);
