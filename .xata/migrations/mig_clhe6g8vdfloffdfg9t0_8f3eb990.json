@@ -1,17 +1,17 @@
 {
-  "id": "mig_clhe6g8vdfloffdfg9t0",
-  "parentID": "mig_clhe6cur7je6m59gkttg",
-  "checksum": "1:8f3eb990da0dfd0ca576d59a6aaeba6f55e0d00709bd250e7f208f44dfbdabab",
-  "operations": [
-    {
-      "addColumn": {
-        "column": {
-          "name": "retry",
-          "type": "int",
-          "defaultValue": "0"
-        },
-        "table": "Backlog-Score"
-      }
-    }
-  ]
+    "id": "mig_clhe6g8vdfloffdfg9t0",
+    "parentID": "mig_clhe6cur7je6m59gkttg",
+    "checksum": "1:8f3eb990da0dfd0ca576d59a6aaeba6f55e0d00709bd250e7f208f44dfbdabab",
+    "operations": [
+        {
+            "addColumn": {
+                "column": {
+                    "name": "retry",
+                    "type": "int",
+                    "defaultValue": "0"
+                },
+                "table": "Backlog-Score"
+            }
+        }
+    ]
 }

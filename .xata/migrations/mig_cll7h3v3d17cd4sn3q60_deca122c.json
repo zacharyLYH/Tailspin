@@ -1,17 +1,17 @@
 {
-  "id": "mig_cll7h3v3d17cd4sn3q60",
-  "parentID": "mig_cll7guf3d17cd4sn3q50",
-  "checksum": "1:deca122c44d63a03805dd49378cb9b9fc470d2826fab6f9f5c018191bd139023",
-  "operations": [
-    {
-      "addColumn": {
-        "column": {
-          "name": "email",
-          "type": "string",
-          "unique": true
-        },
-        "table": "EmailSubmitRateLimiting"
-      }
-    }
-  ]
+    "id": "mig_cll7h3v3d17cd4sn3q60",
+    "parentID": "mig_cll7guf3d17cd4sn3q50",
+    "checksum": "1:deca122c44d63a03805dd49378cb9b9fc470d2826fab6f9f5c018191bd139023",
+    "operations": [
+        {
+            "addColumn": {
+                "column": {
+                    "name": "email",
+                    "type": "string",
+                    "unique": true
+                },
+                "table": "EmailSubmitRateLimiting"
+            }
+        }
+    ]
 }
