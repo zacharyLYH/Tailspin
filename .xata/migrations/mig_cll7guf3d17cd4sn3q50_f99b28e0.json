@@ -1,0 +1,12 @@
+{
+  "id": "mig_cll7guf3d17cd4sn3q50",
+  "parentID": "mig_clhe6s6r7je6m59gktvg",
+  "checksum": "1:f99b28e07a41df81e9f84ed761484daf31c3820f0fb251d12c037af42107346a",
+  "operations": [
+    {
+      "addTable": {
+        "table": "EmailSubmitRateLimiting"
+      }
+    }
+  ]
+}

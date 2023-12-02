@@ -1,0 +1,12 @@
+{
+  "id": "mig_clhe670vdfloffdfg9s0",
+  "parentID": "mig_ckevkpungvghfvu4am50",
+  "checksum": "1:4744dcb2d75e9cba5183e24a6a49447ea0282ba342d7a4fe86afb0dafefc0f79",
+  "operations": [
+    {
+      "addTable": {
+        "table": "Backlog-Score"
+      }
+    }
+  ]
+}
