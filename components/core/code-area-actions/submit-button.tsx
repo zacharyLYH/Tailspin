@@ -63,10 +63,15 @@ const SubmitButton = () => {
     const handleSubmitButtonClick = async () => {
         try {
             const dateTime = getCurrentDateTime();
-            await postSubmitCount({ code, dateTime, email, challenge });
+            await postSubmitCount({
+                code,
+                dateTime,
+                email,
+                challenge,
+            });
             setSubmitClicked(true);
-        } catch (error) {
-            alert("Something went wrong. Try submitting again!");
+        } catch (error: any) {
+            alert(error.response.data.message);
         }
     };
 
