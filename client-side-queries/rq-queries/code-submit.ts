@@ -13,19 +13,22 @@ export function getCodeSubmitCount() {
     return resp;
 }
 
-interface UsePostSubmitCountProps {
+interface UseCodeSubmissionProps {
     code: string;
     dateTime: string;
     email: string;
     challenge: string;
 }
 
-export async function postSubmitCount({
+export async function codeSubmission({
     code,
     dateTime,
     email,
     challenge,
-}: UsePostSubmitCountProps) {
+}: UseCodeSubmissionProps) {
+    if (!code || !dateTime || !email || !challenge) {
+        throw new Error("Something wasn't passed into codeSubmission.");
+    }
     const resp = await axios.post("/api/code/submit", {
         code: code,
         dateTime: dateTime,
