@@ -14,9 +14,10 @@ import {
     AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
 import { useResetFeState } from "@/lib/reset-fe-state";
-import { postSubmitCount } from "@/client-side-queries/rq-queries/code-submit";
+import { codeSubmission } from "@/client-side-queries/rq-queries/code-submit";
 import useSessionStore from "@/data-store/session-store";
 import { useStepperStore } from "@/data-store/stepper-store";
+import { loadFromLocalStorage } from "@/lib/localStorage";
 
 const smallProps: ConfettiProps = {
     force: 0.6,
@@ -63,11 +64,16 @@ const SubmitButton = () => {
     const handleSubmitButtonClick = async () => {
         try {
             const dateTime = getCurrentDateTime();
-            await postSubmitCount({
+
+            const submitEmail = email ? email : loadFromLocalStorage("email");
+            const submitChallenge = challenge
+                ? challenge
+                : loadFromLocalStorage("challenge");
+            await codeSubmission({
                 code,
                 dateTime,
-                email,
-                challenge,
+                email: submitEmail,
+                challenge: submitChallenge,
             });
             setSubmitClicked(true);
         } catch (error: any) {

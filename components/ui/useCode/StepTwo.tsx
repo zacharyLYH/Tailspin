@@ -13,6 +13,7 @@ import { useRouter } from "next/navigation";
 import { ChallengeFormField } from "./Challenge-FormField";
 import { Loader2 } from "lucide-react";
 import { challengeEnum } from "@/data-store/challenge-store";
+import { saveToLocalStorage } from "@/lib/localStorage";
 
 const formStepTwoSchema = z.object({
     challenge: z.nativeEnum(challengeEnum, {
@@ -31,7 +32,7 @@ const formStepTwoSchema = z.object({
 });
 
 export function StepTwo() {
-    const { progress, setProgress, step, setStep, setChallenge } =
+    const { progress, setProgress, step, setStep, setChallenge, email } =
         useStepperStore();
     const { setCode } = useSessionStore();
 
@@ -47,7 +48,8 @@ export function StepTwo() {
             setCode(LandingPageCode());
             setChallenge(selection);
             setProgress(progress + progressIncrements);
-
+            saveToLocalStorage("email", email);
+            saveToLocalStorage("challenge", selection);
             router.push("/code-area");
         }
     }
