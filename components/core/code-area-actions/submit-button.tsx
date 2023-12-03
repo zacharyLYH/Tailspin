@@ -64,6 +64,7 @@ const SubmitButton = () => {
     const handleSubmitButtonClick = async () => {
         try {
             const dateTime = getCurrentDateTime();
+
             const submitEmail = email ? email : loadFromLocalStorage("email");
             const submitChallenge = challenge
                 ? challenge
@@ -73,10 +74,16 @@ const SubmitButton = () => {
                 dateTime,
                 email: submitEmail,
                 challenge: submitChallenge,
+            await postSubmitCount({
+                code,
+                dateTime,
+                email,
+                challenge,
+
             });
             setSubmitClicked(true);
-        } catch (error) {
-            alert("Something went wrong. Try submitting again!");
+        } catch (error: any) {
+            alert(error.response.data.message);
         }
     };
 

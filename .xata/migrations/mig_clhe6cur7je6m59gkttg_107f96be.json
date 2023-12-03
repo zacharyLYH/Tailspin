@@ -1,0 +1,16 @@
+{
+    "id": "mig_clhe6cur7je6m59gkttg",
+    "parentID": "mig_clhe6b6r7je6m59gktsg",
+    "checksum": "1:107f96be15c59f116769877a3ede887da639354f69e3dfa5e3080aa4f35f1908",
+    "operations": [
+        {
+            "addColumn": {
+                "column": {
+                    "name": "email",
+                    "type": "string"
+                },
+                "table": "Backlog-Score"
+            }
+        }
+    ]
+}

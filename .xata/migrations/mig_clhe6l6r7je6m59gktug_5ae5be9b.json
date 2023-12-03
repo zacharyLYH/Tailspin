@@ -1,0 +1,14 @@
+{
+    "id": "mig_clhe6l6r7je6m59gktug",
+    "parentID": "mig_clhe6g8vdfloffdfg9t0",
+    "checksum": "1:5ae5be9b8b8d79df03cd1c6d5b6f3dd47d5ae1926ed3f526dc10456a5f2c1cc9",
+    "operations": [
+        {
+            "renameColumn": {
+                "newName": "retry_count",
+                "oldName": "retry",
+                "table": "Backlog-Score"
+            }
+        }
+    ]
+}

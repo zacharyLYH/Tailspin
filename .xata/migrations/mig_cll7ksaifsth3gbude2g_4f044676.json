@@ -1,0 +1,17 @@
+{
+    "id": "mig_cll7ksaifsth3gbude2g",
+    "parentID": "mig_cll7kp2ifsth3gbude0g",
+    "checksum": "1:4f0446762ff26866fb83e1415120923426212e10433b786ea582050c42f8811c",
+    "operations": [
+        {
+            "addColumn": {
+                "column": {
+                    "name": "lastSubmission",
+                    "type": "datetime",
+                    "defaultValue": "now"
+                },
+                "table": "EmailSubmitRateLimiting"
+            }
+        }
+    ]
+}
