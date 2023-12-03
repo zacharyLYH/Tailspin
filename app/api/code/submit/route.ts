@@ -45,6 +45,7 @@ export async function POST(req: Request) {
                 },
                 { status: 400 }
             );
+        }
 
         const { email } = body;
         const record = await xata.db.EmailSubmitRateLimiting.filter({
