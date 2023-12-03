@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { xata } from "@/lib/xata_client";
 import axios from "axios";
+import { validateHTML } from "./submit-helpers";
 
 export async function GET() {
     const record = await xata.db.Site.filter({
@@ -33,13 +34,23 @@ On a successful OpenAI call, call the email generator (api)
 
 export async function POST(req: Request) {
     try {
+        const body = await req.json();
+        const { code } = body;
+        if (!validateHTML(code)) {
+            return NextResponse.json(
+                {
+                    message:
+                        "We've detected some disallowed code. Only HTML with Tailwind and no JS allowed!",
+                },
+                { status: 400 }
+            );
+        }
         // Extract the host and protocol from the incoming request
         const url = new URL(req.url);
         const baseUrl = `${url.protocol}//${url.host}`;
 
         // Use the base URL for Axios requests
         axios.put(`${baseUrl}/api/increment/submit`, {});
-        const body = await req.json();
 
         axios.post(`${baseUrl}/api/code/score`, body);
 
