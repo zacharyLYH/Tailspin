@@ -35,6 +35,7 @@ On a successful OpenAI call, call the email generator (api)
 export async function POST(req: Request) {
     try {
         const body = await req.json();
+
         const { code } = body;
         if (!validateHTML(code)) {
             return NextResponse.json(
@@ -44,6 +45,35 @@ export async function POST(req: Request) {
                 },
                 { status: 400 }
             );
+
+        const { email } = body;
+        const record = await xata.db.EmailSubmitRateLimiting.filter({
+            email: email,
+        }).getFirst();
+        if (record) {
+            if (record.lastSubmission && process.env.IS_PRODUCTION === "true") {
+                //Time between submissions has to be at least 1 minute
+                const lastSubmission = new Date(record.lastSubmission);
+                const currentTime = new Date();
+                if (
+                    currentTime.getTime() - lastSubmission.getTime() <
+                    60 * 1000 * 1
+                ) {
+                    return NextResponse.json(
+                        { message: "Time between submissions too small!" },
+                        { status: 400 }
+                    );
+                } else {
+                    await xata.db.EmailSubmitRateLimiting.update(record.id, {
+                        lastSubmission: new Date().toISOString(),
+                    });
+                }
+            }
+        } else {
+            await xata.db.EmailSubmitRateLimiting.create({
+                email: email,
+                lastSubmission: new Date().toISOString(),
+            });
         }
         // Extract the host and protocol from the incoming request
         const url = new URL(req.url);

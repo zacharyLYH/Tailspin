@@ -10,6 +10,7 @@ import { Button } from "../ui/button";
 import StaticPrompt from "./target-image";
 import LandingPageChallengeCode from "../landing/test-challenges/challenge-code";
 import { useStepperStore } from "@/data-store/stepper-store";
+import { loadFromLocalStorage, saveToLocalStorage } from "@/lib/localStorage";
 
 const Editor = () => {
     const { code, setCode } = useSessionStore();
@@ -39,9 +40,18 @@ const Editor = () => {
         };
 
         loadAce();
+        const localStorageCode = loadFromLocalStorage("code");
+        if (code.length === 0 && localStorageCode.length > 0) {
+            setCode(localStorageCode);
+        }
     }, []);
 
     if (!AceEditor) return <GlobalLoadingUI />;
+
+    const onType = (newCode: string) => {
+        setCode(newCode);
+        saveToLocalStorage("code", code);
+    };
 
     return (
         <div className='flex h-screen flex-col'>
@@ -71,7 +81,7 @@ const Editor = () => {
                         theme={aceEditorTheme}
                         name='editor'
                         height='100%'
-                        onChange={(newCode: string) => setCode(newCode)}
+                        onChange={(newCode: string) => onType(newCode)}
                         fontSize={fontSize}
                         showPrintMargin={true}
                         showGutter={true}

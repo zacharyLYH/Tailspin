@@ -14,6 +14,22 @@ const tables = [
             { name: "field_value", type: "string" },
         ],
     },
+    {
+        name: "Backlog-Score",
+        columns: [
+            { name: "code", type: "string" },
+            { name: "email", type: "string" },
+            { name: "retry_count", type: "int", defaultValue: "0" },
+            { name: "challenge", type: "string" },
+        ],
+    },
+    {
+        name: "EmailSubmitRateLimiting",
+        columns: [
+            { name: "email", type: "string", unique: true },
+            { name: "lastSubmission", type: "datetime", defaultValue: "now" },
+        ],
+    },
 ] as const;
 
 export type SchemaTables = typeof tables;
@@ -22,8 +38,17 @@ export type InferredTypes = SchemaInference<SchemaTables>;
 export type Site = InferredTypes["Site"];
 export type SiteRecord = Site & XataRecord;
 
+export type BacklogScore = InferredTypes["Backlog-Score"];
+export type BacklogScoreRecord = BacklogScore & XataRecord;
+
+export type EmailSubmitRateLimiting = InferredTypes["EmailSubmitRateLimiting"];
+export type EmailSubmitRateLimitingRecord = EmailSubmitRateLimiting &
+    XataRecord;
+
 export type DatabaseSchema = {
     Site: SiteRecord;
+    "Backlog-Score": BacklogScoreRecord;
+    EmailSubmitRateLimiting: EmailSubmitRateLimitingRecord;
 };
 
 const DatabaseClient = buildClient();

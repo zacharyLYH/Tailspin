@@ -1,0 +1,16 @@
+{
+    "id": "mig_clhe6b6r7je6m59gktsg",
+    "parentID": "mig_clhe670vdfloffdfg9s0",
+    "checksum": "1:fd7449272458d918d7cf0f07f08e98650176ae39f2847539e63cfb43b996ba24",
+    "operations": [
+        {
+            "addColumn": {
+                "column": {
+                    "name": "code",
+                    "type": "string"
+                },
+                "table": "Backlog-Score"
+            }
+        }
+    ]
+}
