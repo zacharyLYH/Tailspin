@@ -74,12 +74,6 @@ const SubmitButton = () => {
                 dateTime,
                 email: submitEmail,
                 challenge: submitChallenge,
-            await postSubmitCount({
-                code,
-                dateTime,
-                email,
-                challenge,
-
             });
             setSubmitClicked(true);
         } catch (error: any) {
