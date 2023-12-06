@@ -6,7 +6,7 @@ import AboutTailspin from "@/components/landing/about-tailspin";
 import FAQ from "@/components/landing/faq";
 import Timeline from "@/components/landing/timeline";
 import ThanksPage from "@/components/landing/thanks";
-import StepperCard from "@/components/ui/useCode/StepperCard";
+import StepperCard from "@/components/landing/test-challenges/stepper-pages/StepperCard";
 import RatingBody from "@/components/core/rating-area/rating-component";
 import GrowOnScroll from "@/components/ui/grow-on-scroll";
 import Footer from "@/components/landing/footer";
