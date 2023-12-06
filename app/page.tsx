@@ -57,7 +57,7 @@ export default function Home() {
             <section>
                 <ComponentCarousel
                     nodes={[<FAQ key='faq' />, <ThanksPage key='thanksPage' />]}
-                    title='Some useless information'
+                    title='Incase you were wondering...'
                 />
             </section>
             <Separator />
