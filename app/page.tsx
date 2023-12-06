@@ -41,8 +41,9 @@ export default function Home() {
                         </h2>
                         <p className='text-sm font-semibold text-gray-400'>
                             We hate to be non-inclusive towards phones and
-                            tablets, however we want to provide you with the
-                            best experience possible!
+                            tablets, however coding on small screens is
+                            currently unsupported! Try us on your
+                            laptop/desktop!
                         </p>
                     </div>
                 </div>
