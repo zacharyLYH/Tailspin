@@ -8,13 +8,17 @@ import {
 
 import { Progress } from "@/components/ui/progress";
 import { StepperForm } from "../forms/Stepper-Form";
+import { Badge } from "@/components/ui/badge";
 
 export function StepperCard() {
     return (
         <Card className='mx-auto h-[420px] rounded-2xl'>
             <CardHeader>
                 <CardTitle className='mb-4'>
-                    Try Out A Coding Challenge!
+                    <div className='flex justify-between'>
+                        <p>Try Out A Coding Challenge!</p>
+                        <Badge className='bg-blue-400'>Alpha</Badge>
+                    </div>
                 </CardTitle>
                 <CardDescription>
                     It&apos;s simple. Give us an email, accept the TOS, and
