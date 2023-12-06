@@ -1,6 +1,8 @@
 export const saveToLocalStorage = (key: string, value: string) => {
     try {
-        localStorage.setItem(key, value);
+        if (typeof window !== "undefined") {
+            localStorage.setItem(key, value);
+        }
     } catch (error) {
         console.error("Error saving to localStorage", error);
     }
@@ -8,11 +10,13 @@ export const saveToLocalStorage = (key: string, value: string) => {
 
 export const loadFromLocalStorage = (key: string) => {
     try {
-        const value = localStorage.getItem(key);
-        if (value === null) {
-            return "";
+        if (typeof window !== "undefined") {
+            const value = localStorage.getItem(key);
+            if (value === null) {
+                return "";
+            }
+            return value;
         }
-        return value;
     } catch (error) {
         console.error("Error reading from localStorage", error);
         return "";
