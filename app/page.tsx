@@ -11,7 +11,7 @@ import GrowOnScroll from "@/components/ui/grow-on-scroll";
 import Footer from "@/components/landing/footer";
 import ComponentCarousel from "@/components/ui/component-carousel";
 import { Separator } from "@/components/ui/separator";
-import StepperCard from "@/components/landing/test-challenges/stepper-pages/StepperCard";
+import StepperCard from "@/components/landing/challenge/stepper-pages/StepperCard";
 
 export default function Home() {
     return (
