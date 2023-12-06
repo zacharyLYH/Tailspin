@@ -39,7 +39,13 @@ const ChallengeIntro: React.FC<ChallengeIntroProps> = ({ button }) => {
                         TailwindCSS
                     </span>
                     . After you submit, we&apos;ll send your scores via Email
-                    📧.
+                    📧. <br />
+                    <br /> Currently, we only provide a playground which
+                    represents the core services of Tailspin. When you submit
+                    code from our platform, we score your code and email the
+                    result of similarity to you. We don&apos;t have a way for
+                    you to track all your previous submissions or rank yourself
+                    against other developers trying out Tailspin.
                 </p>
             </CardContent>
             <CardFooter className='p-4'>
