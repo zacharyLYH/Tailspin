@@ -200,11 +200,11 @@ const FAQ = () => {
                     </AccordionTrigger>
                     <AccordionContent>
                         In this Alpha stage, our plan is to gather feedback from
-                        users before we roll out stateful user accounts. We're
-                        doing this to test the waters and viability of the
-                        concept of Tailspin because developing good quality
-                        software takes time and effort. That said, if you
-                        haven&apos;t given us feedback, you may do so{" "}
+                        users before we roll out stateful user accounts.
+                        We&apos;re doing this to test the waters and viability
+                        of the concept of Tailspin because developing good
+                        quality software takes time and effort. That said, if
+                        you haven&apos;t given us feedback, you may do so{" "}
                         <Link
                             href='#rating'
                             className='text-blue-500 underline'
@@ -222,13 +222,13 @@ const FAQ = () => {
                         To make it harder for bad people to spam us and to
                         provide you with a better experience. Tailspin&apos;s
                         tech stack includes a managed database, GPT3.5, and
-                        serverless compute. We don't want our resources being
-                        abused so we insist on an email so that it becomes an
-                        extra layer of effort for bad actors to misuse Tailspin.
-                        As mentioned, Tailspin uses GPT3.5 and serverless
-                        compute. These technologies can take a long time,
-                        depending on the total load on these services from other
-                        applications. As such, in order to facilitate an
+                        serverless compute. We don&apos;t want our resources
+                        being abused so we insist on an email so that it becomes
+                        an extra layer of effort for bad actors to misuse
+                        Tailspin. As mentioned, Tailspin uses GPT3.5 and
+                        serverless compute. These technologies can take a long
+                        time, depending on the total load on these services from
+                        other applications. As such, in order to facilitate an
                         asynchronous processing experience, we are essentially
                         running these longer tasks in the background; so we have
                         to send you the results of processing in an asynchronous
