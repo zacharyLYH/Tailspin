@@ -15,7 +15,11 @@ const FAQ = () => {
             id='accordion'
         >
             <span className='bold text-center text-2xl italic'>FAQ</span>
-            <Accordion type='single' collapsible className='w-96'>
+            <Accordion
+                type='single'
+                collapsible
+                className='max-h-96 w-96 overflow-y-scroll'
+            >
                 <AccordionItem value='item-1'>
                     <AccordionTrigger>
                         Sounds like an interesting app... What&apos;s the catch?
