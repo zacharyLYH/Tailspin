@@ -16,7 +16,7 @@ interface ChallengeIntroProps {
 
 const ChallengeIntro: React.FC<ChallengeIntroProps> = ({ button }) => {
     return (
-        <Card className='mx-auto my-8 h-[420px] w-2/3 rounded-2xl bg-gray-800'>
+        <Card className='mx-auto my-8 h-[420px] w-2/3 overflow-hidden rounded-2xl bg-gray-800'>
             <CardHeader className='p-4'>
                 <CardTitle className='mb-4 text-3xl font-semibold text-white'>
                     🥳 We&apos;re glad you&apos;re here!
