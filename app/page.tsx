@@ -11,7 +11,7 @@ import GrowOnScroll from "@/components/ui/grow-on-scroll";
 import Footer from "@/components/landing/footer";
 import ComponentCarousel from "@/components/ui/component-carousel";
 import { Separator } from "@/components/ui/separator";
-import StepperCard from "@/components/landing/challenge/stepper-pages/StepperCard";
+import ChallengeMain from "@/components/landing/challenge/challenge-main";
 
 export default function Home() {
     return (
@@ -47,7 +47,7 @@ export default function Home() {
                         </p>
                     </div>
                 </div>
-                <StepperCard />
+                <ChallengeMain />
             </section>
             <GrowOnScroll className='flex flex-col md:flex-row'>
                 <SiteCounter />
@@ -61,7 +61,7 @@ export default function Home() {
                 />
             </section>
             <Separator />
-            <section>
+            <section id='rating'>
                 <RatingBody />
             </section>
             <section>
