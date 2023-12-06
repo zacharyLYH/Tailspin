@@ -3,6 +3,7 @@
 import { usePutRating } from "@/client-side-queries/rq-queries/rating-submit";
 import { Button } from "@/components/ui/button";
 import { useRatingStore } from "@/data-store/rating-store";
+import { saveToLocalStorage } from "@/lib/localStorage";
 import { Check, Loader2 } from "lucide-react";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
@@ -28,6 +29,7 @@ const RatingSubmitButton = () => {
         if (mutation.isSuccess) {
             toast.success("We really appreciated your help!");
             setSubmittingRating(false);
+            saveToLocalStorage("rating", "true");
         }
     }, [mutation.isSuccess]);
 
