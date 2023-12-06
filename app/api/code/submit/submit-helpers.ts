@@ -13,7 +13,7 @@ export const validateHTML = (html: string): boolean => {
     }
 
     const cleanHTML = DOMPurify.sanitize(html, {
-        ALLOWED_ATTR: ["href", "src", "alt", "title", "style", "class"],
+        ALLOWED_ATTR: ["style", "class"],
         FORBID_TAGS: [
             "script",
             "iframe",
@@ -22,6 +22,8 @@ export const validateHTML = (html: string): boolean => {
             "link",
             "style",
             "form",
+            "img",
+            "a",
         ],
         FORBID_ATTR: [
             "onerror",
