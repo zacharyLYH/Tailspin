@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { TailspinLogo } from "../ui/spinning-logo";
+import { Button } from "../ui/button";
+import { FeedbackModal } from "./feedback/feedback-modal";
 
 const Footer = () => {
     return (
@@ -17,17 +19,14 @@ const Footer = () => {
                     </Link>
                     <ul className='mb-6 flex flex-wrap items-center text-sm font-medium text-gray-500 dark:text-gray-400 sm:mb-0'>
                         <li>
-                            <a
-                                href='#about-section'
-                                className='me-4 hover:underline md:me-6'
-                            >
-                                About
-                            </a>
+                            <Button variant='ghost'>
+                                <Link href='#about-section'>About</Link>
+                            </Button>
                         </li>
                         <li>
-                            <a href='#' className='hover:underline'>
-                                Contact
-                            </a>
+                            <Button variant='ghost'>
+                                <FeedbackModal buttonName='Contact' />
+                            </Button>
                         </li>
                     </ul>
                 </div>
