@@ -7,9 +7,9 @@ import {
     useStepperStore,
     progressIncrements,
 } from "@/data-store/stepper-store";
-import { EmailFormField } from "../forms/Email-FormField";
-import { TOSFormField } from "../forms/TOS-FormField";
 import { Loader2 } from "lucide-react";
+import { TOSFormField } from "../forms/TOS-FormField";
+import { EmailFormField } from "../forms/Email-FormField";
 
 export function StepOne() {
     const {

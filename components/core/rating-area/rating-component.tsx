@@ -11,7 +11,7 @@ const RatingBody = () => {
     } else {
         return (
             <p className='my-4 text-center text-sm font-bold text-muted-foreground'>
-                You've already rated Tailspin. Thanks!
+                You&apos;ve already rated Tailspin. Thanks!
             </p>
         );
     }

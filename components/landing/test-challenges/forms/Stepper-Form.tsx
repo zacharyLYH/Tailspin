@@ -2,9 +2,9 @@
 
 import { useStepperStore } from "@/data-store/stepper-store";
 
+import { useEffect } from "react";
 import { StepOne } from "../stepper-pages/StepOne";
 import { StepTwo } from "../stepper-pages/StepTwo";
-import { useEffect } from "react";
 
 export function StepperForm() {
     const { step, setChallenge, setCheck, setEmail, setProgress, setStep } =
