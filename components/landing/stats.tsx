@@ -4,7 +4,7 @@ import { SiteVisitCountBox } from "../ui/statistics/site-visit-count-box";
 
 const SiteCounter = async () => {
     return (
-        <div className='mx-12 flex min-h-[60vh] flex-col items-center justify-center'>
+        <div className='mx-12 flex min-h-[60vh] w-2/3 flex-col items-center justify-center'>
             <h1 className='mb-5 text-center text-3xl font-bold italic'>
                 Some Statistics
             </h1>
