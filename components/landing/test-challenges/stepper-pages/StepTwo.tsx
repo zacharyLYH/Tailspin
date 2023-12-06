@@ -10,7 +10,7 @@ import {
 import useSessionStore from "@/data-store/session-store";
 import LandingPageCode from "@/components/landing/test-challenges/placeholder-code";
 import { useRouter } from "next/navigation";
-import { ChallengeFormField } from "./Challenge-FormField";
+import { ChallengeFormField } from "../forms/Challenge-FormField";
 import { Loader2 } from "lucide-react";
 import { challengeEnum } from "@/data-store/challenge-store";
 import { saveToLocalStorage } from "@/lib/localStorage";

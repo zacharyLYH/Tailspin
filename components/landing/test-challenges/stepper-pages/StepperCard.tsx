@@ -7,7 +7,7 @@ import {
 } from "@/components/ui/card";
 
 import { Progress } from "@/components/ui/progress";
-import { StepperForm } from "./Stepper-Form";
+import { StepperForm } from "../forms/Stepper-Form";
 
 export function StepperCard() {
     return (

@@ -2,8 +2,8 @@
 
 import { useStepperStore } from "@/data-store/stepper-store";
 
-import { StepOne } from "./StepOne";
-import { StepTwo } from "./StepTwo";
+import { StepOne } from "../stepper-pages/StepOne";
+import { StepTwo } from "../stepper-pages/StepTwo";
 import { useEffect } from "react";
 
 export function StepperForm() {
