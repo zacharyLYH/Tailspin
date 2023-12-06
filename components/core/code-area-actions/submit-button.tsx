@@ -82,8 +82,8 @@ const SubmitButton = () => {
     };
 
     const handleContinueButtonClick = () => {
-        setContinueClicked(true);
         handleReset();
+        setContinueClicked(true);
         router.push("/");
     };
 
