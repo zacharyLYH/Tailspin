@@ -235,6 +235,19 @@ const FAQ = () => {
                         fashion too - email!
                     </AccordionContent>
                 </AccordionItem>
+                <AccordionItem value='item-7'>
+                    <AccordionTrigger>
+                        What was the motivation behind Tailspin?
+                    </AccordionTrigger>
+                    <AccordionContent>
+                        Wise man once said: "There&apos;s no better way to learn
+                        than to do." At the time of writing, there isn&apos;t a
+                        mainstream online TailwindCSS centered platform, where
+                        we can write Tailwind powered UI building code and
+                        challenge ourselves and one another in the process.
+                        Tailspin hopes to close that gap in the community.
+                    </AccordionContent>
+                </AccordionItem>
             </Accordion>
         </div>
     );
