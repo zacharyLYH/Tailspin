@@ -32,11 +32,13 @@ const Footer = () => {
                 </div>
                 <hr className='my-6 border-gray-200 dark:border-gray-700 sm:mx-auto lg:my-8' />
                 <span className='block text-sm text-gray-500 dark:text-gray-400 sm:text-center'>
-                    No © 2023{" "}
-                    <Link href='/' className='hover:underline'>
-                        Tailspin
+                    Built because we love it. Source code available in{" "}
+                    <Link
+                        href='https://github.com/zacharyLYH/Tailspin'
+                        className='underline'
+                    >
+                        Github
                     </Link>
-                    . No Rights Reserved.
                 </span>
             </div>
         </footer>
