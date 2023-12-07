@@ -38,8 +38,9 @@ const AboutTailspin = () => {
             className='relative flex h-full flex-col items-center justify-center rounded-lg bg-black p-6'
             id='about-section'
         >
+            <TailspinLogo />
             <p className='mb-5 flex bg-gradient-to-r from-orange-400 to-pink-500 bg-clip-text text-center text-4xl font-bold text-transparent'>
-                <TailspinLogo /> Tailspin
+                Tailspin
             </p>
             <div className='grid rounded-lg md:grid-cols-2'>
                 <AboutTailSpinBoxes
