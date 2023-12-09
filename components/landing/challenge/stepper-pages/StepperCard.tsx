@@ -7,20 +7,22 @@ import {
 } from "@/components/ui/card";
 
 import { Progress } from "@/components/ui/progress";
-import { StepperForm } from "./Stepper-Form";
+import { StepperForm } from "../forms/Stepper-Form";
+import { Badge } from "@/components/ui/badge";
 
 export function StepperCard() {
     return (
         <Card className='mx-auto h-[420px] rounded-2xl'>
             <CardHeader>
                 <CardTitle className='mb-4'>
-                    Try One Of Our Coding Challenges!!!
+                    <div className='flex justify-between'>
+                        <p>Try Out A Coding Challenge!</p>
+                        <Badge className='bg-blue-400'>Alpha</Badge>
+                    </div>
                 </CardTitle>
                 <CardDescription>
-                    {" "}
-                    Here at TailSpin, we like to have fun! <br /> By filling out
-                    this form, you can use our code editor and attempt to do an
-                    awesome Tailwind UI challenge!
+                    It&apos;s simple. Give us an email, accept the TOS, and
+                    select a challenge.
                 </CardDescription>
                 <Progress />
             </CardHeader>

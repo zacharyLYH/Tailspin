@@ -9,7 +9,7 @@ export const CodeSubmitCountBox = (props: any) => {
     return (
         <StatBox
             icon={<CheckCheckIcon className='h-6 w-6' />}
-            content={`How many people have submitted their code : ${value}`}
+            content={`Submissions to date: ${value}`}
         />
     );
 };

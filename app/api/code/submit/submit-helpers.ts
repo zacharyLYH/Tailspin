@@ -7,12 +7,13 @@ const DOMPurify = createDOMPurify(window);
 
 // Sanitizer function
 export const validateHTML = (html: string): boolean => {
+    html = html.replace(/\n/g, " ").replace(/\s+/g, " ").trim();
     if (!isHtml(html)) {
         return false;
     }
 
     const cleanHTML = DOMPurify.sanitize(html, {
-        ALLOWED_ATTR: ["href", "src", "alt", "title", "style"],
+        ALLOWED_ATTR: ["style", "class"],
         FORBID_TAGS: [
             "script",
             "iframe",
@@ -21,6 +22,8 @@ export const validateHTML = (html: string): boolean => {
             "link",
             "style",
             "form",
+            "img",
+            "a",
         ],
         FORBID_ATTR: [
             "onerror",

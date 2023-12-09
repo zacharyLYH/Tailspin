@@ -6,12 +6,12 @@ import AboutTailspin from "@/components/landing/about-tailspin";
 import FAQ from "@/components/landing/faq";
 import Timeline from "@/components/landing/timeline";
 import ThanksPage from "@/components/landing/thanks";
-import StepperCard from "@/components/ui/useCode/StepperCard";
 import RatingBody from "@/components/core/rating-area/rating-component";
 import GrowOnScroll from "@/components/ui/grow-on-scroll";
 import Footer from "@/components/landing/footer";
 import ComponentCarousel from "@/components/ui/component-carousel";
 import { Separator } from "@/components/ui/separator";
+import ChallengeMain from "@/components/landing/challenge/challenge-main";
 
 export default function Home() {
     return (
@@ -41,12 +41,13 @@ export default function Home() {
                         </h2>
                         <p className='text-sm font-semibold text-gray-400'>
                             We hate to be non-inclusive towards phones and
-                            tablets, however we want to provide you with the
-                            best experience possible!
+                            tablets, however coding on small screens is
+                            currently unsupported! Try us on your
+                            laptop/desktop!
                         </p>
                     </div>
                 </div>
-                <StepperCard />
+                <ChallengeMain />
             </section>
             <GrowOnScroll className='flex flex-col md:flex-row'>
                 <SiteCounter />
@@ -56,11 +57,11 @@ export default function Home() {
             <section>
                 <ComponentCarousel
                     nodes={[<FAQ key='faq' />, <ThanksPage key='thanksPage' />]}
-                    title='Some useless information'
+                    title='Incase you were wondering...'
                 />
             </section>
             <Separator />
-            <section>
+            <section id='rating'>
                 <RatingBody />
             </section>
             <section>

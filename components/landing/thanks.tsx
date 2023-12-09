@@ -139,8 +139,8 @@ const ThanksPage = async () => {
                             Tech that made this possible! ({techs.size})
                         </h5>
                     </div>
-                    <div className='rounded-lg border border-green-200'>
-                        <ScrollArea className='h-72 w-48 rounded-md border'>
+                    <>
+                        <ScrollArea className='h-72 rounded-md border border-green-200'>
                             {Array.from(techs.entries()).map(([url, name]) => (
                                 <React.Fragment key={name}>
                                     <div className='mx-1 flex flex-row items-center rounded-lg p-2 transition-colors duration-150 hover:bg-gray-100 dark:hover:bg-gray-800'>
@@ -156,7 +156,7 @@ const ThanksPage = async () => {
                                 </React.Fragment>
                             ))}
                         </ScrollArea>
-                    </div>
+                    </>
                 </div>
             </div>
         </div>

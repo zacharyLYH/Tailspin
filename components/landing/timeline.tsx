@@ -22,35 +22,22 @@ const Timeline = () => {
             </p>
             <div className='rounded border border-pink-200 p-5'>
                 <ol className='relative mx-4 border-l border-gray-200 dark:border-gray-400 md:mx-8 lg:mx-16'>
-                    <li className='mb-10 ml-6'>
+                    <li className='ml-6'>
                         <TimelineSVGIcon />
-                        <h3 className='mb-1 flex items-center text-lg font-semibold text-gray-900 dark:text-white'>
-                            V0
+                        <h3 className='mb-1 text-lg font-semibold text-gray-900 dark:text-white'>
+                            V1.0
                             <span className='ml-3 mr-2 rounded bg-blue-100 px-2.5 py-0.5 text-sm font-medium text-blue-800 dark:bg-blue-900 dark:text-blue-300'>
                                 Current
                             </span>
                         </h3>
                         <time className='mb-2 block text-sm font-normal leading-none text-gray-400 dark:text-gray-500'>
-                            In Active Development
-                        </time>
-                        <p className='mb-4 text-base font-normal text-gray-500 dark:text-gray-400'>
-                            Building out this landing page. Polishing the
-                            interactive playground. Adding nice UI/UX.
-                        </p>
-                    </li>
-                    <li className='ml-6'>
-                        <TimelineSVGIcon />
-                        <h3 className='mb-1 text-lg font-semibold text-gray-900 dark:text-white'>
-                            V1.0
-                        </h3>
-                        <time className='mb-2 block text-sm font-normal leading-none text-gray-400 dark:text-gray-500'>
-                            Latest 1st November 2023
+                            In maintenance...
                         </time>
                         <p className='text-base font-normal text-gray-500 dark:text-gray-400'>
-                            Innovate and make incremental improvements to the
-                            core business of Tailspin - the coding page.
-                            Iteratively add, optimize, and beautify features to
-                            the coding page.
+                            Bare bones MVP. Users can try the coding challenges
+                            and explore Tailspin. We&apos;ll work on the
+                            feedback we receive from our users and improve our
+                            MVP.
                         </p>
                     </li>
                     <li className='ml-6'>

@@ -15,7 +15,11 @@ const FAQ = () => {
             id='accordion'
         >
             <span className='bold text-center text-2xl italic'>FAQ</span>
-            <Accordion type='single' collapsible className='w-96'>
+            <Accordion
+                type='single'
+                collapsible
+                className='max-h-96 w-96 overflow-y-scroll'
+            >
                 <AccordionItem value='item-1'>
                     <AccordionTrigger>
                         Sounds like an interesting app... What&apos;s the catch?
@@ -188,6 +192,61 @@ const FAQ = () => {
                             challenges we face are non-trivial. Reach out if
                             you&apos;re curious or have a no-brainer solution!
                         </p>
+                    </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value='item-5'>
+                    <AccordionTrigger>
+                        When are we implementing accounts?
+                    </AccordionTrigger>
+                    <AccordionContent>
+                        In this Alpha stage, our plan is to gather feedback from
+                        users before we roll out stateful user accounts.
+                        We&apos;re doing this to test the waters and viability
+                        of the concept of Tailspin because developing good
+                        quality software takes time and effort. That said, if
+                        you haven&apos;t given us feedback, you may do so{" "}
+                        <Link
+                            href='#rating'
+                            className='text-blue-500 underline'
+                        >
+                            here
+                        </Link>
+                        !
+                    </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value='item-6'>
+                    <AccordionTrigger>
+                        Why do I have to provide my email in the playground?
+                    </AccordionTrigger>
+                    <AccordionContent>
+                        To make it harder for bad people to spam us and to
+                        provide you with a better experience. Tailspin&apos;s
+                        tech stack includes a managed database, GPT3.5, and
+                        serverless compute. We don&apos;t want our resources
+                        being abused so we insist on an email so that it becomes
+                        an extra layer of effort for bad actors to misuse
+                        Tailspin. As mentioned, Tailspin uses GPT3.5 and
+                        serverless compute. These technologies can take a long
+                        time, depending on the total load on these services from
+                        other applications. As such, in order to facilitate an
+                        asynchronous processing experience, we are essentially
+                        running these longer tasks in the background; so we have
+                        to send you the results of processing in an asynchronous
+                        fashion too - email!
+                    </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value='item-7'>
+                    <AccordionTrigger>
+                        What was the motivation behind Tailspin?
+                    </AccordionTrigger>
+                    <AccordionContent>
+                        Wise man once said: &quot;There&apos;s no better way to
+                        learn than to do.&quot; At the time of writing, there
+                        isn&apos;t a mainstream online TailwindCSS centered
+                        platform, where we can write Tailwind powered UI
+                        building code and challenge ourselves and one another in
+                        the process. Tailspin hopes to close that gap in the
+                        community.
                     </AccordionContent>
                 </AccordionItem>
             </Accordion>

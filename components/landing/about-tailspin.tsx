@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { BarChartBig } from "lucide-react";
 import FlipOnScroll from "../ui/flip-on-scroll";
+import { TailspinLogo } from "../ui/spinning-logo";
 
 type AboutTailSpinBoxesProps = {
     title: string;
@@ -37,7 +38,8 @@ const AboutTailspin = () => {
             className='relative flex h-full flex-col items-center justify-center rounded-lg bg-black p-6'
             id='about-section'
         >
-            <p className='mb-5 bg-gradient-to-r from-orange-400 to-pink-500 bg-clip-text text-center text-4xl font-bold text-transparent'>
+            <TailspinLogo />
+            <p className='mb-5 flex bg-gradient-to-r from-orange-400 to-pink-500 bg-clip-text text-center text-4xl font-bold text-transparent'>
                 Tailspin
             </p>
             <div className='grid rounded-lg md:grid-cols-2'>

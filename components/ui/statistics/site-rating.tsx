@@ -18,8 +18,21 @@ function SkeletonDemo() {
     );
 }
 
-export const SiteRatingStatBox = (props: any) => {
+const RatingStars = ({ score }: { score: string }) => {
+    const rating = parseInt(score, 10);
+    const stars = Array(rating).fill(null);
+    return (
+        <div className='flex space-x-1'>
+            {stars.map((_, index) => (
+                <Star key={index} className='h-4 w-4 text-yellow-400' /> // Replace with your Star icon component
+            ))}
+        </div>
+    );
+};
+
+export const SiteRatingStatBox = () => {
     const value = useGetRating();
+
     return (
         <>
             {value ? (
@@ -27,8 +40,21 @@ export const SiteRatingStatBox = (props: any) => {
                     (val: { field_name: string; field_value: string }) => (
                         <React.Fragment key={val.field_name}>
                             <StatBox
-                                icon={<Star className='h-6 w-6' />}
-                                content={`${val.field_name}:${(
+                                icon={
+                                    <RatingStars
+                                        score={(
+                                            Number(
+                                                val.field_value.split("-")[0]
+                                            ) /
+                                            Number(
+                                                val.field_value.split("-")[1]
+                                            )
+                                        ).toFixed(2)}
+                                    />
+                                }
+                                content={`${val.field_name
+                                    .split("_")
+                                    .join(" ")}: ${(
                                     Number(val.field_value.split("-")[0]) /
                                     Number(val.field_value.split("-")[1])
                                 ).toFixed(2)} with ${
