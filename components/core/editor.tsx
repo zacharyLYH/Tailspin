@@ -11,6 +11,7 @@ import StaticPrompt from "./target-image";
 import LandingPageChallengeCode from "../landing/test-challenges/challenge-code";
 import { useStepperStore } from "@/data-store/stepper-store";
 import { loadFromLocalStorage, saveToLocalStorage } from "@/lib/localStorage";
+import { cn } from "@/lib/utils";
 
 const Editor = () => {
     const { code, setCode } = useSessionStore();
@@ -56,10 +57,12 @@ const Editor = () => {
     return (
         <div className='flex h-screen flex-col'>
             <div className='flex flex-row'>
-                <div className='flex w-1/2'>
+                <div className={`${targetImage ? "hidden" : "flex w-1/2"}`}>
                     <CodeAreaActions />
                 </div>
-                <div className='flex w-1/2'>
+                <div
+                    className={`${targetImage ? "flex w-full" : "flex w-1/2"}`}
+                >
                     <Button
                         variant='secondary'
                         className='w-full text-black'
