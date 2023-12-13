@@ -8,6 +8,7 @@ const DOMPurify = createDOMPurify(window);
 // Sanitizer function
 export const validateHTML = (html: string): boolean => {
     html = html.replace(/\n/g, " ").replace(/\s+/g, " ").trim();
+    html = html.replace(/<!--.*?-->/g, "");
     if (!isHtml(html)) {
         return false;
     }
