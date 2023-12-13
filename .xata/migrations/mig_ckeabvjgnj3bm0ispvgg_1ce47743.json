@@ -1,0 +1,16 @@
+{
+    "id": "mig_ckeabvjgnj3bm0ispvgg",
+    "parentID": "mig_ckeabqmngvghfvu48kk0",
+    "checksum": "1:1ce477438f0f540b86eba44181f239ad0795321f42d1cb321f6f31902822e9f6",
+    "operations": [
+        {
+            "addColumn": {
+                "column": {
+                    "name": "field_value",
+                    "type": "string"
+                },
+                "table": "Site"
+            }
+        }
+    ]
+}

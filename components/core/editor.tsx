@@ -1,77 +1,107 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import useSessionStore from "@/data-store/session-store";
-import useToggleFullScreen from "@/data-store/full-screen-store";
-import { useFormatCode } from "@/lib/codeFormatter";
-import { cn } from "@/lib/utils";
 import { useState, useEffect } from "react";
 import ReactAce from "react-ace/lib/ace";
+import GlobalLoadingUI from "@/components/ui/global-loading-ui";
+import CodeAreaActions from "./code-area-actions/code-area-sheet";
+import useCodeAreaStore from "@/data-store/code-area-store";
+import { Button } from "../ui/button";
+import StaticPrompt from "./target-image";
+import LandingPageChallengeCode from "../landing/test-challenges/challenge-code";
+import { useStepperStore } from "@/data-store/stepper-store";
+import { loadFromLocalStorage, saveToLocalStorage } from "@/lib/localStorage";
+import { cn } from "@/lib/utils";
 
-interface EditorProps {
-    className?: string;
-}
-
-const Editor: React.FC<EditorProps> = ({ className }) => {
+const Editor = () => {
     const { code, setCode } = useSessionStore();
-    const { handleFormatCode } = useFormatCode();
-    const { fullScreen } = useToggleFullScreen();
+    const { aceEditorTheme, fontSize, tabSize } = useCodeAreaStore();
     const [AceEditor, setAceEditor] = useState<typeof ReactAce>();
+    const [targetImage, toggleTargetImage] = useState(true);
+    const { challenge } = useStepperStore();
 
     useEffect(() => {
         const loadAce = async () => {
-            // dynamically load the Ace Editor component
             const aceEditorModule = await import("react-ace");
             const AceEditor = aceEditorModule.default;
 
-            // dynamically load modes and themes
+            // dynamically load modes and other essential extensions
             await import("ace-builds/src-noconflict/mode-html");
-            await import("ace-builds/src-noconflict/theme-monokai");
             await import("ace-builds/src-noconflict/ext-language_tools");
+            await import(`ace-builds/src-noconflict/theme-monokai`);
+            await import(`ace-builds/src-noconflict/theme-terminal`);
+            await import(`ace-builds/src-noconflict/theme-github_dark`);
+            await import(`ace-builds/src-noconflict/theme-tomorrow_night`);
+            await import(`ace-builds/src-noconflict/theme-kuroir`);
+            await import(`ace-builds/src-noconflict/theme-xcode`);
+            await import("ace-builds/src-noconflict/theme-solarized_dark");
+            await import("ace-builds/src-noconflict/theme-solarized_light");
 
-            // set Ace Editor component state
             setAceEditor(() => AceEditor);
         };
 
         loadAce();
+        const localStorageCode = loadFromLocalStorage("code");
+        if (code.length === 0 && localStorageCode.length > 0) {
+            setCode(localStorageCode);
+        }
     }, []);
 
-    if (!AceEditor) return <div>Loading...</div>;
+    if (!AceEditor) return <GlobalLoadingUI />;
+
+    const onType = (newCode: string) => {
+        setCode(newCode);
+        saveToLocalStorage("code", code);
+    };
 
     return (
-        <div className={cn("flex flex-col", fullScreen ? "hidden" : className)}>
-            <div className='flex flex-row space-x-2'>
-                <Button
-                    onClick={handleFormatCode}
-                    className='bg-purple-500 text-white'
+        <div className='flex h-screen flex-col'>
+            <div className='flex flex-row'>
+                <div className={`${targetImage ? "hidden" : "flex w-1/2"}`}>
+                    <CodeAreaActions />
+                </div>
+                <div
+                    className={`${targetImage ? "flex w-full" : "flex w-1/2"}`}
                 >
-                    Format code
-                </Button>
+                    <Button
+                        variant='secondary'
+                        className='w-full text-black'
+                        onClick={() => toggleTargetImage(!targetImage)}
+                    >
+                        {targetImage ? "Close" : "Open"} prompt
+                    </Button>
+                </div>
             </div>
-            <AceEditor
-                wrapEnabled={true}
-                width='100%'
-                placeholder='Placeholder Text'
-                mode='html'
-                theme='monokai'
-                name='editor'
-                height='100%'
-                onChange={(newCode: string) => setCode(newCode)}
-                fontSize={14}
-                showPrintMargin={true}
-                showGutter={true}
-                highlightActiveLine={true}
-                value={code}
-                setOptions={{
-                    enableBasicAutocompletion: true,
-                    enableLiveAutocompletion: true,
-                    enableSnippets: true,
-                    showLineNumbers: true,
-                    tabSize: 2,
-                    wrapBehavioursEnabled: true,
-                    wrap: true,
-                }}
-            />
+            {targetImage ? (
+                <StaticPrompt code={LandingPageChallengeCode(challenge)} />
+            ) : (
+                AceEditor && (
+                    <AceEditor
+                        wrapEnabled={true}
+                        width='100%'
+                        placeholder='Placeholder Text'
+                        mode='html'
+                        theme={aceEditorTheme}
+                        name='editor'
+                        height='100%'
+                        onChange={(newCode: string) => onType(newCode)}
+                        fontSize={fontSize}
+                        showPrintMargin={true}
+                        showGutter={true}
+                        highlightActiveLine={true}
+                        value={code}
+                        setOptions={{
+                            enableBasicAutocompletion: true,
+                            enableLiveAutocompletion: true,
+                            enableSnippets: true,
+                            showLineNumbers: true,
+                            tabSize: tabSize,
+                            wrapBehavioursEnabled: true,
+                            wrap: true,
+                        }}
+                    />
+                )
+            )}
         </div>
     );
 };
