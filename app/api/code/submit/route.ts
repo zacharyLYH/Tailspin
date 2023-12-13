@@ -35,7 +35,7 @@ On a successful OpenAI call, call the email generator (api)
 export async function POST(req: Request) {
     try {
         const body = await req.json();
-
+        console.log("ENTERED SUBMIT: ", body);
         const { code } = body;
         if (!validateHTML(code)) {
             return NextResponse.json(

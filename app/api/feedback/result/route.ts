@@ -6,6 +6,7 @@ import nodemailer from "nodemailer";
 export async function POST(req: Request) {
     try {
         const body = await req.json();
+        console.log("ENTERED SEND EMAIL: ", body);
         const {
             score,
             challenge,

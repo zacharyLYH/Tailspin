@@ -32,6 +32,7 @@ function extractPercentageScore(inputString: string): number {
 
 export async function POST(req: Request) {
     const body = await req.json();
+    console.log("ENTERED SCORE: ", body);
     const {
         code,
         dateTime,
