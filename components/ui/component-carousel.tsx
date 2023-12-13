@@ -49,10 +49,12 @@ const ComponentCarousel: React.FC<ComponentCarouselProps> = ({
 
     return (
         <div className='flex min-h-[60vh] flex-col items-center justify-center rounded-lg p-6 shadow-lg lg:m-6'>
-            <p className='mb-4 text-2xl font-semibold italic'>{title}</p>
-            <div className='flex w-2/3 flex-row items-center space-x-4'>
+            <p className='mb-4 text-center text-2xl font-semibold italic'>
+                {title}
+            </p>
+            <div className='flex w-full flex-col items-center justify-center space-x-0 lg:w-2/3 lg:flex-row lg:space-x-4'>
                 <div className='hidden lg:flex'>{leftArrow()}</div>
-                <div className='flex flex-grow flex-col rounded-xl border border-orange-400 p-4'>
+                <div className='flex flex-col items-center justify-center rounded-xl border border-orange-400 p-4'>
                     {nodes[page]}
                     <div className='hidden lg:block'>{pageNumber()}</div>
                 </div>
