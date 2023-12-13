@@ -19,6 +19,7 @@ async function directDB_getSubmitCount() {
 }
 
 export async function PUT() {
+    console.log("ENTERED INCREMENT COUNTER: ");
     const landingPageSubmitCount = await directDB_getSubmitCount();
     await directDB_incrementSubmitCount(
         landingPageSubmitCount[1]!,
