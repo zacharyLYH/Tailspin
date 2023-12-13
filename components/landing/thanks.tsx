@@ -72,7 +72,7 @@ const ThanksPage = async () => {
     return (
         <div className='flex items-center justify-center lg:m-6'>
             <div className='flex flex-shrink-0 flex-col gap-4 md:flex-row'>
-                <div className='w-full max-w-md rounded-lg border border-gray-200 bg-white p-4 shadow dark:border-gray-700 dark:bg-gray-800 sm:p-8 md:w-1/2'>
+                <div className='w-full rounded-lg border border-gray-200 bg-white p-4 shadow dark:border-gray-700 dark:bg-gray-800 sm:p-8 md:w-1/2'>
                     <div className='mb-4 flex items-center justify-between'>
                         <h5 className='text-xl font-bold leading-none text-gray-900 dark:text-white'>
                             Our noble contributors
@@ -133,7 +133,7 @@ const ThanksPage = async () => {
                         </ul>
                     </div>
                 </div>
-                <div className='w-full max-w-md rounded-lg border border-gray-200 bg-white p-4 shadow dark:border-gray-700 dark:bg-gray-800 sm:p-8 md:w-1/2'>
+                <div className='w-full rounded-lg border border-gray-200 bg-white p-4 shadow dark:border-gray-700 dark:bg-gray-800 sm:p-8 md:w-1/2'>
                     <div className='mb-4 flex items-center justify-between'>
                         <h5 className='text-xl font-bold leading-none text-gray-900 dark:text-white'>
                             Tech that made this possible! ({techs.size})
