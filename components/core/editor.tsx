@@ -17,7 +17,7 @@ const Editor = () => {
     const { code, setCode } = useSessionStore();
     const { aceEditorTheme, fontSize, tabSize } = useCodeAreaStore();
     const [AceEditor, setAceEditor] = useState<typeof ReactAce>();
-    const [targetImage, toggleTargetImage] = useState(false);
+    const [targetImage, toggleTargetImage] = useState(true);
     const { challenge } = useStepperStore();
 
     useEffect(() => {
