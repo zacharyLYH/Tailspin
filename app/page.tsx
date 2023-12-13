@@ -49,7 +49,7 @@ export default function Home() {
                 </div>
                 <ChallengeMain />
             </section>
-            <GrowOnScroll className='flex flex-col md:flex-row'>
+            <GrowOnScroll className='flex flex-col items-center justify-center md:flex-row'>
                 <SiteCounter />
                 <Timeline />
             </GrowOnScroll>
