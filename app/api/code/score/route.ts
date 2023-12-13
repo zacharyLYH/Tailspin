@@ -16,7 +16,7 @@ async function openAiCall(prompt: string) {
     return chatCompletion.choices[0]?.message?.content;
 }
 
-function extractPercentageScore(inputString: string): number | null {
+function extractPercentageScore(inputString: string): number {
     const regex = /(\d{1,3})%/;
     const match = inputString.match(regex);
 
@@ -27,7 +27,7 @@ function extractPercentageScore(inputString: string): number | null {
         }
     }
 
-    return null;
+    return 0;
 }
 
 export async function POST(req: Request) {
@@ -78,15 +78,6 @@ export async function POST(req: Request) {
             - Percentage score extracted
                 ${rawPercentageScore}
         `);
-        if (rawPercentageScore === null) {
-            //add this to the db for retrying later
-            return NextResponse.json(
-                {
-                    message: `Seems like our AI didn't return any percentage values. Adding this to the DB for processing later.`,
-                },
-                { status: 500 }
-            );
-        }
         score = String(rawPercentageScore);
     } else {
         score = "58";
