@@ -76,18 +76,14 @@ export async function POST(req: Request) {
                 lastSubmission: new Date().toISOString(),
             });
         }
-
-        console.log("BASE URL: ", "https://" + process.env.VERCEL_URL);
+        // Extract the host and protocol from the incoming request
+        const url = new URL(req.url);
+        const baseUrl = `${url.protocol}//${url.host}`;
+        console.log("BASE URL: ", baseUrl);
         // Use the base URL for Axios requests
-        axios.put(
-            "https://" + process.env.VERCEL_URL + `/api/increment/submit`,
-            {}
-        );
+        axios.put(`${baseUrl}/api/increment/submit`, {});
 
-        axios.post(
-            "https://" + process.env.VERCEL_URL + `/api/code/score`,
-            body
-        );
+        axios.post(`${baseUrl}/api/code/score`, body);
 
         return NextResponse.json({ message: "Accepted" }, { status: 202 });
     } catch (error) {
