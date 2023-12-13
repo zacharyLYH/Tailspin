@@ -42,16 +42,30 @@ export function StepTwo() {
         resolver: zodResolver(formStepTwoSchema),
     });
 
+    // async function onSubmit(values: z.infer<typeof formStepTwoSchema>) {
+    //     if (step === 2) {
+    //         const selection: string = values.challenge;
+    //         setCode(LandingPageCode());
+    //         setChallenge(selection);
+    //         setProgress(progress + progressIncrements);
+    //         saveToLocalStorage("email", email);
+    //         saveToLocalStorage("challenge", selection);
+    //         router.push("/code-area");
+    //     }
+    // }
     async function onSubmit(values: z.infer<typeof formStepTwoSchema>) {
-        if (step === 2) {
-            const selection: string = values.challenge;
-            setCode(LandingPageCode());
-            setChallenge(selection);
-            setProgress(progress + progressIncrements);
-            saveToLocalStorage("email", email);
-            saveToLocalStorage("challenge", selection);
-            router.push("/code-area");
-        }
+        return new Promise<void>((resolve) => {
+            if (step === 2) {
+                const selection: string = values.challenge;
+                setCode(LandingPageCode());
+                setChallenge(selection);
+                setProgress(progress + progressIncrements);
+                saveToLocalStorage("email", email);
+                saveToLocalStorage("challenge", selection);
+                router.push("/code-area");
+            }
+            resolve();
+        });
     }
 
     async function onBack() {
