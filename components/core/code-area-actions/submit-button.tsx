@@ -69,7 +69,7 @@ const SubmitButton = () => {
             const submitChallenge = challenge
                 ? challenge
                 : loadFromLocalStorage("challenge");
-            await codeSubmission({
+            codeSubmission({
                 code,
                 dateTime,
                 email: submitEmail,
