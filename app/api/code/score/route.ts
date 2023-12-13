@@ -86,7 +86,12 @@ export async function POST(req: Request) {
     // Extract the host and protocol from the incoming request
     const url = new URL(req.url);
     const baseUrl = `${url.protocol}//${url.host}`;
-
+    console.log(
+        "ABOUT TO SEND RESULT ",
+        score,
+        "to",
+        `${baseUrl}/api/feedback/result`
+    );
     axios.post(`${baseUrl}/api/feedback/result`, {
         score,
         challenge,
