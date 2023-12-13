@@ -79,7 +79,7 @@ export async function POST(req: Request) {
         // Extract the host and protocol from the incoming request
         const url = new URL(req.url);
         const baseUrl = `${url.protocol}//${url.host}`;
-
+        console.log("BASE URL: ", baseUrl);
         // Use the base URL for Axios requests
         axios.put(`${baseUrl}/api/increment/submit`, {});
 
