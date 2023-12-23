@@ -6,11 +6,11 @@ const window = new JSDOM("").window;
 const DOMPurify = createDOMPurify(window);
 
 // Sanitizer function
-export const validateHTML = (html: string): boolean => {
+export const validateHTML = (html: string): string => {
     html = html.replace(/\n/g, " ").replace(/\s+/g, " ").trim();
     html = html.replace(/<!--.*?-->/g, "");
     if (!isHtml(html)) {
-        return false;
+        return "";
     }
 
     const cleanHTML = DOMPurify.sanitize(html, {
@@ -39,8 +39,12 @@ export const validateHTML = (html: string): boolean => {
     });
 
     if (cleanHTML !== html) {
-        return false;
+        return "";
     }
 
-    return isHtml(cleanHTML);
+    if (isHtml(cleanHTML)) {
+        return cleanHTML;
+    } else {
+        return "";
+    }
 };

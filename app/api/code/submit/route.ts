@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import { xata } from "@/lib/xata_client";
-import axios from "axios";
 import { validateHTML } from "./submit-helpers";
 
 export async function GET() {
@@ -35,9 +34,19 @@ On a successful OpenAI call, call the email generator (api)
 export async function POST(req: Request) {
     try {
         const body = await req.json();
-        console.log("ENTERED SUBMIT: ", body);
-        const { code } = body;
-        if (!validateHTML(code)) {
+        const {
+            challenge,
+            code,
+            dateTime,
+            email,
+        }: {
+            challenge: string;
+            code: string;
+            dateTime: string;
+            email: string;
+        } = body;
+        const cleanedCode = validateHTML(code);
+        if (cleanedCode.length === 0) {
             return NextResponse.json(
                 {
                     message:
@@ -47,7 +56,7 @@ export async function POST(req: Request) {
             );
         }
 
-        const { email } = body;
+        //Update the last submission time for this email. For rate limiting purposes.
         const record = await xata.db.EmailSubmitRateLimiting.filter({
             email: email,
         }).getFirst();
@@ -76,16 +85,15 @@ export async function POST(req: Request) {
                 lastSubmission: new Date().toISOString(),
             });
         }
-        // Extract the host and protocol from the incoming request
-        const url = new URL(req.url);
-        const baseUrl = `${url.protocol}//${url.host}`;
-        console.log("BASE URL: ", baseUrl);
-        // Use the base URL for Axios requests
-        axios.put(`${baseUrl}/api/increment/submit`, {});
 
-        axios.post(`${baseUrl}/api/code/score`, body);
+        await xata.db.SubmissionsMVP.create({
+            email: email,
+            code: cleanedCode,
+            challengeName: challenge,
+            dateTime: dateTime,
+        });
 
-        return NextResponse.json({ message: "Accepted" }, { status: 202 });
+        return NextResponse.json({ message: "Created" }, { status: 201 });
     } catch (error) {
         console.error(error);
         return NextResponse.json(
