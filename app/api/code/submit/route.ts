@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import { xata } from "@/lib/xata_client";
-import axios from "axios";
 import { validateHTML } from "./submit-helpers";
 
 export async function GET() {
@@ -19,25 +18,25 @@ export async function GET() {
 /*
 This is the entry point after code gets submitted. At the moment, this endpoint and its children endpoints are not protected. In the future, these routes need to be protected from DOS or spam attacks. 
 
-Warning: 
-This endpoint can get confusing because we've decoupled the functionalities we require into their own endpoints. The benefits of this approach is a decoupled service and easier debugging efforts. The downside is that it might be harder to reason with its correctness because of added complexity. Moreover, another downside is that every endpoint will need to be protected against DOS and spam attacks as mentioned above, which is a small overhead to the entire process. 
-
-Flow:
-User makes request
-↓ User's wait ends in this step.
-Increment the submit counter (api)
-↓ 
-Make the call to the OpenAI wrapper (api)
-↓ 
-On a successful OpenAI call, call the email generator (api)
+This endpoint creates a record of the submission. Every minute, a cron job kicks off and processes a single submission at a time. 
 */
 
 export async function POST(req: Request) {
     try {
         const body = await req.json();
-        console.log("ENTERED SUBMIT: ", body);
-        const { code } = body;
-        if (!validateHTML(code)) {
+        const {
+            challenge,
+            code,
+            dateTime,
+            email,
+        }: {
+            challenge: string;
+            code: string;
+            dateTime: string;
+            email: string;
+        } = body;
+        const cleanedCode = validateHTML(code);
+        if (cleanedCode.length === 0) {
             return NextResponse.json(
                 {
                     message:
@@ -47,7 +46,7 @@ export async function POST(req: Request) {
             );
         }
 
-        const { email } = body;
+        //Update the last submission time for this email. For rate limiting purposes.
         const record = await xata.db.EmailSubmitRateLimiting.filter({
             email: email,
         }).getFirst();
@@ -76,16 +75,15 @@ export async function POST(req: Request) {
                 lastSubmission: new Date().toISOString(),
             });
         }
-        // Extract the host and protocol from the incoming request
-        const url = new URL(req.url);
-        const baseUrl = `${url.protocol}//${url.host}`;
-        console.log("BASE URL: ", baseUrl);
-        // Use the base URL for Axios requests
-        axios.put(`${baseUrl}/api/increment/submit`, {});
 
-        axios.post(`${baseUrl}/api/code/score`, body);
+        await xata.db.SubmissionsMVP.create({
+            email: email,
+            code: cleanedCode,
+            challengeName: challenge,
+            dateTime: dateTime,
+        });
 
-        return NextResponse.json({ message: "Accepted" }, { status: 202 });
+        return NextResponse.json({ message: "Created" }, { status: 201 });
     } catch (error) {
         console.error(error);
         return NextResponse.json(

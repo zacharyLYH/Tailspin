@@ -1,7 +1,8 @@
 import LandingPageChallengeCode from "@/components/landing/test-challenges/challenge-code";
-import axios from "axios";
+import { xata } from "@/lib/xata_client";
 import { NextResponse } from "next/server";
 import OpenAI from "openai";
+import sendScoreResultEmail from "./submitEmailHandler";
 
 const promptHeader =
     "Compare code B against code A. Using as few tokens as possible, output a percentage of similaritiy in semantics and intent.";
@@ -30,33 +31,49 @@ function extractPercentageScore(inputString: string): number {
     return 0;
 }
 
-export async function POST(req: Request) {
-    const body = await req.json();
-    console.log("ENTERED SCORE: ", body);
-    const {
-        code,
-        dateTime,
-        email,
-        challenge,
-    }: { code: string; dateTime: string; email: string; challenge: string } =
-        body;
-    const recommendedSolution = LandingPageChallengeCode(challenge);
-    let score = "0";
-    if (!recommendedSolution) {
-        return NextResponse.json(
-            { message: `The challenge ${challenge} wasn't recognized.` },
-            { status: 400 }
-        );
-    }
-    if (process.env.IS_PRODUCTION === "true") {
-        const prompt =
-            promptHeader +
-            "\nCode A:\n" +
-            recommendedSolution +
-            "\nCode B:\n" +
-            code;
-        const result = await openAiCall(prompt);
-        console.log(`
+function deleteSubmissionFromDB(id: string) {
+    return xata.db.SubmissionsMVP.delete(id);
+}
+
+/*
+Cron job endpoint that runs every minute.
+*/
+export async function POST() {
+    const record = await xata.db.SubmissionsMVP.getFirst();
+    if (record) {
+        if (
+            !record.challengeName ||
+            !record.code ||
+            !record.dateTime ||
+            !record.email
+        ) {
+            deleteSubmissionFromDB(record.id);
+            return NextResponse.json(
+                { message: "Record is incomplete and has been deleted." },
+                { status: 400 }
+            );
+        }
+        const challenge = record.challengeName;
+        const code = record.code;
+        const dateTime = record.dateTime;
+        const email = record.email;
+        const recommendedSolution = LandingPageChallengeCode(challenge);
+        let score = "0";
+        if (!recommendedSolution) {
+            return NextResponse.json(
+                { message: `The challenge ${challenge} wasn't recognized.` },
+                { status: 400 }
+            );
+        }
+        if (process.env.IS_PRODUCTION === "true") {
+            const prompt =
+                promptHeader +
+                "\nCode A:\n" +
+                recommendedSolution +
+                "\nCode B:\n" +
+                code;
+            const result = await openAiCall(prompt);
+            console.log(`
             ===Debugging OpenAI===
 
             - Prompt generated:
@@ -65,39 +82,25 @@ export async function POST(req: Request) {
             - Result:
                 ${result}
         `);
-        if (!result) {
-            //add this to the db for retrying later
-            return NextResponse.json(
-                {
-                    message: `Error occured. Adding this to the DB for processing later.`,
-                },
-                { status: 500 }
-            );
-        }
-        const rawPercentageScore = extractPercentageScore(result);
-        console.log(`
+            if (!result) {
+                return NextResponse.json(
+                    {
+                        message: `Result was null. Needs to be retried.`,
+                    },
+                    { status: 500 }
+                );
+            }
+            const rawPercentageScore = extractPercentageScore(result);
+            console.log(`
             - Percentage score extracted
                 ${rawPercentageScore}
         `);
-        score = String(rawPercentageScore);
-    } else {
-        score = "58";
+            score = String(rawPercentageScore);
+        } else {
+            score = "58";
+        }
+        await sendScoreResultEmail(score, challenge, code, dateTime, email);
+        await deleteSubmissionFromDB(record.id);
     }
-    // Extract the host and protocol from the incoming request
-    const url = new URL(req.url);
-    const baseUrl = `${url.protocol}//${url.host}`;
-    console.log(
-        "ABOUT TO SEND RESULT ",
-        score,
-        "to",
-        `${baseUrl}/api/feedback/result`
-    );
-    axios.post(`${baseUrl}/api/feedback/result`, {
-        score,
-        challenge,
-        code,
-        dateTime,
-        email,
-    });
     return NextResponse.json({ message: "Success" }, { status: 200 });
 }

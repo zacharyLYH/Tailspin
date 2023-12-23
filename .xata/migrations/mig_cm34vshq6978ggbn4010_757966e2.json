@@ -1,0 +1,16 @@
+{
+  "id": "mig_cm34vshq6978ggbn4010",
+  "parentID": "mig_cm34vphq6978ggbn4000",
+  "checksum": "1:757966e2960f70642055f9193194b45397a8a7d560d4f2d9f16a5b9a0c8f26d5",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "email",
+          "type": "string"
+        },
+        "table": "SubmissionsMVP"
+      }
+    }
+  ]
+}

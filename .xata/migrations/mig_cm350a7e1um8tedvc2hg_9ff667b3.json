@@ -1,0 +1,16 @@
+{
+  "id": "mig_cm350a7e1um8tedvc2hg",
+  "parentID": "mig_cm3505ve1um8tedvc2gg",
+  "checksum": "1:9ff667b37df60fbaee668dbe3008d5491be0f9a2af6d6a4e5b5f6b272bc93866",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "dateTime",
+          "type": "string"
+        },
+        "table": "SubmissionsMVP"
+      }
+    }
+  ]
+}
