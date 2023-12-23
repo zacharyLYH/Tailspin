@@ -3,8 +3,9 @@ import { render } from "@react-email/render";
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
-export async function GET(req: Request) {
+export async function GET() {
     try {
+        console.log("ENTERED TEST EMAIL");
         const transporter = nodemailer.createTransport({
             service: "gmail",
             auth: {
@@ -12,6 +13,7 @@ export async function GET(req: Request) {
                 pass: process.env.PASSWORD,
             },
         });
+        console.log("CREATED TRANSPORTER");
         const emailHtml = render(
             FeedbackEmail({
                 name: "TESTING01",
@@ -25,7 +27,9 @@ export async function GET(req: Request) {
             subject: `Just testing this email`,
             html: emailHtml,
         };
+        console.log("CREATED OPTIONS");
         transporter.sendMail(options);
+        console.log("SENT EMAIL");
         return NextResponse.json({ message: "Success" }, { status: 200 });
     } catch (error) {
         console.log(error);
