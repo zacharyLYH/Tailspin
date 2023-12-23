@@ -5,7 +5,7 @@ import { Button } from "../ui/button";
 
 const TestEmail = () => {
     const emailApi = () => {
-        axios.get("/api/test");
+        axios.post("/api/test");
     };
     return <Button onClick={emailApi}>Test Email</Button>;
 };

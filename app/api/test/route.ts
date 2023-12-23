@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 import { Options } from "nodemailer/lib/mailer";
 
-export async function GET() {
+export async function POST() {
     try {
         console.log("ENTERED TEST EMAIL");
         const transporter = nodemailer.createTransport({
