@@ -2,6 +2,7 @@ import FeedbackEmail from "@/components/landing/feedback/feedback-email";
 import { render } from "@react-email/render";
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
+import { Options } from "nodemailer/lib/mailer";
 
 export async function GET() {
     try {
@@ -43,18 +44,22 @@ export async function GET() {
             html: emailHtml,
         };
         console.log("CREATED OPTIONS");
-        await new Promise((resolve, reject) => {
-            // send mail
-            transporter.sendMail(options, (err, info) => {
-                if (err) {
-                    console.error(err);
-                    reject(err);
-                } else {
-                    console.log(info);
-                    resolve(info);
-                }
-            });
-        });
+        // await new Promise((resolve, reject) => {
+        //     // send mail
+        //     transporter.sendMail(options, (err, info) => {
+        //         if (err) {
+        //             console.error(err);
+        //             reject(err);
+        //         } else {
+        //             console.log(info);
+        //             resolve(info);
+        //         }
+        //     });
+        // });
+        const sendMessage = async (options: Options) => {
+            await transporter.sendMail(options);
+        };
+        await sendMessage(options);
         console.log("SENT EMAIL");
         return NextResponse.json({ message: "Success" }, { status: 200 });
     } catch (error) {
