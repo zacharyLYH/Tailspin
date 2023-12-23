@@ -12,6 +12,7 @@ import Footer from "@/components/landing/footer";
 import ComponentCarousel from "@/components/ui/component-carousel";
 import { Separator } from "@/components/ui/separator";
 import ChallengeMain from "@/components/landing/challenge/challenge-main";
+import TestEmail from "@/components/landing/delete";
 
 export default function Home() {
     return (
@@ -66,6 +67,9 @@ export default function Home() {
             </section>
             <section>
                 <Footer />
+            </section>
+            <section>
+                <TestEmail />
             </section>
         </main>
     );
