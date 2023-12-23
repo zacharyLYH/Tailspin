@@ -1,0 +1,12 @@
+{
+  "id": "mig_cm34vphq6978ggbn4000",
+  "parentID": "mig_cm34vkpq6978ggbn3vug",
+  "checksum": "1:702518851c8273236f41652bdd32368b31c0c5f5c01015297160a964966ab795",
+  "operations": [
+    {
+      "addTable": {
+        "table": "SubmissionsMVP"
+      }
+    }
+  ]
+}

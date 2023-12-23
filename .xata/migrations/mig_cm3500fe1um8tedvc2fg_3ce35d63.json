@@ -1,0 +1,16 @@
+{
+  "id": "mig_cm3500fe1um8tedvc2fg",
+  "parentID": "mig_cm34vshq6978ggbn4010",
+  "checksum": "1:3ce35d631d9bcba7efc112a792b4211a2950659afaadbc6a022be4db518b03a1",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "code",
+          "type": "text"
+        },
+        "table": "SubmissionsMVP"
+      }
+    }
+  ]
+}
