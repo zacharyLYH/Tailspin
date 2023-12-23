@@ -18,17 +18,7 @@ export async function GET() {
 /*
 This is the entry point after code gets submitted. At the moment, this endpoint and its children endpoints are not protected. In the future, these routes need to be protected from DOS or spam attacks. 
 
-Warning: 
-This endpoint can get confusing because we've decoupled the functionalities we require into their own endpoints. The benefits of this approach is a decoupled service and easier debugging efforts. The downside is that it might be harder to reason with its correctness because of added complexity. Moreover, another downside is that every endpoint will need to be protected against DOS and spam attacks as mentioned above, which is a small overhead to the entire process. 
-
-Flow:
-User makes request
-↓ User's wait ends in this step.
-Increment the submit counter (api)
-↓ 
-Make the call to the OpenAI wrapper (api)
-↓ 
-On a successful OpenAI call, call the email generator (api)
+This endpoint creates a record of the submission. Every minute, a cron job kicks off and processes a single submission at a time. 
 */
 
 export async function POST(req: Request) {

@@ -35,6 +35,9 @@ function deleteSubmissionFromDB(id: string) {
     return xata.db.SubmissionsMVP.delete(id);
 }
 
+/*
+Cron job endpoint that runs every minute.
+*/
 export async function POST() {
     const record = await xata.db.SubmissionsMVP.getFirst();
     if (record) {
