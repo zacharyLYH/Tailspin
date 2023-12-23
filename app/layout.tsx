@@ -19,16 +19,16 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Tailspin",
         description: "Competitive TailwindCSS",
-        url: "https://nextjs.org", //TODO
+        url: "https://tailspin.vercel.app",
         siteName: "Tailspin",
         images: [
             {
-                url: "https://nextjs.org/og.png", //TODO
+                url: "https://raw.githubusercontent.com/zacharyLYH/Tailspin/main/public/logo-asset.png",
                 width: 800,
                 height: 600,
             },
             {
-                url: "https://nextjs.org/og-alt.png", //TODO
+                url: "https://raw.githubusercontent.com/zacharyLYH/Tailspin/main/public/logo-asset.png",
                 width: 1800,
                 height: 1600,
                 alt: "My custom alt",
@@ -50,7 +50,6 @@ export const metadata: Metadata = {
             "max-snippet": -1,
         },
     },
-    metadataBase: new URL("https://acme.com"),
 };
 
 export default function RootLayout({
